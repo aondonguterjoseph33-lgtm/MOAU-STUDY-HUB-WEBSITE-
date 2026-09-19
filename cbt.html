@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MOAU STUDY HUB - PHY 102 CBT</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f2f5fa;
+    color:#222;
+}
+
+header{
+    background:#123c88;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+header h1{
+    margin:0;
+    font-size:28px;
+}
+
+header p{
+    margin:8px 0 0;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.container{
+    max-width:850px;
+    margin:25px auto;
+    padding:15px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.12);
+    margin-bottom:20px;
+}
+
+h2{
+    color:#123c88;
+}
+
+input{
+    width:100%;
+    padding:13px;
+    margin:8px 0 15px;
+    border:1px solid #aaa;
+    border-radius:7px;
+    font-size:16px;
+}
+
+button{
+    border:none;
+    padding:13px 20px;
+    border-radius:7px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:5px;
+}
+
+.start-btn,
+.next-btn,
+.submit-btn{
+    background:#123c88;
+    color:white;
+}
+
+.prev-btn{
+    background:#ddd;
+    color:#222;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.timer{
+    background:#ffe8e8;
+    color:#c00000;
+    padding:12px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.progress{
+    background:#eee;
+    height:12px;
+    border-radius:10px;
+    overflow:hidden;
+    margin:15px 0;
+}
+
+.progress-bar{
+    background:#123c88;
+    height:100%;
+    width:0%;
+    transition:.3s;
+}
+
+.question-number{
+    color:#123c88;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.question{
+    font-size:20px;
+    font-weight:bold;
+    line-height:1.5;
+    margin:20px 0;
+}
+
+.option{
+    display:block;
+    background:#f5f7fb;
+    padding:15px;
+    margin:10px 0;
+    border:2px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.option:hover{
+    border-color:#123c88;
+}
+
+.option input{
+    width:auto;
+    margin-right:10px;
+}
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+
+.result{
+    text-align:center;
+}
+
+.score{
+    font-size:42px;
+    color:#123c88;
+    font-weight:bold;
+}
+
+.hidden{
+    display:none;
+}
+
+.warning{
+    color:#c00000;
+    font-weight:bold;
+}
+
+.review{
+    margin-top:20px;
+    padding:15px;
+    background:#f5f7fb;
+    border-radius:8px;
+}
+
+.correct{
+    color:green;
+    font-weight:bold;
+}
+
+.wrong{
+    color:red;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#666;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>MOAU STUDY HUB</h1>
+
+<p>LEARN • GROW • BECOME</p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- START SCREEN -->
+
+<div id="startScreen" class="card">
+
+<h2>📝 PHY 102 CBT</h2>
+
+<p>
+Welcome to the PHY 102 Computer-Based Test.
+</p>
+
+<p>
+<strong>Total Questions:</strong> 100
+</p>
+
+<p>
+<strong>Time:</strong> 60 Minutes
+</p>
+
+<p>
+Choose the correct answer for each question.
+</p>
+
+<label>Student Name</label>
+
+<input
+type="text"
+id="studentName"
+placeholder="Enter your name"
+>
+
+<label>Matric Number</label>
+
+<input
+type="text"
+id="matricNumber"
+placeholder="Enter your matric number"
+>
+
+<button
+class="start-btn"
+onclick="startTest()"
+>
+🚀 START TEST
+</button>
+
+</div>
+
+
+<!-- QUIZ SCREEN -->
+
+<div id="quizScreen" class="card hidden">
+
+<div class="timer">
+
+⏱️ Time Remaining:
+<span id="timer">60:00</span>
+
+</div>
+
+<div class="progress">
+
+<div
+id="progressBar"
+class="progress-bar">
+</div>
+
+</div>
+
+<p id="questionNumber" class="question-number"></p>
+
+<p id="question" class="question"></p>
+
+<div id="options"></div>
+
+
+<div class="navigation">
+
+<button
+class="prev-btn"
+onclick="previousQuestion()"
+>
+⬅️ PREVIOUS
+</button>
+
+<button
+class="next-btn"
+onclick="nextQuestion()"
+>
+NEXT ➡️
+</button>
+
+</div>
+
+<button
+class="submit-btn"
+onclick="submitTest()"
+>
+✅ SUBMIT TEST
+</button>
+
+</div>
+
+
+<!-- RESULT SCREEN -->
+
+<div id="resultScreen" class="card hidden">
+
+<div class="result">
+
+<h2>🎉 TEST COMPLETED</h2>
+
+<p id="studentResult"></p>
+
+<p>Your Score:</p>
+
+<div id="score" class="score">
+0 / 100
+</div>
+
+<p id="percentage"></p>
+
+<p id="remark"></p>
+
+<button
+class="start-btn"
+onclick="retakeTest()"
+>
+🔄 RETAKE TEST
+</button>
+
+</div>
+
+<div id="review" class="review"></div>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+MOAU STUDY HUB<br>
+LEARN • GROW • BECOME
+
+</footer>
+
+
+<script>
+
+
+/* =====================================================
+   PHY 102 QUESTION BANK
+   ===================================================== */
+
+const questions = [
+
+{
+question:"What is the SI unit of magnetic field?",
+options:["Tesla","Weber","Henry","Coulomb"],
+answer:"A"
+},
+
+{
+question:"The magnetic force on a moving charge is given by:",
+options:["F = qvB sinθ","F = qE","F = ma","F = IR"],
+answer:"A"
+},
+
+{
+question:"When a charged particle moves parallel to a magnetic field, the magnetic force is:",
+options:["Maximum","Zero","Negative","Infinite"],
+answer:"B"
+},
+
+{
+question:"The magnetic force on a positive charge is determined by:",
+options:["qE","qv × B","IR","mg"],
+answer:"B"
+},
+
+{
+question:"A charged particle moving perpendicular to a magnetic field experiences:",
+options:["Zero force","Maximum magnetic force","Only electric force","No acceleration"],
+answer:"B"
+},
+
+{
+question:"The magnetic field around a long straight current-carrying wire is:",
+options:["B = μ₀I/2πr","B = μ₀Ir","B = μ₀I/4πr","B = IR"],
+answer:"A"
+},
+
+{
+question:"The direction of the magnetic field around a straight current-carrying wire is found using:",
+options:["Left-hand rule","Right-hand grip rule","Lenz's law","Kirchhoff's law"],
+answer:"B"
+},
+
+{
+question:"If the current in a straight wire is increased, its magnetic field:",
+options:["Decreases","Remains constant","Increases","Becomes zero"],
+answer:"C"
+},
+
+{
+question:"If the distance from a long straight wire is doubled, its magnetic field becomes:",
+options:["Twice as large","Half as large","Four times as large","Unchanged"],
+answer:"B"
+},
+
+{
+question:"The permeability of free space is approximately:",
+options:["8.85 × 10⁻¹²","4π × 10⁻⁷","9 × 10⁹","6.67 × 10⁻¹¹"],
+answer:"B"
+},
+
+{
+question:"The Biot–Savart law is used to calculate:",
+options:["Electric potential","Magnetic field due to a current element","Resistance","Capacitance"],
+answer:"B"
+},
+
+{
+question:"The Biot–Savart law contains a factor of:",
+options:["μ₀/4π","ε₀/4π","4πε₀","μ₀ε₀"],
+answer:"A"
+},
+
+{
+question:"According to Biot–Savart law, magnetic field varies inversely with:",
+options:["r","r²","I","sinθ"],
+answer:"B"
+},
+
+{
+question:"For a current element perpendicular to the line joining it to a point, θ is:",
+options:["0°","45°","90°","180°"],
+answer:"C"
+},
+
+{
+question:"At the center of a circular current-carrying loop, the magnetic field is:",
+options:["μ₀I/2R","μ₀I/R²","μ₀IR","μ₀I/4πR"],
+answer:"A"
+},
+
+{
+question:"For a coil of N turns, the magnetic field at its center is:",
+options:["μ₀I/2R","μ₀NI/2R","μ₀IR/2N","μ₀N/IR"],
+answer:"B"
+},
+
+{
+question:"Ampère's law relates the circulation of magnetic field to:",
+options:["Enclosed current","Electric charge only","Resistance","Voltage"],
+answer:"A"
+},
+
+{
+question:"The integral form of Ampère's law is:",
+options:["∮B·dl = μ₀I","∮E·dl = IR","B = qv/r","V = IR"],
+answer:"A"
+},
+
+{
+question:"Ampère's law is especially useful when the system has:",
+options:["No symmetry","High symmetry","No current","No magnetic field"],
+answer:"B"
+},
+
+{
+question:"The magnetic field inside a long ideal solenoid is approximately:",
+options:["μ₀nI","μ₀I/2πr","μ₀IR","nI/μ₀"],
+answer:"A"
+},
+
+{
+question:"In the solenoid formula B = μ₀nI, n represents:",
+options:["Number of electrons","Turns per unit length","Radius","Resistance"],
+answer:"B"
+},
+
+{
+question:"The magnetic field inside an ideal toroid is:",
+options:["μ₀NI/2πr","μ₀nI","μ₀IR","μ₀I/2R"],
+answer:"A"
+},
+
+{
+question:"The force on a current-carrying wire in a magnetic field is:",
+options:["F = BIL sinθ","F = qE","F = IR","F = CV"],
+answer:"A"
+},
+
+{
+question:"When a current-carrying wire is perpendicular to the magnetic field, θ equals:",
+options:["0°","30°","90°","180°"],
+answer:"C"
+},
+
+{
+question:"When a wire is parallel to the magnetic field, the magnetic force is:",
+options:["Maximum","Zero","Infinite","BIL"],
+answer:"B"
+},
+
+{
+question:"The vector equation for force on a current-carrying wire is:",
+options:["F = I(L × B)","F = IL/B","F = B/I","F = qE"],
+answer:"A"
+},
+
+{
+question:"Two parallel wires carrying currents in the same direction:",
+options:["Repel each other","Attract each other","Have no interaction","Become electrically charged"],
+answer:"B"
+},
+
+{
+question:"Two parallel currents flowing in opposite directions:",
+options:["Attract","Repel","Cancel gravity","Have zero magnetic field"],
+answer:"B"
+},
+
+{
+question:"The force per unit length between two parallel wires is:",
+options:["μ₀I₁I₂/2πr","μ₀I₁I₂r","I₁I₂/μ₀r","μ₀r/I₁I₂"],
+answer:"A"
+},
+
+{
+question:"Magnetic flux is defined as:",
+options:["Φ = BA cosθ","Φ = B/A","Φ = B + A","Φ = IR"],
+answer:"A"
+},
+
+{
+question:"The SI unit of magnetic flux is:",
+options:["Tesla","Weber","Henry","Ampere"],
+answer:"B"
+},
+
+{
+question:"In Φ = BA cosθ, θ is the angle between B and the:",
+options:["Surface","Surface normal","Current","Wire"],
+answer:"B"
+},
+
+{
+question:"Maximum magnetic flux through a surface occurs when θ is:",
+options:["0°","45°","90°","180°"],
+answer:"A"
+},
+
+{
+question:"Magnetic flux is zero when θ is:",
+options:["0°","30°","60°","90°"],
+answer:"D"
+},
+
+{
+question:"A charged particle moving in a magnetic field experiences a force that is:",
+options:["Parallel to its velocity","Perpendicular to its velocity","Always zero","Opposite to gravity"],
+answer:"B"
+},
+
+{
+question:"The magnetic force does what to the kinetic energy of a charged particle?",
+options:["Increases it","Decreases it","Does no work and does not change it","Makes it zero"],
+answer:"C"
+},
+
+{
+question:"The radius of circular motion of a charged particle in a magnetic field is:",
+options:["r = mv/|q|B","r = qB/mv","r = mB/qv","r = qv/mB"],
+answer:"A"
+},
+
+{
+question:"The angular frequency of a charged particle in a uniform magnetic field is:",
+options:["ω = m/|q|B","ω = |q|B/m","ω = Bm/q","ω = q/mB"],
+answer:"B"
+},
+
+{
+question:"The period of circular motion is:",
+options:["T = 2πm/|q|B","T = |q|B/2πm","T = mv/q","T = qB/m"],
+answer:"A"
+},
+
+{
+question:"If a charged particle enters a magnetic field with velocity parallel to the field, it moves:",
+options:["In a circle","In a straight line","In a helix","Backwards"],
+answer:"B"
+},
+
+{
+question:"If a charged particle has both parallel and perpendicular velocity components, its path is:",
+options:["Circular","Straight","Helical","Random"],
+answer:"C"
+},
+
+{
+question:"The frequency of circular motion in a uniform magnetic field is:",
+options:["f = |q|B/2πm","f = 2πm/|q|B","f = mv/qB","f = B/qm"],
+answer:"A"
+},
+
+{
+question:"The right-hand rule can be used to determine:",
+options:["Direction of magnetic force","Mass of a particle","Electric resistance","Temperature"],
+answer:"A"
+},
+
+{
+question:"For a positive charge, the direction of magnetic force is given by:",
+options:["v × B","B × v","v + B","v/B"],
+answer:"A"
+},
+
+{
+question:"For a negative charge, the magnetic force direction is:",
+options:["The same as v × B","Opposite to v × B","Always upward","Always downward"],
+answer:"B"
+},
+
+{
+question:"The right-hand grip rule is commonly used for:",
+options:["A straight current-carrying wire","A capacitor","A resistor","A battery"],
+answer:"A"
+},
+
+{
+question:"The thumb of the right hand points in the direction of:",
+options:["Magnetic field","Current","Resistance","Electric potential"],
+answer:"B"
+},
+
+{
+question:"The curled fingers in the right-hand grip rule indicate the direction of:",
+options:["Current","Magnetic field","Velocity","Force only"],
+answer:"B"
+},
+
+{
+question:"The unit vector î represents the:",
+options:["x-direction","y-direction","z-direction","time direction"],
+answer:"A"
+},
+
+{
+question:"The unit vector ĵ represents the:",
+options:["x-direction","y-direction","z-direction","negative x-direction"],
+answer:"B"
+},
+
+{
+question:"The unit vector k̂ represents the:",
+options:["x-direction","y-direction","z-direction","negative y-direction"],
+answer:"C"
+},
+
+{
+question:"The magnitude of each Cartesian unit vector is:",
+options:["0","1","2","9.8"],
+answer:"B"
+},
+
+{
+question:"The cross product î × ĵ is:",
+options:["î","ĵ","k̂","-k̂"],
+answer:"C"
+},
+
+{
+question:"The cross product ĵ × k̂ is:",
+options:["î","-î","ĵ","k̂"],
+answer:"A"
+},
+
+{
+question:"The cross product k̂ × î is:",
+options:["î","ĵ","k̂","-ĵ"],
+answer:"B"
+},
+
+{
+question:"The cross product î × î equals:",
+options:["î","1","0","k̂"],
+answer:"C"
+},
+
+{
+question:"Electromagnetic induction is the production of an emf due to:",
+options:["A change in magnetic flux","Constant temperature","Resistance only","Gravity"],
+answer:"A"
+},
+
+{
+question:"The SI unit of induced emf is:",
+options:["Volt","Tesla","Weber","Henry"],
+answer:"A"
+},
+
+{
+question:"Faraday's law states that induced emf is proportional to:",
+options:["Rate of change of magnetic flux","Resistance only","Current squared","Mass"],
+answer:"A"
+},
+
+{
+question:"For a coil of N turns, Faraday's law is:",
+options:["ε = -N dΦ/dt","ε = NΦt","ε = IR","ε = q/C"],
+answer:"A"
+},
+
+{
+question:"The negative sign in Faraday's law represents:",
+options:["Ohm's law","Lenz's law","Coulomb's law","Newton's law"],
+answer:"B"
+},
+
+{
+question:"An induced current is produced when there is a change in:",
+options:["Magnetic flux","Mass","Resistance of space","Temperature of vacuum"],
+answer:"A"
+},
+
+{
+question:"Lenz's law states that the induced effect:",
+options:["Supports the change in flux","Opposes the change in flux","Always increases current","Stops all magnetic fields"],
+answer:"B"
+},
+
+{
+question:"Lenz's law is a consequence of the law of conservation of:",
+options:["Charge","Energy","Mass only","Momentum only"],
+answer:"B"
+},
+
+{
+question:"If magnetic flux through a coil increases, the induced current produces a magnetic field that:",
+options:["Enhances the increase","Opposes the increase","Is always zero","Has no direction"],
+answer:"B"
+},
+
+{
+question:"A generator works mainly on the principle of:",
+options:["Electromagnetic induction","Electrolysis","Thermal expansion","Static friction"],
+answer:"A"
+},
+
+{
+question:"Inductance is the property of a circuit that opposes changes in:",
+options:["Current","Mass","Resistance only","Temperature"],
+answer:"A"
+},
+
+{
+question:"The SI unit of inductance is:",
+options:["Tesla","Weber","Henry","Volt"],
+answer:"C"
+},
+
+{
+question:"The induced emf across an inductor is:",
+options:["ε = -L di/dt","ε = LI","ε = L/I","ε = IR"],
+answer:"A"
+},
+
+{
+question:"The energy stored in an inductor is:",
+options:["U = LI²","U = 1/2 LI²","U = 2LI","U = L/I²"],
+answer:"B"
+},
+
+{
+question:"The inductance of a long solenoid is:",
+options:["L = μ₀N²A/l","L = μ₀Nl/A","L = N/A","L = μ₀A/N²l"],
+answer:"A"
+},
+
+{
+question:"Mutual induction occurs when a changing current in one coil induces emf in:",
+options:["The same resistor only","Another nearby coil","A battery only","A capacitor only"],
+answer:"B"
+},
+
+{
+question:"The unit of mutual inductance is:",
+options:["Henry","Tesla","Ohm","Weber per second"],
+answer:"A"
+},
+
+{
+question:"In mutual induction, induced emf in coil 2 can be written as:",
+options:["ε₂ = -M di₁/dt","ε₂ = MI₁","ε₂ = M/I₁","ε₂ = IR"],
+answer:"A"
+},
+
+{
+question:"An inductor opposes:",
+options:["Changes in current","All voltage","All resistance","Magnetic flux itself"],
+answer:"A"
+},
+
+{
+question:"In an AC circuit, voltage can be represented as:",
+options:["v = V₀ sinωt","v = IR only","v = q/C","v = mg"],
+answer:"A"
+},
+
+{
+question:"The angular frequency of an AC source is:",
+options:["ω = 2πf","ω = f/2π","ω = 2π/f","ω = f²"],
+answer:"A"
+},
+
+{
+question:"The RMS value of a sinusoidal voltage is:",
+options:["V₀","V₀/2","V₀/√2","√2V₀"],
+answer:"C"
+},
+
+{
+question:"The inductive reactance is:",
+options:["X_L = ωL","X_L = 1/ωL","X_L = ω/L","X_L = L/ω"],
+answer:"A"
+},
+
+{
+question:"The capacitive reactance is:",
+options:["X_C = ωC","X_C = 1/ωC","X_C = C/ω","X_C = ω/C"],
+answer:"B"
+},
+
+{
+question:"The impedance of a series RLC circuit is:",
+options:["Z = R + X_L + X_C","Z = √[R² + (X_L − X_C)²]","Z = R/X","Z = X_LX_C"],
+answer:"B"
+},
+
+{
+question:"At resonance in a series RLC circuit:",
+options:["X_L = X_C","X_L > X_C","X_C = 0","R = 0"],
+answer:"A"
+},
+
+{
+question:"At resonance, the impedance of a series RLC circuit is:",
+options:["Maximum","Minimum and equal to R","Infinite","Zero in every circuit"],
+answer:"B"
+},
+
+{
+question:"The RMS current in an AC circuit is:",
+options:["I₀","I₀/√2","√2I₀","2I₀"],
+answer:"B"
+},
+
+{
+question:"A purely inductive AC circuit causes current to:",
+options:["Lead voltage by 90°","Lag voltage by 90°","Be in phase with voltage","Be zero always"],
+answer:"B"
+},
+
+{
+question:"A purely capacitive AC circuit causes current to:",
+options:["Lag voltage by 90°","Lead voltage by 90°","Be in phase with voltage","Become DC"],
+answer:"B"
+},
+
+{
+question:"The magnetic force on a stationary charge in a magnetic field is:",
+options:["Maximum","Zero","qB","Infinite"],
+answer:"B"
+},
+
+{
+question:"If the charge of a moving particle is doubled while all other quantities remain constant, the magnetic force:",
+options:["Halves","Doubles","Becomes zero","Remains unchanged"],
+answer:"B"
+},
+
+{
+question:"If the magnetic field is doubled, the magnetic force on a moving charge doubles when other factors remain constant.",
+options:["True","False","Only at θ = 0°","Only for negative charges"],
+answer:"A"
+},
+
+{
+question:"For a charged particle moving perpendicular to B, increasing its speed increases its:",
+options:["Radius of circular path","Mass","Charge","Magnetic field"],
+answer:"A"
+},
+
+{
+question:"The magnetic field at the center of a circular loop increases when the loop radius:",
+options:["Increases","Decreases","Becomes infinite","Has no effect"],
+answer:"B"
+},
+
+{
+question:"For a long straight wire, the magnetic field is directly proportional to:",
+options:["Current","Distance from wire","Resistance only","Radius squared"],
+answer:"A"
+},
+
+{
+question:"For a long straight wire, magnetic field decreases as:",
+options:["1/r","r","r²","1/r²"],
+answer:"A"
+},
+
+{
+question:"The magnetic field lines around a straight current-carrying wire are:",
+options:["Straight and parallel","Concentric circles","Random","Elliptical only"],
+answer:"B"
+},
+
+{
+question:"A magnetic field can exert a force on a charged particle only if the particle is:",
+options:["Moving","Stationary","Neutral","At rest"],
+answer:"A"
+},
+
+{
+question:"The magnetic force formula F = qvB sinθ shows that force depends on:",
+options:["Charge, velocity, magnetic field and angle","Mass only","Temperature only","Resistance only"],
+answer:"A"
+},
+
+{
+question:"Which quantity is measured in Tesla?",
+options:["Magnetic flux","Magnetic field","Inductance","Electric charge"],
+answer:"B"
+},
+
+{
+question:"Which quantity is measured in Weber?",
+options:["Magnetic flux","Magnetic field","Current","Resistance"],
+answer:"A"
+},
+
+{
+question:"Which quantity is measured in Henry?",
+options:["Inductance","Magnetic flux","Magnetic field","Voltage"],
+answer:"A"
+},
+
+{
+question:"Which law explains the direction of an induced current?",
+options:["Lenz's law","Ohm's law","Coulomb's law","Newton's second law"],
+answer:"A"
+},
+
+{
+question:"Which law is commonly used to calculate magnetic fields in highly symmetric current distributions?",
+options:["Ampère's law","Faraday's law","Ohm's law","Hooke's law"],
+answer:"A"
+},
+
+{
+question:"Which law calculates the magnetic field contribution from a small current element?",
+options:["Biot–Savart law","Lenz's law","Gauss's law","Ohm's law"],
+answer:"A"
+},
+
+{
+question:"The force between two parallel currents flowing in the same direction is:",
+options:["Attractive","Repulsive","Zero","Always upward"],
+answer:"A"
+},
+
+{
+question:"A magnetic field can change the direction of a charged particle's velocity without changing its speed.",
+options:["True","False","Only for stationary charges","Never"],
+answer:"A"
+},
+
+{
+question:"The direction of a cross product is determined using:",
+options:["Right-hand rule","Left-hand rule only","Ohm's law","Faraday's law"],
+answer:"A"
+},
+
+{
+question:"The magnitude of A × B is:",
+options:["AB sinθ","AB cosθ","A/B","A+B"],
+answer:"A"
+},
+
+{
+question:"The dot product of two perpendicular vectors is:",
+options:["1","Maximum","Zero","Infinite"],
+answer:"C"
+},
+
+{
+question:"Magnetic flux through a surface depends on the area of the surface.",
+options:["True","False","Only in vacuum","Only for AC"],
+answer:"A"
+},
+
+{
+question:"Increasing the number of turns in a coil generally increases the induced emf for the same rate of flux change.",
+options:["True","False","Only when N = 0","Never"],
+answer:"A"
+},
+
+{
+question:"The negative sign in ε = -NΔΦ/Δt indicates that the induced emf:",
+options:["Opposes the change in flux","Always opposes the magnetic field","Is negative in every circuit","Is always zero"],
+answer:"A"
+},
+
+{
+question:"The energy stored in an inductor is stored in its:",
+options:["Electric field","Magnetic field","Gravitational field","Thermal field"],
+answer:"B"
+},
+
+{
+question:"In a series RLC circuit, if X_L > X_C, the circuit behaves more like a:",
+options:["Capacitor","Inductor","Pure resistor","Battery"],
+answer:"B"
+},
+
+{
+question:"In a series RLC circuit, if X_C > X_L, the circuit behaves more like a:",
+options:["Inductor","Capacitor","Pure resistor","Transformer"],
+answer:"B"
+},
+
+{
+question:"The frequency at which X_L = X_C is called:",
+options:["Critical frequency","Resonant frequency","Zero frequency","DC frequency"],
+answer:"B"
+},
+
+{
+question:"The resonant angular frequency of an ideal series RLC circuit is:",
+options:["ω₀ = 1/√LC","ω₀ = √LC","ω₀ = L/C","ω₀ = C/L"],
+answer:"A"
+},
+
+{
+question:"At resonance in a series RLC circuit, the current is:",
+options:["Minimum","Maximum","Always zero","Undefined"],
+answer:"B"
+},
+
+{
+question:"A transformer operates primarily using:",
+options:["Mutual electromagnetic induction","Static electricity","Mechanical friction","Chemical reaction"],
+answer:"A"
+},
+
+{
+question:"The magnetic field inside a long solenoid is approximately uniform:",
+options:["Inside the solenoid","Far outside only","At infinity only","Nowhere"],
+answer:"A"
+},
+
+{
+question:"The number of turns per unit length of a solenoid is represented by:",
+options:["n","R","q","ε"],
+answer:"A"
+},
+
+{
+question:"If the current in a solenoid is doubled, its magnetic field ideally:",
+options:["Halves","Doubles","Remains unchanged","Becomes zero"],
+answer:"B"
+},
+
+{
+question:"The magnetic field inside an ideal toroid is mainly confined to:",
+options:["The toroidal core region","Everywhere outside","The surrounding vacuum only","The battery"],
+answer:"A"
+},
+
+{
+question:"A particle entering a uniform magnetic field perpendicular to its velocity follows a:",
+options:["Circular path","Straight path","Parabolic path","Random path"],
+answer:"A"
+},
+
+{
+question:"For circular motion in a magnetic field, the magnetic force acts as the:",
+options:["Centripetal force","Gravitational force","Frictional force","Buoyant force"],
+answer:"A"
+},
+
+{
+question:"If the magnitude of charge increases while m, v and B remain constant, the circular radius:",
+options:["Increases","Decreases","Remains unchanged","Becomes infinite"],
+answer:"B"
+},
+
+{
+question:"If the particle's mass increases while q, v and B remain constant, the circular radius:",
+options:["Increases","Decreases","Becomes zero","Does not exist"],
+answer:"A"
+},
+
+{
+question:"Which of the following is a vector quantity?",
+options:["Magnetic field","Magnetic flux","Energy","Inductance"],
+answer:"A"
+},
+
+{
+question:"Which of the following is a scalar quantity?",
+options:["Magnetic field","Velocity","Magnetic flux","Force"],
+answer:"C"
+},
+
+{
+question:"The magnetic field produced by a current-carrying conductor is a result of:",
+options:["Moving electric charges","Stationary mass only","Temperature","Gravity"],
+answer:"A"
+},
+
+{
+question:"Which component stores energy in a magnetic field in an AC circuit?",
+options:["Inductor","Resistor","Switch","Fuse"],
+answer:"A"
+},
+
+{
+question:"Which component stores energy in an electric field?",
+options:["Capacitor","Inductor","Resistor","Wire"],
+answer:"A"
+},
+
+{
+question:"The impedance of a purely resistive AC circuit is:",
+options:["R","X_L","X_C","Zero"],
+answer:"A"
+},
+
+{
+question:"In a purely resistive AC circuit, current and voltage are:",
+options:["In phase","90° apart","180° apart","Always opposite"],
+answer:"A"
+},
+
+{
+question:"The average power consumed by an ideal pure inductor is:",
+options:["Maximum","Zero","Infinite","V²/R"],
+answer:"B"
+},
+
+{
+question:"The average power consumed by an ideal pure capacitor is:",
+options:["Zero","Maximum","Infinite","I²R"],
+answer:"A"
+},
+
+{
+question:"A magnetic field is strongest where magnetic field lines are:",
+options:["Far apart","Closest together","Absent","Parallel to zero"],
+answer:"B"
+},
+
+{
+question:"The direction of magnetic field at a point is tangent to the:",
+options:["Magnetic field line","Electric circuit","Current only","Surface"],
+answer:"A"
+},
+
+{
+question:"Magnetic field lines form:",
+options:["Closed loops","Open straight lines only","Random points","Squares only"],
+answer:"A"
+},
+
+{
+question:"A charged particle moving through a magnetic field can have a helical path when its velocity has:",
+options:["Only a perpendicular component","Only a parallel component","Both parallel and perpendicular components","No velocity"],
+answer:"C"
+},
+
+{
+question:"The magnetic force on a charged particle is zero when the charge is:",
+options:["Moving","Stationary","Positive","Negative"],
+answer:"B"
+},
+
+{
+question:"The direction of force on a current-carrying wire can be determined using:",
+options:["Fleming's left-hand rule","Ohm's law","Faraday's law only","Kirchhoff's rule"],
+answer:"A"
+},
+
+{
+question:"If θ = 90° in F = BIL sinθ, the force is:",
+options:["Zero","BIL","BIL/2","2BIL"],
+answer:"B"
+},
+
+{
+question:"If θ = 0° in F = BIL sinθ, the force is:",
+options:["BIL","Zero","2BIL","BIL/2"],
+answer:"B"
+},
+
+{
+question:"If θ = 90° in Φ = BA cosθ, the magnetic flux is:",
+options:["BA","Zero","2BA","BA/2"],
+answer:"B"
+},
+
+{
+question:"If θ = 0° in Φ = BA cosθ, the magnetic flux is:",
+options:["Zero","BA","BA/2","2BA"],
+answer:"B"
+},
+
+{
+question:"The symbol μ₀ represents:",
+options:["Permittivity of free space","Permeability of free space","Electric potential","Magnetic flux"],
+answer:"B"
+},
+
+{
+question:"The symbol ε₀ represents:",
+options:["Permeability of free space","Permittivity of free space","Inductance","Magnetic field"],
+answer:"B"
+},
+
+{
+question:"The value of μ₀ is approximately:",
+options:["4π × 10⁻⁷ H/m","8.85 × 10⁻¹² F/m","9 × 10⁹","3 × 10⁸"],
+answer:"A"
+},
+
+{
+question:"The approximate value of ε₀ is:",
+options:["8.85 × 10⁻¹² F/m","4π × 10⁻⁷ H/m","9 × 10⁹","6.67 × 10⁻¹¹"],
+answer:"A"
+},
+
+{
+question:"Which physical quantity has the unit C/s?",
+options:["Current","Voltage","Resistance","Magnetic flux"],
+answer:"A"
+},
+
+{
+question:"One Tesla is equivalent to:",
+options:["Wb/m²","Wb·m²","H/m","V/A"],
+answer:"A"
+},
+
+{
+question:"One Henry can be expressed as:",
+options:["V·s/A","V/A","A/V","Wb/m²"],
+answer:"A"
+},
+
+{
+question:"The primary purpose of an inductor in a circuit is to oppose:",
+options:["Change in current","Electric charge","Mass","Gravity"],
+answer:"A"
+},
+
+{
+question:"The magnetic field inside a solenoid is proportional to the number of turns per unit length.",
+options:["True","False","Only for AC","Only for DC"],
+answer:"A"
+},
+
+{
+question:"The magnetic force on a current-carrying wire is zero if the current is:",
+options:["Perpendicular to B","Parallel to B","At 45° to B","At 90° to B"],
+answer:"B"
+},
+
+{
+question:"The magnetic force on a wire is maximum when the wire is:",
+options:["Parallel to B","Perpendicular to B","At 0°","At 180°"],
+answer:"B"
+},
+
+{
+question:"A magnetic field can change the direction of a charged particle's velocity without changing its speed.",
+options:["True","False","Only for stationary charges","Never"],
+answer:"A"
+},
+
+{
+question:"In AC circuits, frequency is measured in:",
+options:["Hertz","Tesla","Henry","Weber"],
+answer:"A"
+},
+
+{
+question:"The angular frequency of a 50 Hz AC supply is:",
+options:["50 rad/s","100π rad/s","25π rad/s","2π/50 rad/s"],
+answer:"B"
+},
+
+{
+question:"At resonance, the inductive and capacitive reactances are:",
+options:["Equal","Both zero","Opposite but unequal","Infinite"],
+answer:"A"
+},
+
+{
+question:"In a series RLC circuit, current is calculated using:",
+options:["I = V/Z","I = VZ","I = Z/V","I = VR"],
+answer:"A"
+},
+
+{
+question:"The opposition to AC caused by an inductor is called:",
+options:["Inductive reactance","Resistance","Capacitance","Conductance"],
+answer:"A"
+},
+
+{
+question:"The opposition to AC caused by a capacitor is called:",
+options:["Capacitive reactance","Inductive reactance","Resistance","Inductance"],
+answer:"A"
+},
+
+{
+question:"The main principle behind electromagnetic induction is:",
+options:["Changing magnetic flux produces emf","Constant current produces voltage only","Mass produces current","Resistance produces magnetic flux"],
+answer:"A"
+},
+
+{
+question:"Faraday's law is directly associated with:",
+options:["Electromagnetic induction","Static friction","Thermodynamics","Fluid mechanics"],
+answer:"A"
+},
+
+{
+question:"Lenz's law determines the:",
+options:["Direction of induced current","Magnitude of mass","Resistance of a wire","Temperature"],
+answer:"A"
+},
+
+{
+question:"A transformer requires changing current or changing magnetic flux to operate effectively.",
+options:["True","False","Only with DC","Never"],
+answer:"A"
+},
+
+{
+question:"Which device converts mechanical energy into electrical energy using electromagnetic induction?",
+options:["Generator","Resistor","Capacitor","Diode"],
+answer:"A"
+},
+
+{
+question:"Which device converts electrical energy into mechanical motion using magnetic force?",
+options:["Electric motor","Transformer","Capacitor","Fuse"],
+answer:"A"
+}
+
+];
+
+
+/* =====================================================
+   CBT VARIABLES
+   ===================================================== */
+
+let currentQuestion = 0;
+
+let userAnswers = [];
+
+let timeLeft = 60 * 60;
+
+let timerInterval;
+
+
+/* =====================================================
+   START TEST
+   ===================================================== */
+
+function startTest(){
+
+    const name =
+        document.getElementById("studentName").value.trim();
+
+    const matric =
+        document.getElementById("matricNumber").value.trim();
+
+    if(name === "" || matric === ""){
+
+        alert("Please enter your name and matric number.");
+
+        return;
+
+    }
+
+    if(questions.length < 100){
+
+        alert(
+            "The question bank contains only " +
+            questions.length +
+            " questions."
+        );
+
+        return;
+
+    }
+
+    currentQuestion = 0;
+
+    userAnswers = new Array(100).fill(null);
+
+    timeLeft = 60 * 60;
+
+    document.getElementById("startScreen")
+        .classList.add("hidden");
+
+    document.getElementById("quizScreen")
+        .classList.remove("hidden");
+
+    showQuestion();
+
+    startTimer();
+
+}
+
+
+/* =====================================================
+   SHOW QUESTION
+   ===================================================== */
+
+function showQuestion(){
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber").innerHTML =
+        "Question " +
+        (currentQuestion + 1) +
+        " of 100";
+
+    document.getElementById("question").innerHTML =
+        q.question;
+
+    const optionsDiv =
+        document.getElementById("options");
+
+    optionsDiv.innerHTML = "";
+
+    const letters = ["A","B","C","D"];
+
+    q.options.forEach(function(option,index){
+
+        const label =
+            document.createElement("label");
+
+        label.className = "option";
+
+        label.innerHTML =
+            '<input type="radio" name="option" value="' +
+            letters[index] +
+            '" ' +
+            (userAnswers[currentQuestion] === letters[index]
+            ? "checked"
+            : "") +
+            '> ' +
+            letters[index] +
+            ". " +
+            option;
+
+        optionsDiv.appendChild(label);
+
+    });
+
+    document.getElementById("progressBar").style.width =
+        ((currentQuestion + 1) / 100 * 100) + "%";
+
+}
+
+
+/* =====================================================
+   SAVE ANSWER
+   ===================================================== */
+
+function saveAnswer(){
+
+    const selected =
+        document.querySelector(
+            'input[name="option"]:checked'
+        );
+
+    if(selected){
+
+        userAnswers[currentQuestion] =
+            selected.value;
+
+    }
+
+}
+
+
+/* =====================================================
+   NEXT QUESTION
+   ===================================================== */
+
+function nextQuestion(){
+
+    saveAnswer();
+
+    if(currentQuestion < 99){
+
+        currentQuestion++;
+
+        showQuestion();
+
+    }
+
+}
+
+
+/* =====================================================
+   PREVIOUS QUESTION
+   ===================================================== */
+
+function previousQuestion(){
+
+    saveAnswer();
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        showQuestion();
+
+    }
+
+}
+
+
+/* =====================================================
+   TIMER
+   ===================================================== */
+
+function startTimer(){
+
+    clearInterval(timerInterval);
+
+    timerInterval =
+        setInterval(function(){
+
+            timeLeft--;
+
+            let minutes =
+                Math.floor(timeLeft / 60);
+
+            let seconds =
+                timeLeft % 60;
+
+            document.getElementById("timer").innerHTML =
+                String(minutes).padStart(2,"0") +
+                ":" +
+                String(seconds).padStart(2,"0");
+
+            if(timeLeft <= 0){
+
+                clearInterval(timerInterval);
+
+                alert(
+                    "Time is up! Your test will be submitted."
+                );
+
+                submitTest();
+
+            }
+
+        },1000);
+
+}
+
+
+/* =====================================================
+   SUBMIT TEST
+   ===================================================== */
+
+function submitTest(){
+
+    saveAnswer();
+
+    const unanswered =
+        userAnswers.filter(
+            answer => answer === null
+        ).length;
+
+    if(unanswered > 0){
+
+        const confirmSubmit =
+            confirm(
+                "You have " +
+                unanswered +
+                " unanswered question(s). " +
+                "Do you want to submit?"
+            );
+
+        if(!confirmSubmit){
+
+            return;
+
+        }
+
+    }
+
+    clearInterval(timerInterval);
+
+    let score = 0;
+
+    for(let i = 0; i < 100; i++){
+
+        if(
+            userAnswers[i] ===
+            questions[i].answer
+        ){
+
+            score++;
+
+        }
+
+    }
+
+    showResult(score);
+
+}
+
+
+/* =====================================================
+   SHOW RESULT
+   ===================================================== */
+
+function showResult(score){
+
+    document.getElementById("quizScreen")
+        .classList.add("hidden");
+
+    document.getElementById("resultScreen")
+        .classList.remove("hidden");
+
+    const name =
+        document.getElementById("studentName").value;
+
+    const matric =
+        document.getElementById("matricNumber").value;
+
+    const percentage =
+        score;
+
+    document.getElementById("studentResult").innerHTML =
+        "<strong>Name:</strong> " +
+        name +
+        "<br><strong>Matric No:</strong> " +
+        matric;
+
+    document.getElementById("score").innerHTML =
+        score + " / 100";
+
+    document.getElementById("percentage").innerHTML =
+        "Percentage: " +
+        percentage +
+        "%";
+
+    let remark;
+
+    if(score >= 70){
+
+        remark = "Excellent performance! 🎉";
+
+    }
+    else if(score >= 50){
+
+        remark = "Good attempt. Keep studying! 📚";
+
+    }
+    else if(score >= 40){
+
+        remark = "Fair attempt. More revision is needed. 💪";
+
+    }
+    else{
+
+        remark = "Keep practicing and reviewing your PHY 102 notes. 📖";
+
+    }
+
+    document.getElementById("remark").innerHTML =
+        "<strong>" + remark + "</strong>";
+
+    createReview();
+
+}
+
+
+/* =====================================================
+   ANSWER REVIEW
+   ===================================================== */
+
+function createReview(){
+
+    let html =
+        "<h3>📋 Answer Review</h3>";
+
+    for(let i = 0; i < 100; i++){
+
+        const user =
+            userAnswers[i];
+
+        const correct =
+            questions[i].answer;
+
+        if(user === correct){
+
+            html +=
+                "<p class='correct'>" +
+                "Question " +
+                (i + 1) +
+                ": ✓ Correct</p>";
+
+        }
+        else{
+
+            html +=
+                "<p class='wrong'>" +
+                "Question " +
+                (i + 1) +
+                ": ✗ Wrong" +
+                "<br>Your answer: " +
+                (user || "Not answered") +
+                "<br>Correct answer: " +
+                correct +
+                "</p>";
+
+        }
+
+    }
+
+    document.getElementById("review").innerHTML =
+        html;
+
+}
+
+
+/* =====================================================
+   RETAKE TEST
+   ===================================================== */
+
+function retakeTest(){
+
+    clearInterval(timerInterval);
+
+    currentQuestion = 0;
+
+    userAnswers =
+        new Array(100).fill(null);
+
+    timeLeft = 60 * 60;
+
+    document.getElementById("resultScreen")
+        .classList.add("hidden");
+
+    document.getElementById("startScreen")
+        .classList.remove("hidden");
+
+    document.getElementById("timer").innerHTML =
+        "60:00";
+
+}
+
+</script>
+
+</body>
+</html>

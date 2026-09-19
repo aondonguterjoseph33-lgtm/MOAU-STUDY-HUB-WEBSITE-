@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MOAU STUDY HUB - Admin</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f6f8;
+    color:#222;
+}
+
+/* HEADER */
+header{
+    background:#111827;
+    color:white;
+    padding:22px;
+    text-align:center;
+}
+
+header h1{
+    font-size:26px;
+}
+
+header p{
+    margin-top:6px;
+    color:#d1d5db;
+}
+
+/* LOGIN */
+#loginPage{
+    max-width:400px;
+    margin:60px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.12);
+}
+
+#loginPage h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+button{
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    margin:5px;
+}
+
+.loginBtn{
+    width:100%;
+    background:#111827;
+    color:white;
+    margin-top:10px;
+}
+
+#loginMessage{
+    text-align:center;
+    margin-top:12px;
+    color:red;
+}
+
+/* DASHBOARD */
+#dashboard{
+    display:none;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+/* NAVIGATION */
+.adminNav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.adminNav button{
+    background:#1f2937;
+    color:white;
+}
+
+/* CARDS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.statCard{
+    background:white;
+    padding:22px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.08);
+}
+
+.statCard h3{
+    font-size:16px;
+    color:#555;
+}
+
+.statCard p{
+    font-size:30px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+/* SECTIONS */
+.adminSection{
+    display:none;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.08);
+}
+
+.adminSection.active{
+    display:block;
+}
+
+.adminSection h2{
+    margin-bottom:15px;
+}
+
+/* BUTTONS */
+.addBtn{
+    background:#16a34a;
+    color:white;
+}
+
+.saveBtn{
+    background:#2563eb;
+    color:white;
+}
+
+.deleteBtn{
+    background:#dc2626;
+    color:white;
+}
+
+.logoutBtn{
+    background:#dc2626;
+    color:white;
+}
+
+/* LIST */
+.item{
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+.item h3{
+    margin-bottom:6px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+    header h1{
+        font-size:22px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .adminNav{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .adminNav button{
+        width:100%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>MOAU STUDY HUB</h1>
+
+    <p>ADMIN DASHBOARD</p>
+
+</header>
+
+
+<!-- ================= LOGIN ================= -->
+
+<div id="loginPage">
+
+    <h2>🔐 Admin Login</h2>
+
+    <input
+        type="text"
+        id="adminUsername"
+        placeholder="Username">
+
+    <input
+        type="password"
+        id="adminPassword"
+        placeholder="Password">
+
+    <button
+        class="loginBtn"
+        onclick="login()">
+
+        LOGIN
+
+    </button>
+
+    <p id="loginMessage"></p>
+
+</div>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<div id="dashboard">
+
+<div class="container">
+
+    <div class="adminNav">
+
+        <button onclick="showSection('home')">
+            📊 Dashboard
+        </button>
+
+        <button onclick="showSection('materials')">
+            📚 Materials
+        </button>
+
+        <button onclick="showSection('flashcards')">
+            🧠 Flashcards
+        </button>
+
+        <button onclick="showSection('cbt')">
+            📝 CBT
+        </button>
+
+        <button onclick="showSection('students')">
+            👥 Students
+        </button>
+
+        <button onclick="showSection('settings')">
+            ⚙️ Settings
+        </button>
+
+        <button
+            class="logoutBtn"
+            onclick="logout()">
+
+            🚪 Logout
+
+        </button>
+
+    </div>
+
+
+    <!-- ================= DASHBOARD HOME ================= -->
+
+    <section
+        id="home"
+        class="adminSection active">
+
+        <h2>📊 Dashboard Overview</h2>
+
+        <div class="stats">
+
+            <div class="statCard">
+
+                <h3>Study Materials</h3>
+
+                <p id="materialCount">0</p>
+
+            </div>
+
+
+            <div class="statCard">
+
+                <h3>Flashcards</h3>
+
+                <p id="flashcardCount">300</p>
+
+            </div>
+
+
+            <div class="statCard">
+
+                <h3>CBT Questions</h3>
+
+                <p id="cbtCount">100</p>
+
+            </div>
+
+
+            <div class="statCard">
+
+                <h3>Students</h3>
+
+                <p id="studentCount">0</p>
+
+            </div>
+
+        </div>
+
+        <p>
+            Welcome to the MOAU STUDY HUB administration panel.
+        </p>
+
+    </section>
+
+
+    <!-- ================= MATERIALS ================= -->
+
+    <section
+        id="materials"
+        class="adminSection">
+
+        <h2>📚 Manage Study Materials</h2>
+
+        <input
+            type="text"
+            id="materialTitle"
+            placeholder="Material title">
+
+        <input
+            type="text"
+            id="materialCourse"
+            placeholder="Course e.g. PHY102">
+
+        <textarea
+            id="materialDescription"
+            placeholder="Material description"></textarea>
+
+        <button
+            class="addBtn"
+            onclick="addMaterial()">
+
+            ➕ Add Material
+
+        </button>
+
+        <div id="materialsList"></div>
+
+    </section>
+
+
+    <!-- ================= FLASHCARDS ================= -->
+
+    <section
+        id="flashcards"
+        class="adminSection">
+
+        <h2>🧠 Manage Flashcards</h2>
+
+        <input
+            type="text"
+            id="flashQuestion"
+            placeholder="Flashcard question">
+
+        <textarea
+            id="flashAnswer"
+            placeholder="Flashcard answer"></textarea>
+
+        <button
+            class="addBtn"
+            onclick="addFlashcard()">
+
+            ➕ Add Flashcard
+
+        </button>
+
+        <div id="flashcardsList"></div>
+
+    </section>
+
+
+    <!-- ================= CBT ================= -->
+
+    <section
+        id="cbt"
+        class="adminSection">
+
+        <h2>📝 Manage CBT</h2>
+
+        <input
+            type="text"
+            id="cbtQuestion"
+            placeholder="Question">
+
+        <input
+            type="text"
+            id="optionA"
+            placeholder="Option A">
+
+        <input
+            type="text"
+            id="optionB"
+            placeholder="Option B">
+
+        <input
+            type="text"
+            id="optionC"
+            placeholder="Option C">
+
+        <input
+            type="text"
+            id="optionD"
+            placeholder="Option D">
+
+        <select id="correctAnswer">
+
+            <option value="">Select correct answer</option>
+
+            <option value="A">A</option>
+
+            <option value="B">B</option>
+
+            <option value="C">C</option>
+
+            <option value="D">D</option>
+
+        </select>
+
+        <button
+            class="addBtn"
+            onclick="addCBTQuestion()">
+
+            ➕ Add Question
+
+        </button>
+
+        <div id="cbtList"></div>
+
+    </section>
+
+
+    <!-- ================= STUDENTS ================= -->
+
+    <section
+        id="students"
+        class="adminSection">
+
+        <h2>👥 Students</h2>
+
+        <p>
+            Student records and CBT results will appear here.
+        </p>
+
+        <div class="item">
+
+            <h3>Student Management</h3>
+
+            <p>
+                This section is ready for student accounts,
+                matric numbers and CBT results.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SETTINGS ================= -->
+
+    <section
+        id="settings"
+        class="adminSection">
+
+        <h2>⚙️ Admin Settings</h2>
+
+        <input
+            type="text"
+            placeholder="Website name"
+            value="MOAU STUDY HUB">
+
+        <input
+            type="text"
+            placeholder="Slogan"
+            value="LEARN • GROW • BECOME">
+
+        <button
+            class="saveBtn"
+            onclick="saveSettings()">
+
+            💾 Save Settings
+
+        </button>
+
+    </section>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================= LOGIN ================= */
+
+function login(){
+
+    const username =
+        document.getElementById("adminUsername").value;
+
+    const password =
+        document.getElementById("adminPassword").value;
+
+
+    /*
+       TEMPORARY ADMIN LOGIN
+
+       Username: admin
+       Password: moau123
+    */
+
+    if(username === "admin" && password === "moau123"){
+
+        document.getElementById("loginPage").style.display =
+            "none";
+
+        document.getElementById("dashboard").style.display =
+            "block";
+
+        loadData();
+
+    }else{
+
+        document.getElementById("loginMessage").innerHTML =
+            "❌ Incorrect username or password.";
+
+    }
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+function logout(){
+
+    document.getElementById("dashboard").style.display =
+        "none";
+
+    document.getElementById("loginPage").style.display =
+        "block";
+
+}
+
+
+/* ================= NAVIGATION ================= */
+
+function showSection(sectionID){
+
+    const sections =
+        document.querySelectorAll(".adminSection");
+
+    sections.forEach(function(section){
+
+        section.classList.remove("active");
+
+    });
+
+
+    document
+        .getElementById(sectionID)
+        .classList.add("active");
+
+}
+
+
+/* ================= MATERIALS ================= */
+
+let materials =
+    JSON.parse(localStorage.getItem("moauMaterials")) || [];
+
+
+function addMaterial(){
+
+    const title =
+        document.getElementById("materialTitle").value;
+
+    const course =
+        document.getElementById("materialCourse").value;
+
+    const description =
+        document.getElementById("materialDescription").value;
+
+
+    if(title === "" || course === ""){
+
+        alert("Please enter the material title and course.");
+
+        return;
+
+    }
+
+
+    materials.push({
+
+        title:title,
+
+        course:course,
+
+        description:description
+
+    });
+
+
+    localStorage.setItem(
+        "moauMaterials",
+        JSON.stringify(materials)
+    );
+
+
+    document.getElementById("materialTitle").value = "";
+
+    document.getElementById("materialCourse").value = "";
+
+    document.getElementById("materialDescription").value = "";
+
+
+    displayMaterials();
+
+}
+
+
+function displayMaterials(){
+
+    const list =
+        document.getElementById("materialsList");
+
+    list.innerHTML = "";
+
+
+    materials.forEach(function(item,index){
+
+        list.innerHTML += `
+
+        <div class="item">
+
+            <h3>${item.title}</h3>
+
+            <p

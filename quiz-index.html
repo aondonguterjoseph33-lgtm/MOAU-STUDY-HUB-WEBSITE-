@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MOAU STUDY HUB - Quiz</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
+}
+
+header{
+    background:#111827;
+    color:white;
+    padding:25px 15px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px 15px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
+
+select,
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    margin-top:10px;
+}
+
+select{
+    border:1px solid #ccc;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.question-number{
+    color:#666;
+    margin-bottom:10px;
+}
+
+.question{
+    font-size:20px;
+    font-weight:bold;
+    line-height:1.5;
+    margin-bottom:20px;
+}
+
+.option{
+    display:block;
+    width:100%;
+    background:#f3f4f6;
+    color:#222;
+    border:2px solid transparent;
+    text-align:left;
+    margin:10px 0;
+}
+
+.option:hover{
+    background:#e5e7eb;
+}
+
+.option.selected{
+    border-color:#2563eb;
+    background:#dbeafe;
+}
+
+.navigation{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.navigation button{
+    flex:1;
+}
+
+.progress{
+    height:10px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    margin:15px 0;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#2563eb;
+}
+
+.result{
+    text-align:center;
+}
+
+.score{
+    font-size:40px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.review-item{
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+    background:#f3f4f6;
+}
+
+.correct{
+    border-left:5px solid green;
+}
+
+.wrong{
+    border-left:5px solid red;
+}
+
+.hidden{
+    display:none;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin:20px 0;
+    color:#2563eb;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🧩 MOAU STUDY HUB</h1>
+    <p>QUIZZES • LEARN • GROW • BECOME</p>
+</header>
+
+<div class="container">
+
+<!-- SUBJECT SELECTION -->
+
+<div id="setup" class="card">
+
+    <h2>📝 Choose Your Subject</h2>
+
+    <select id="subjectSelect">
+
+        <option value="phy102">PHY 102</option>
+        <option value="chm102">CHM 102</option>
+        <option value="bio102">BIO 102</option>
+        <option value="mth102">MTH 102</option>
+        <option value="cos102">COS 102</option>
+
+    </select>
+
+    <button onclick="startQuiz()">
+        🚀 Start 50-Question Quiz
+    </button>
+
+</div>
+
+
+<!-- QUIZ -->
+
+<div id="quiz" class="card hidden">
+
+    <h2 id="subjectTitle"></h2>
+
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="question-number" id="questionNumber"></div>
+
+    <div class="question" id="question"></div>
+
+    <div id="options"></div>
+
+    <div class="navigation">
+
+        <button onclick="previousQuestion()">
+            ← Previous
+        </button>
+
+        <button onclick="nextQuestion()">
+            Next →
+        </button>
+
+    </div>
+
+    <button onclick="submitQuiz()">
+        ✅ Submit Quiz
+    </button>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div id="result" class="card hidden result">
+
+    <h2>🎉 Quiz Completed!</h2>
+
+    <p id="resultSubject"></p>
+
+    <div class="score" id="score"></div>
+
+    <p id="percentage"></p>
+
+    <button onclick="showReview()">
+        📋 Review Answers
+    </button>
+
+    <button onclick="retryQuiz()">
+        🔄 Retry Quiz
+    </button>
+
+    <button onclick="goQuizIndex()">
+        🧩 Choose Another Subject
+    </button>
+
+</div>
+
+
+<!-- REVIEW -->
+
+<div id="review" class="card hidden">
+
+    <h2>📋 Answer Review</h2>
+
+    <div id="reviewContent"></div>
+
+    <button onclick="retryQuiz()">
+        🔄 Retry Quiz
+    </button>
+
+</div>
+
+<a href="quiz-index.html" class="back">
+    ← Back to Quiz Index
+</a>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   QUIZ DATABASE
+   50 QUESTIONS FOR EACH SUBJECT
+========================================================= */
+
+const quizData = {
+
+
+/* =========================================================
+   PHY 102 — 50 QUESTIONS
+========================================================= */
+
+phy102: [
+
+["What is the SI unit of magnetic field?",["Tesla","Weber","Henry","Volt"],0],
+
+["The magnetic force on a moving charge is given by:",["F=qvB sinθ","F=q/Bv","F=qv/B","F=qB/v"],0],
+
+["A charged particle moving parallel to a magnetic field experiences:",["Maximum force","Zero force","Infinite force","Half force"],1],
+
+["The SI unit of magnetic flux is:",["Tesla","Weber","Henry","Ampere"],1],
+
+["Ampère's law relates magnetic field circulation to:",["Electric charge","Current enclosed","Voltage","Resistance"],1],
+
+["The magnetic field around a long straight current-carrying wire decreases as:",["Distance increases","Current decreases only","Voltage increases","Mass increases"],0],
+
+["The Biot–Savart law is used to calculate:",["Electric potential","Magnetic field","Resistance","Capacitance"],1],
+
+["The force on a current-carrying conductor in a magnetic field is:",["F=BIL sinθ","F=B/I L","F=IL/B","F=B/L"],0],
+
+["A magnetic force on a charged particle does no work because it is:",["Parallel to velocity","Perpendicular to velocity","Opposite to velocity","Equal to velocity"],1],
+
+["The magnetic field inside a long solenoid is approximately:",["B=μ₀nI","B=μ₀/I","B=n/μ₀I","B=I/n"],0],
+
+["Lenz's law determines the:",["Magnitude of resistance","Direction of induced current","Mass of electron","Electric charge"],1],
+
+["Faraday's law is associated with the rate of change of:",["Magnetic flux","Mass","Resistance","Temperature"],0],
+
+["The radius of a charged particle moving circularly in a magnetic field is:",["r=mv/qB","r=qB/mv","r=mq/Bv","r=vq/mB"],0],
+
+["The unit vector k̂ points in the:",["x-direction","y-direction","z-direction","negative x-direction"],2],
+
+["The magnetic field at the center of a circular current loop depends on:",["Current and radius","Mass only","Voltage only","Temperature only"],0],
+
+["Increasing current in a straight wire generally:",["Increases its magnetic field","Eliminates its field","Makes field zero","Has no effect"],0],
+
+["The right-hand grip rule is used to determine:",["Magnetic field direction around a wire","Resistance","Voltage","Mass"],0],
+
+["The magnetic field lines around a straight current-carrying wire are:",["Straight","Circular","Square","Random"],1],
+
+["A charged particle at rest in a magnetic field experiences magnetic force of:",["Maximum value","Zero","Infinite","Bq"],1],
+
+["The SI unit of current is:",["Volt","Ampere","Tesla","Weber"],1],
+
+["Magnetic flux is given by:",["Φ=BA cosθ","Φ=B/A","Φ=A/B","Φ=B+A"],0],
+
+["The SI unit of inductance is:",["Farad","Henry","Tesla","Ohm"],1],
+
+["An inductor opposes changes in:",["Current","Mass","Temperature","Length"],0],
+
+["The energy stored in an inductor is:",["½LI²","LI","L/I","2LI²"],0],
+
+["The energy stored in a capacitor is:",["½CV²","CV","C/V","2CV"],0],
+
+["The SI unit of capacitance is:",["Farad","Henry","Weber","Tesla"],0],
+
+["Electromagnetic induction occurs when there is a change in:",["Magnetic flux","Mass","Density","Resistance"],0],
+
+["A transformer operates mainly using:",["Electromagnetic induction","Static electricity","Gravity","Friction"],0],
+
+["A step-up transformer increases:",["Voltage","Frequency","Charge","Resistance only"],0],
+
+["A step-down transformer decreases:",["Voltage","Frequency","Mass","Magnetic flux necessarily"],0],
+
+["The frequency of AC is measured in:",["Hertz","Tesla","Weber","Henry"],0],
+
+["RMS voltage for a sinusoidal AC voltage is:",["V₀/√2","V₀√2","2V₀","V₀/2"],0],
+
+["The direction of magnetic field can be determined using:",["Right-hand rule","Left-foot rule","Ohm's law","Kirchhoff's rule"],0],
+
+["The force between two parallel current-carrying wires depends on:",["Currents and separation","Mass only","Voltage only","Temperature only"],0],
+
+["Parallel currents flowing in the same direction:",["Attract","Repel","Disappear","Rotate only"],0],
+
+["Parallel currents flowing in opposite directions:",["Attract","Repel","Have no force","Become zero"],1],
+
+["The magnetic field of a solenoid becomes stronger when:",["Current increases","Current decreases","Length becomes infinite","Current becomes zero"],0],
+
+["A magnetic dipole moment of a current loop is:",["μ=IA","μ=I/A","μ=A/I","μ=IB"],0],
+
+["The SI unit of magnetic dipole moment is:",["A·m²","T/m","Wb/m","V/A"],0],
+
+["The magnetic force equation contains sinθ because force is:",["Maximum parallel","Dependent on angle","Independent of angle","Always zero"],1],
+
+["Maximum magnetic force occurs when the angle between v and B is:",["0°","45°","90°","180°"],2],
+
+["Magnetic force is zero when θ is:",["90°","45°","0° or 180°","60°"],2],
+
+["The magnetic field produced by a current loop has its strongest simple symmetry at the:",["Center","Random point","Battery","Switch"],0],
+
+["The electron has a charge that is:",["Positive","Negative","Zero","Variable"],1],
+
+["The proton has a charge that is:",["Positive","Negative","Zero","Variable"],0],
+
+["The magnetic field is a:",["Vector quantity","Scalar only","Dimensionless quantity","Constant always"],0],
+
+["The electric current in a wire produces:",["Magnetic field","Only heat","Only mass","Only gravity"],0],
+
+["Electromagnetic waves consist of oscillating:",["Electric and magnetic fields","Mass and charge","Pressure and density","Current and resistance"],0],
+
+["The speed of electromagnetic waves in vacuum is approximately:",["3×10⁸ m/s","3×10⁶ m/s","3×10⁴ m/s","3×10² m/s"],0]
+
+],
+
+
+/* =========================================================
+   CHM 102 — 50 QUESTIONS
+========================================================= */
+
+chm102: [
+
+["What are constitutional isomers?",["Same molecular formula but different connectivity","Different formula and same connectivity","Same atoms in same positions","Only optical isomers"],0],
+
+["Stereoisomers have the same:",["Molecular formula and connectivity","Mass only","Color","Melting point"],0],
+
+["The two major classes of stereoisomers are:",["Constitutional and ionic","Configurational and conformational","Acidic and basic","Organic and inorganic"],1],
+
+["A chiral molecule is generally one that is:",["Superimposable on its mirror image","Not superimposable on its mirror image","Always planar","Always symmetrical"],1],
+
+["A carbon attached to four different groups is commonly called a:",["Chiral center","Carbonyl carbon","Methyl carbon","Alkene carbon"],0],
+
+["Enantiomers are:",["Non-superimposable mirror images","Identical compounds","Constitutional isomers","Conformers only"],0],
+
+["Diastereomers are stereoisomers that are:",["Mirror images only","Not mirror images of each other","Always identical","Always gases"],1],
+
+["Geometric isomerism commonly occurs because of restricted rotation around:",["Single C-C bonds only","Double bonds","C-H bonds","O-H bonds"],1],
+
+["The two common geometric descriptors are:",["R/S","E/Z","D/L only","cis/trans only"],1],
+
+["The R/S system describes:",["Absolute configuration","Boiling point","Molecular mass","Acidity only"],0],
+
+["In assigning R/S configuration, the highest priority is assigned according to:",["Atomic number","Atomic mass only","Color","Boiling point"],0],
+
+["If atomic number is higher, the atom generally receives:",["Higher priority","Lower priority","No priority","Random priority"],0],
+
+["A stereogenic center is an atom where exchange of two groups produces:",["A stereoisomer","No compound","An ion only","A salt only"],0],
+
+["Conformational isomers interconvert mainly by:",["Rotation about single bonds","Breaking all bonds","Changing molecular formula","Ionization"],0],
+
+["Newman projections are commonly used to study:",["Conformations","Acids","Salts","Ions only"],0],
+
+["A staggered conformation generally has:",["Less torsional strain","More torsional strain","No bonds","Higher atomic number"],0],
+
+["An eclipsed conformation generally has:",["Greater torsional strain","No torsional strain","No atoms","Zero energy"],0],
+
+["The molecular formula of an alkane follows:",["CₙH₂ₙ₊₂","CₙH₂ₙ","CₙH₂ₙ₋₂","CₙHₙ"],0],
+
+["The general formula of a cycloalkane is:",["CₙH₂ₙ","CₙH₂ₙ₊₂","CₙH₂ₙ₋₂","CₙHₙ₊₂"],0],
+
+["An alkene contains at least one:",["C=C double bond","C≡C triple bond","Carbonyl group","Nitro group"],0],
+
+["An alkyne contains:",["C=C","C≡C","C-O-C","C=O only"],1],
+
+["The functional group of an alcohol is:",["-OH","-COOH","-CHO","-NH₂"],0],
+
+["The functional group of a carboxylic acid is:",["-COOH","-OH","-CHO","-O-"],0],
+
+["The functional group of an aldehyde is:",["-CHO","-COOH","-OH","-NH₂"],0],
+
+["The functional group of a ketone contains:",["C=O within a carbon chain","-OH only","-NH₂ only","C≡C only"],0],
+
+["The IUPAC name of CH₄ is:",["Methane","Ethane","Methene","Methyne"],0],
+
+["The IUPAC name of C₂H₆ is:",["Ethane","Methane","Propane","Ethene"],0],
+
+["The IUPAC name of C₃H₈ is:",["Propane","Propene","Butane","Methane"],0],
+
+["The IUPAC name of C₂H₄ is:",["Ethene","Ethane","Ethyne","Methane"],0],
+
+["The IUPAC name of C₂H₂ is:",["Ethyne","Ethene","Ethane","Methyne"],0],
+
+["Benzene has the molecular formula:",["C₆H₆","C₆H₁₂","C₆H₁₄","C₅H₆"],0],
+
+["An aromatic compound must generally possess:",["A suitable conjugated cyclic π system","Only single bonds","No carbon","Only ionic bonds"],0],
+
+["Naphthalene contains:",["Two fused benzene rings","One ring","Three oxygen atoms","One nitrogen ring"],0],
+
+["The molecular formula of naphthalene is:",["C₁₀H₈","C₆H₆","C₈H₈","C₁₂H₁₂"],0],
+
+["A pure crystalline compound usually has a:",["Sharp melting point","Very broad melting range","Zero melting point","Random boiling point"],0],
+
+["Impurities commonly cause a melting point to:",["Decrease and broaden","Increase sharply always","Remain exactly unchanged","Become zero"],0],
+
+["A capillary tube in melting point determination is usually:",["Sealed at one end","Open at both ends","Made of wood","Filled with water"],0],
+
+["Paraffin oil may be used in a:",["Heating bath","Titration burette","Balance","Desiccator only"],0],
+
+["The purpose of grinding a solid before melting point determination is to:",["Obtain fine uniform particles","Increase molecular formula","Change its identity","Create water"],0],
+
+["A racemic mixture contains:",["Equal amounts of two enantiomers","Only one enantiomer","Only achiral molecules","Only diastereomers"],0],
+
+["Optical isomers interact with:",["Plane-polarized light","Only infrared light","Only sound","Only radio waves"],0],
+
+["A compound with an internal plane of symmetry may be:",["Achiral","Always chiral","Always ionic","Always aromatic"],0],
+
+["A meso compound contains stereocenters but is:",["Achiral due to internal symmetry","Always chiral","An ion","An alkene"],0],
+
+["Cis means groups are generally:",["On the same side","On opposite sides","At different atoms","Not attached"],0],
+
+["Trans means groups are generally:",["On opposite sides","On the same side","Identical atoms only","Not bonded"],0],
+
+["E/Z nomenclature is especially useful when:",["Cis/trans naming is insufficient","There are no double bonds","There are no stereoisomers","Only alkanes exist"],0],
+
+["The symbol Δ in organic chemistry often indicates:",["Heat","Pressure","Mass","Volume"],0],
+
+["A catalyst generally:",["Lowers activation energy","Changes equilibrium constant","Is always consumed","Changes molecular formula"],0],
+
+["Activation energy is the:",["Minimum energy needed for a reaction to occur","Total mass of reactants","Final temperature","Volume of product"],0],
+
+["A chemical reaction involves:",["Breaking and forming chemical bonds","Only melting","Only boiling","No atomic changes"],0]
+
+],
+
+
+/* =========================================================
+   BIO 102 — 50 QUESTIONS
+========================================================= */
+
+bio102: [
+
+["What is adaptation?",["A feature that helps an organism survive in its environment","A disease","A temporary injury","A food class"],0],
+
+["The three broad types of adaptation are:",["Structural, physiological and behavioral","Physical, chemical and nuclear","Acidic, basic and neutral","Plant, animal and mineral"],0],
+
+["A structural adaptation refers to:",["A physical feature of an organism","An internal chemical reaction only","A learned action only","A disease"],0],
+
+["A behavioral adaptation refers to:",["An action or behavior that aids survival","Body shape only","A chemical formula","A chromosome"],0],
+
+["A physiological adaptation involves:",["Internal body processes","Only body shape","Only movement","Only feeding"],0],
+
+["The thick fur of a polar bear helps mainly with:",["Insulation","Digestion","Flying","Photosynthesis"],0],
+
+["The long neck of a giraffe helps it to:",["Reach leaves high in trees","Swim faster","Fly","Hibernate"],0],
+
+["Camouflage helps organisms to:",["Blend with their surroundings","Increase body temperature","Produce oxygen","Grow leaves"],0],
+
+["Hibernation is a state of:",["Reduced metabolic activity during unfavorable conditions","Rapid growth","Permanent sleep","Photosynthesis"],0],
+
+["The hump of a camel is mainly associated with storage of:",["Fat","Water directly","Protein","Blood"],0],
+
+["The hind limbs of a toad are adapted mainly for:",["Jumping","Flying","Climbing trees only","Digging only"],0],
+
+["Which is an example of physiological adaptation?",["Ability to conserve water","Long neck","Sharp claws","Webbed feet"],0],
+
+["Webbed feet are especially useful for:",["Swimming","Flying","Hibernation","Camouflage"],0],
+
+["Sharp claws can help an animal to:",["Catch prey or defend itself","Photosynthesize","Produce milk only","Breathe underwater"],0],
+
+["The process by which green plants make food is:",["Photosynthesis","Respiration","Digestion","Excretion"],0],
+
+["The main pigment involved in photosynthesis is:",["Chlorophyll","Hemoglobin","Melanin","Keratin"],0],
+
+["The main source of energy for most ecosystems is:",["Sunlight","Moonlight","Soil","Wind"],0],
+
+["A food chain shows:",["Transfer of energy through feeding","Only reproduction","Only migration","Only respiration"],0],
+
+["A food web consists of:",["Interconnected food chains","One organism only","Only decomposers","Only producers"],0],
+
+["A producer is an organism that:",["Makes its own food","Eats only animals","Cannot obtain energy","Always decomposes"],0],
+
+["An example of a producer is:",["Green plant","Lion","Fungus","Earthworm"],0],
+
+["A primary consumer usually feeds on:",["Producers","Secondary consumers","Decomposers only","Carnivores only"],0],
+
+["A decomposer commonly includes:",["Fungi and bacteria","Lions and tigers","Birds only","Fish only"],0],
+
+["The role of decomposers is to:",["Break down dead organic matter","Produce sunlight","Stop nutrient cycling","Prevent decomposition"],0],
+
+["A habitat is:",["The place where an organism lives","The organism's food only","Its chromosome","Its blood"],0],
+
+["An ecosystem includes:",["Living organisms and their physical environment","Animals only","Plants only","Water only"],0],
+
+["Biodiversity means:",["Variety of life","Only number of humans","Only plant growth","Only animal migration"],0],
+
+["A species is commonly defined as organisms that can:",["Interbreed and produce fertile offspring","Never reproduce","Have different kingdoms","Only live alone"],0],
+
+["The smallest unit of biological organization is commonly the:",["Cell","Organ","Tissue","Organism"],0],
+
+["The cell membrane is mainly responsible for:",["Controlling movement into and out of the cell","Producing bones","Digesting all food","Making blood"],0],
+
+["The nucleus contains most of the cell's:",["Genetic material","Water","Cell wall","Chlorophyll"],0],
+
+["Mitochondria are mainly involved in:",["ATP production through cellular respiration","Photosynthesis only","Protein storage only","Cell division only"],0],
+
+["Ribosomes are responsible for:",["Protein synthesis","Lipid digestion","DNA destruction","Water storage"],0],
+
+["DNA stands for:",["Deoxyribonucleic acid","Deoxyribose nitrogen acid","Dynamic nucleic acid","Double nitrogen acid"],0],
+
+["A gene is a:",["Unit of heredity","Type of tissue","Cell organelle","Food class"],0],
+
+["Genetics is the study of:",["Heredity and variation","Only cells","Only ecosystems","Only digestion"],0],
+
+["Mitosis produces:",["Two genetically similar daughter cells","Four different cells","One cell only","No cells"],0],
+
+["Meiosis is important in the production of:",["Gametes","Skin cells only","Liver cells only","Bone cells only"],0],
+
+["The male gamete in humans is the:",["Sperm cell","Ovum","Zygote","Embryo"],0],
+
+["The female gamete in humans is the:",["Ovum","Sperm","Zygote","Embryo"],0],
+
+["Fertilization produces a:",["Zygote","Gamete","Tissue","Spore only"],0],
+
+["Carbohydrates are important mainly as a source of:",["Energy","Genetic information","Hormones only","Antibodies only"],0],
+
+["Proteins are important for:",["Growth and tissue repair","Only energy storage","Only photosynthesis","Only water transport"],0],
+
+["Vitamins are generally needed in:",["Small amounts","Huge amounts only","No amount","Only during sleep"],0],
+
+["Vitamin C deficiency can cause:",["Scurvy","Rickets","Night blindness","Beriberi"],0],
+
+["Vitamin D deficiency can contribute to:",["Rickets","Scurvy","Malaria","Tuberculosis"],0],
+
+["Microorganisms include:",["Bacteria, fungi and protozoa","Only mammals","Only birds","Only trees"],0],
+
+["Some bacteria are:",["Beneficial while others can cause disease","Always harmful","Always beneficial","Never living"],0],
+
+["Viruses require a host cell mainly to:",["Replicate","Digest food","Produce chlorophyll","Move independently"],0],
+
+["A vaccine helps the immune system to:",["Develop protection against specific infections","Destroy all cells","Increase body temperature permanently","Stop all metabolism"],0]
+
+],
+
+
+/* =========================================================
+   MTH 102 — 50 QUESTIONS
+========================================================= */
+
+mth102: [
+
+["What is the domain of f(x)=1/(x−3)?",["All real numbers except 3","All real numbers","Only 3","Only positive numbers"],0],
+
+["What is the domain of √(4−x²)?",["−2≤x≤2","x≥2","x≤−2","All real numbers"],0],
+
+["What is the domain of √(x²−16)?",["x≤−4 or x≥4","−4≤x≤4","x≥0","All real numbers"],0],
+
+["What is the range of y=1/x?",["All real numbers except 0","All real numbers","Only positive numbers","Only zero"],0],
+
+["A function is one-to-one if:",["Different inputs have different outputs","Every output has many inputs","It has no domain","It has no range"],0],
+
+["A surjective function is one in which:",["Every element of the codomain has a preimage","No output exists","Every input has two outputs","The domain is empty"],0],
+
+["A bijective function is:",["Both injective and surjective","Only injective","Only surjective","Neither"],0],
+
+["The derivative of x² is:",["2x","x","x³","2"],0],
+
+["The derivative of x³ is:",["3x²","x²","3x","x⁴"],0],
+
+["The derivative of a constant is:",["0","1","The constant","x"],0],
+
+["The derivative of sin x is:",["cos x","−cos x","sin x","−sin x"],0],
+
+["The derivative of cos x is:",["−sin x","sin x","cos x","−cos x"],0],
+
+["The derivative of eˣ is:",["eˣ","xeˣ","1","0"],0],
+
+["The derivative of ln x is:",["1/x","x","ln x","eˣ"],0],
+
+["The integral of x dx is:",["x²/2+C","x+C","2x+C","x³+C"],0],
+
+["The integral of 1/x dx is:",["ln|x|+C","x+C","1/x+C","eˣ+C"],0],
+
+["The integral of cos x dx is:",["sin x+C","−sin x+C","cos x+C","−cos x+C"],0],
+
+["The integral of sin x dx is:",["−cos x+C","cos x+C","sin x+C","−sin x+C"],0],
+
+["A limit describes the value a function approaches as:",["x approaches a value","x becomes permanently zero","The function disappears","The domain is empty"],0],
+
+["If lim x→2 (x+3), the answer is:",["5","2","3","0"],0],
+
+["What is the value of 2²+3²?",["13","10","12","15"],0],
+
+["Factor x²−9:",["(x−3)(x+3)","(x−9)(x+1)","(x−3)²","(x+9)(x−1)"],0],
+
+["Factor x²+5x+6:",["(x+2)(x+3)","(x+1)(x+6)","(x−2)(x−3)","(x+5)(x+6)"],0],
+
+["Expand (x+2)(x+3):",["x²+5x+6","x²+6x+5","x²+x+6","x²+5"],0],
+
+["Expand (x−2)²:",["x²−4x+4","x²−4","x²+4x+4","x²−2x+4"],0],
+
+["The slope of y=mx+c is:",["m","c","x","y"],0],
+
+["In y=2x+5, the slope is:",["2","5","7","−2"],0],
+
+["In y=2x+5, the y-intercept is:",["5","2","7","−5"],0],
+
+["The equation of a horizontal line has:",["Slope 0","Undefined slope","Slope 1","Slope −1"],0],
+
+["The slope of a vertical line is:",["Undefined","0","1","−1"],0],
+
+["The quadratic equation generally has the form:",["ax²+bx+c=0","ax+b=0","ax³+b=0","a/x=0"],0],
+
+["The quadratic formula is:",["x=(-b±√(b²−4ac))/(2a)","x=(b±√(b²+4ac))/a","x=−b/2","x=a/b"],0],
+
+["The discriminant is:",["b²−4ac","b²+4ac","4ac−b","a²−bc"],0],
+
+["If the discriminant is zero, a quadratic has:",["One repeated real root","Two different real roots","No roots always","Four roots"],0],
+
+["The identity sin²x+cos²x equals:",["1","0","2","x"],0],
+
+["tan x equals:",["sin x/cos x","cos x/sin x","sin x cos x","1/sin x"],0],
+
+["The value of sin 0° is:",["0","1","−1","Undefined"],0],
+
+["The value of cos 0° is:",["1","0","−1","2"],0],
+
+["The value of sin 90° is:",["1","0","−1","Undefined"],0],
+
+["The value of cos 90° is:",["0","1","−1","2"],0],
+
+["A matrix with equal numbers of rows and columns is:",["Square matrix","Row matrix","Column matrix","Zero matrix"],0],
+
+["A matrix containing only one row is:",["Row matrix","Column matrix","Square matrix","Identity matrix"],0],
+
+["A matrix containing only one column is:",["Column matrix","Row matrix","Square matrix","Scalar matrix"],0],
+
+["The determinant of a 2×2 matrix [[a,b],[c,d]] is:",["ad−bc","ab−cd","ac−bd","ad+bc"],0],
+
+["The identity matrix has:",["1s on its main diagonal","0s on its main diagonal","Only 2s","No diagonal"],0],
+
+["A vector has:",["Magnitude and direction","Only magnitude","Only direction","No dimensions"],0],
+
+["The magnitude of vector (3,4) is:",["5","7","1","12"],0],
+
+["The complex number i satisfies:",["i²=−1","i²=1","i=0","i²=2"],0],
+
+["The conjugate of a+bi is:",["a−bi","a+bi","−a+bi","−a−bi"],0],
+
+["The modulus of a+bi is:",["√(a²+b²)","a+b","a−b","ab"],0]
+
+],
+
+
+/* =========================================================
+   COS 102 — 50 QUESTIONS
+========================================================= */
+
+cos102: [
+
+["What does CPU stand for?",["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Processing User"],0],
+
+["The CPU is often called the:",["Brain of the computer","Memory card","Monitor","Keyboard"],0],
+
+["RAM stands for:",["Random Access Memory","Read Access Machine","Rapid Application Memory","Random Application Module"],0],
+
+["RAM is generally:",["Volatile memory","Permanent memory","Optical memory","Paper memory"],0],
+
+["ROM stands for:",["Read Only Memory","Random Only Memory","Read Output Machine","Rapid Operating Memory"],0],
+
+["Which device is used to enter text?",["Keyboard","Monitor","Speaker","Projector"],0],
+
+["Which device displays visual output?",["Monitor","Keyboard","Mouse","Microphone"],0],
+
+["Which is an input device?",["Mouse","Printer","Monitor","Speaker"],0],
+
+["Which is an output device?",["Printer","Keyboard","Mouse","Scanner"],0],
+
+["A computer processes data using:",["Instructions and algorithms","Only electricity","Only paper","Only sound"],0],
+
+["An algorithm is:",["A step-by-step procedure for solving a problem","A computer monitor","A type of memory","A keyboard key"],0],
+
+["A flowchart is used to:",["Represent an algorithm graphically","Store electricity","Print documents","Create hardware"],0],
+
+["The symbol commonly used for a decision in a flowchart is:",["Diamond","Circle","Rectangle","Triangle"],0],
+
+["A flowchart process is commonly represented by:",["Rectangle","Diamond","Circle only","Arrow only"],0],
+
+["The start/end symbol in a flowchart is commonly:",["Oval/terminator","Diamond","Rectangle","Triangle"],0],
+
+["What does HTML stand for?",["HyperText Markup Language","HighText Machine Language","Hyperlink Text Management Language","Home Tool Markup Language"],0],
+
+["HTML is mainly used to:",["Structure web pages","Calculate electricity","Manage databases only","Design processors"],0],
+
+["CSS is mainly used for:",["Styling web pages","Writing hardware","Storing files only","Operating CPUs"],0],
+
+["JavaScript is commonly used to:",["Add interactivity to web pages","Manufacture keyboards","Store electricity","Replace RAM"],0],
+
+["A web browser is used to:",["Access and display web content","Compile electricity","Print circuits","Create RAM"],0],
+
+["An operating system manages:",["Computer hardware and software resources","Only the keyboard","Only websites","Only documents"],0],
+
+["Which is an operating system?",["Windows","HTML","Google","Python"],0],
+
+["Linux is an example of:",["An operating system","A printer","A browser only","A programming variable"],0],
+
+["Android is primarily a:",["Mobile operating system","Database","Programming language","CPU"],0],
+
+["A file extension identifies:",["The type or format of a file","The computer's owner","The CPU speed","The monitor size"],0],
+
+["A database is used to:",["Store and organize data","Increase screen brightness","Power a computer","Replace a keyboard"],0],
+
+["A table in a relational database contains:",["Rows and columns","Only images","Only formulas","Only passwords"],0],
+
+["A primary key is used to:",["Uniquely identify records","Delete all tables","Turn off a computer","Display graphics"],0],
+
+["SQL is commonly used for:",["Managing and querying relational databases","Drawing hardware","Editing photos only","Creating electricity"],0],
+
+["What does SQL stand for?",["Structured Query Language","Simple Question Language","System Query Logic","Standard Quick Language"],0],
+
+["A computer virus is:",["Malicious software that can replicate or spread","A hardware component","A monitor","A keyboard shortcut"],0],
+
+["Antivirus software is designed to:",["Detect and remove malware","Increase RAM physically","Replace the CPU","Create websites"],0],
+
+["Phishing is an attempt to:",["Trick users into revealing sensitive information","Repair hardware","Increase internet speed","Compress files"],0],
+
+["A strong password should generally be:",["Long and difficult to guess","Your name only","123456","Password"],0],
+
+["Cloud computing involves:",["Using computing resources over a network","Only offline computing","Removing the internet","Using paper files"],0],
+
+["The internet is:",["A global network of interconnected networks","A single computer","A printer","An operating system"],0],
+
+["A LAN covers:",["A relatively small geographic area","The whole world only","Only satellites","Every country"],0],
+
+["WAN stands for:",["Wide Area Network","Wireless Application Node","Web Access Network","Wide Application Number"],0],
+
+["An IP address is used to:",["Identify a device/interface on a network","Measure CPU temperature","Store keyboard keys","Print documents"],0],
+
+["HTTP is associated with:",["Web communication","Computer cooling","File compression only","Keyboard input"],0],
+
+["HTTPS provides:",["Encrypted/secured HTTP communication","Faster CPU speed","More RAM","A larger monitor"],0],
+
+["A compiler generally:",["Translates source code into machine/object code","Displays websites only","Stores passwords","Creates hardware"],0],
+
+["An interpreter generally:",["Executes/translates program instructions at runtime","Prints source code","Creates a CPU","Stores electricity"],0],
+
+["A programming variable is:",["A named storage location/value that can change","A monitor","A keyboard","A network cable"],0],
+
+["A loop is used to:",["Repeat instructions","Delete a computer","Turn off RAM","Create a monitor"],0],
+
+["An if statement is used for:",["Conditional decision-making","Printing hardware","Storing electricity","Opening a keyboard"],0],
+
+["Debugging means:",["Finding and fixing program errors","Deleting the program","Installing a monitor","Increasing voltage"],0],
+
+["Binary uses:",["0 and 1","1 and 2","2 and 3","0 to 9"],0],
+
+["One byte contains:",["8 bits","4 bits","16 bits","2 bits"],0],
+
+["A bit is:",["The smallest basic unit of digital information","A group of 8 bytes","A processor","A database"],0]
+
+]
+
+};
+
+
+/* =========================================================
+   QUIZ VARIABLES
+========================================================= */
+
+let currentSubject = "";
+let currentQuestions = [];
+let currentQuestion = 0;
+let userAnswers = [];
+let finalScore = 0;
+
+
+/* =========================================================
+   SUBJECT NAMES
+========================================================= */
+
+const subjectNames = {
+    phy102:"PHY 102",
+    chm102:"CHM 102",
+    bio102:"BIO 102",
+    mth102:"MTH 102",
+    cos102:"COS 102"
+};
+
+
+/* =========================================================
+   START QUIZ
+========================================================= */
+
+function startQuiz(){
+
+    currentSubject =
+        document.getElementById("subjectSelect").value;
+
+    currentQuestions =
+        quizData[currentSubject];
+
+    if(!currentQuestions || currentQuestions.length !== 50){
+
+        alert("This subject does not contain exactly 50 questions.");
+
+        return;
+    }
+
+    currentQuestion = 0;
+
+    userAnswers =
+        new Array(currentQuestions.length).fill(null);
+
+    document.getElementById("setup")
+        .classList.add("hidden");
+
+    document.getElementById("result")
+        .classList.add("hidden");
+
+    document.getElementById("review")
+        .classList.add("hidden");
+
+    document.getElementById("quiz")
+        .classList.remove("hidden");
+
+    document.getElementById("subjectTitle").innerText =
+        subjectNames[currentSubject] + " — 50 Questions";
+
+    loadQuestion();
+}
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion(){
+
+    const q =
+        currentQuestions[currentQuestion];
+
+    document.getElementById("questionNumber").innerText =
+        "Question " +
+        (currentQuestion + 1) +
+        " of " +
+        currentQuestions.length;
+
+    document.getElementById("question").innerText =
+        q[0];
+
+    const options =
+        document.getElementById("options");
+
+    options.innerHTML = "";
+
+    q[1].forEach((option,index)=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className = "option";
+
+        button.innerText =
+            String.fromCharCode(65 + index) +
+            ". " +
+            option;
+
+        if(userAnswers[currentQuestion] === index){
+            button.classList.add("selected");
+        }
+
+        button.onclick = function(){
+
+            selectAnswer(index);
+
+        };
+
+        options.appendChild(button);
+
+    });
+
+
+    const progress =
+        ((currentQuestion + 1) /
+        currentQuestions.length) * 100;
+
+    document.getElementById("progressBar")
+        .style.width = progress + "%";
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(index){
+
+    userAnswers[currentQuestion] =
+        index;
+
+    loadQuestion();
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextQuestion(){
+
+    if(currentQuestion <
+       currentQuestions.length - 1){
+
+        currentQuestion++;
+
+        loadQuestion();
+
+    }else{
+
+        alert("You are on the last question. Click Submit Quiz.");
+
+    }
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        loadQuestion();
+
+    }
+
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+function submitQuiz(){
+
+    const unanswered =
+        userAnswers.filter(
+            answer => answer === null
+        ).length;
+
+    if(unanswered > 0){
+
+        const proceed =
+            confirm(
+                "You have " +
+                unanswered +
+                " unanswered question(s).\n\n" +
+                "Do you still want to submit?"
+            );
+
+        if(!proceed){
+            return;
+        }
+    }
+
+
+    finalScore = 0;
+
+    currentQuestions.forEach((q,index)=>{
+
+        if(userAnswers[index] === q[2]){
+
+            finalScore++;
+
+        }
+
+    });
+
+
+    const percent =
+        (finalScore /
+        currentQuestions.length) * 100;
+
+
+    document.getElementById("quiz")
+        .classList.add("hidden");
+
+    document.getElementById("result")
+        .classList.remove("hidden");
+
+
+    document.getElementById("resultSubject")
+        .innerText =
+        subjectNames[currentSubject];
+
+
+    document.getElementById("score")
+        .innerText =
+        finalScore + " / 50";
+
+
+    document.getElementById("percentage")
+        .innerText =
+        percent.toFixed(1) + "%";
+}
+
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+function showReview(){
+
+    document.getElementById("result")
+        .classList.add("hidden");
+
+    document.getElementById("review")
+        .classList.remove("hidden");
+
+    const review =
+        document.getElementById("reviewContent");
+
+    review.innerHTML = "";
+
+
+    currentQuestions.forEach((q,index)=>{
+
+        const item =
+            document.createElement("div");
+
+        const correct =
+            userAnswers[index] === q[2];
+
+        item.className =
+            "review-item " +
+            (correct ? "correct" : "wrong");
+
+
+        let userAnswer =
+            userAnswers[index] === null
+            ? "Not answered"
+            : q[1][userAnswers[index]];
+
+
+        let correctAnswer =
+            q[1][q[2]];
+
+
+        item.innerHTML =
+
+            "<strong>Question " +
+            (index + 1) +
+            ":</strong><br>" +
+
+            q[0] +
+
+            "<br><br>" +
+
+            "Your answer: " +
+            userAnswer +
+
+            "<br>" +
+
+            "Correct answer: " +
+            correctAnswer;
+
+        review.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   RETRY
+========================================================= */
+
+function retryQuiz(){
+
+    document.getElementById("result")
+        .classList.add("hidden");
+
+    document.getElementById("review")
+        .classList.add("hidden");
+
+    document.getElementById("quiz")
+        .classList.remove("hidden");
+
+    currentQuestion = 0;
+
+    userAnswers =
+        new Array(currentQuestions.length).fill(null);
+
+    loadQuestion();
+}
+
+
+/* =========================================================
+   QUIZ INDEX
+========================================================= */
+
+function goQuizIndex(){
+
+    window.location.href =
+        "quiz-index.html";
+}
+
+
+/* =========================================================
+   READ SUBJECT FROM QUIZ INDEX
+========================================================= */
+
+window.onload = function(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const subject =
+        params.get("subject");
+
+    if(subject && quizData[subject]){
+
+        document.getElementById("subjectSelect")
+            .value = subject;
+
+        startQuiz();
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>

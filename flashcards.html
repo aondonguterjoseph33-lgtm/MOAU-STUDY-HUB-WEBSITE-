@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Flashcards | MOAU STUDY HUB</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #F4F7FB;
+    color: #10233F;
+}
+
+header {
+    background: #123C88;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    color: #F4B942;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #123C88;
+}
+
+.flashcard {
+    background: white;
+    min-height: 250px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#question {
+    font-size: 24px;
+    font-weight: bold;
+    color: #123C88;
+}
+
+#answer {
+    font-size: 20px;
+    margin-top: 25px;
+    color: #10233F;
+}
+
+button {
+    background: #123C88;
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 8px;
+    margin: 15px 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #2563EB;
+}
+
+.hidden {
+    display: none;
+}
+
+.counter {
+    text-align: center;
+    font-weight: bold;
+    margin: 15px;
+}
+
+footer {
+    background: #123C88;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MOAU STUDY HUB</h1>
+    <p>LEARN • GROW • BECOME</p>
+</header>
+
+<div class="container">
+
+    <h2>🧠 PHY 102 FLASHCARDS</h2>
+
+    <div class="flashcard">
+
+        <div id="question"></div>
+
+        <div id="answer" class="hidden"></div>
+
+        <div>
+            <button onclick="showAnswer()">
+                SHOW ANSWER
+            </button>
+
+            <button onclick="nextCard()">
+                NEXT CARD
+            </button>
+        </div>
+
+    </div>
+
+    <div class="counter" id="counter"></div>
+
+</div>
+
+<footer>
+    <p>© 2026 MOAU STUDY HUB</p>
+    <p>LEARN • GROW • BECOME</p>
+</footer>
+
+
+<script>
+
+const flashcards = [
+
+{
+    question: "What is the SI unit of magnetic field?",
+    answer: "Tesla (T)"
+},
+
+{
+    question: "What is the formula for magnetic force on a moving charge?",
+    answer: "F = qvB sinθ"
+},
+
+{
+    question: "When is magnetic force maximum?",
+    answer: "When θ = 90°."
+},
+
+{
+    question: "When is magnetic force zero?",
+    answer: "When the charge is at rest or when velocity is parallel to the magnetic field."
+},
+
+{
+    question: "What is the formula for force on a current-carrying wire?",
+    answer: "F = BIL sinθ"
+},
+
+{
+    question: "What does B represent in magnetism?",
+    answer: "Magnetic flux density or magnetic field."
+},
+
+{
+    question: "What is the SI unit of magnetic flux?",
+    answer: "Weber (Wb)"
+},
+
+{
+    question: "What rule can be used to determine the direction of magnetic force?",
+    answer: "The right-hand rule."
+},
+
+{
+    question: "What happens to magnetic force if the charge is doubled?",
+    answer: "The magnetic force doubles, if the other quantities remain constant."
+},
+
+{
+    question: "Does a magnetic field do work on a moving charged particle?",
+    answer: "No. The magnetic force is perpendicular to the particle's velocity, so it does no work."
+}
+
+];
+
+let currentCard = 0;
+
+function showCard() {
+
+    document.getElementById("question").textContent =
+        flashcards[currentCard].question;
+
+    document.getElementById("answer").textContent =
+        flashcards[currentCard].answer;
+
+    document.getElementById("answer")
+        .classList.add("hidden");
+
+    document.getElementById("counter").textContent =
+        "Card " +
+        (currentCard + 1) +
+        " of " +
+        flashcards.length;
+}
+
+function showAnswer() {
+
+    document.getElementById("answer")
+        .classList.remove("hidden");
+}
+
+function nextCard() {
+
+    currentCard++;
+
+    if (currentCard >= flashcards.length) {
+        currentCard = 0;
+    }
+
+    showCard();
+}
+
+showCard();
+
+</script>
+
+</body>
+</html>

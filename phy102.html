@@ -1,0 +1,6085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHY 102 - MOAU STUDY HUB</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #10233f;
+}
+
+header {
+    background: #123c88;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 8px 0 0;
+    color: #f4b942;
+    font-weight: bold;
+}
+
+nav {
+    background: #0d2e68;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    gap: 8px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+}
+
+nav a:hover {
+    background: #f4b942;
+    color: #10233f;
+}
+
+.container {
+    width: 94%;
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+.search-box {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #123c88;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.topic-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.topic-buttons button {
+    background: #123c88;
+    color: white;
+    border: none;
+    padding: 10px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.topic-buttons button:hover {
+    background: #f4b942;
+    color: #10233f;
+}
+
+.special-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.special-buttons button {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #f4b942;
+    color: #10233f;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.special-buttons button:hover {
+    opacity: 0.85;
+}
+
+.section {
+    display: none;
+    background: white;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.section.active {
+    display: block;
+}
+
+.section h2 {
+    color: #123c88;
+    border-bottom: 3px solid #f4b942;
+    padding-bottom: 8px;
+}
+
+.section h3 {
+    color: #123c88;
+}
+
+.formula {
+    background: #eef4ff;
+    border-left: 5px solid #123c88;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 5px;
+}
+
+.exam-card,
+.quiz-card,
+.flashcard {
+    background: #f8fafc;
+    border: 1px solid #d7e0ee;
+    padding: 16px;
+    margin: 12px 0;
+    border-radius: 8px;
+}
+
+.answer {
+    display: none;
+    background: #eaf7ea;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+button {
+    font-family: inherit;
+}
+
+.action-btn {
+    background: #123c88;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.action-btn:hover {
+    background: #0d2e68;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 11px;
+    margin: 7px 0;
+    border: 1px solid #ccd6e5;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #eef4ff;
+}
+
+.result {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.progress-container {
+    width: 100%;
+    background: #dfe6ef;
+    height: 25px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #123c88;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.stat {
+    background: #eef4ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.flashcard-question {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer {
+    background: #123c88;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+@media(max-width:600px) {
+    header h1 {
+        font-size: 23px;
+    }
+
+    .section {
+        padding: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MOAU STUDY HUB</h1>
+    <p>LEARN • GROW • BECOME</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="cbt.html">CBT</a>
+    <a href="materials.html">Materials</a>
+    <a href="flashcards.html">Flashcards</a>
+</nav>
+
+<div class="container">
+
+<h2>📘 PHY 102 — Physics II</h2>
+
+<input
+    type="text"
+    id="searchBox"
+    class="search-box"
+    placeholder="🔍 Search topics, formulas or questions..."
+    onkeyup="searchContent()"
+>
+
+<div class="special-buttons">
+    <button onclick="showSection('formulas')">🧮 Formula Sheet</button>
+    <button onclick="showSection('exams')">📝 Exam Questions</button>
+    <button onclick="showSection('quiz')">🎯 Quick Quiz</button>
+    <button onclick="showSection('progress')">📊 My Progress</button>
+    <button onclick="showSection('flashcards')">🧠 Flashcards</button>
+</div>
+
+<div class="topic-buttons">
+
+<button onclick="showSection('topic1')">1. Magnetic Force</button>
+<button onclick="showSection('topic2')">2. Magnetic Field</button>
+<button onclick="showSection('topic3')">3. Biot–Savart Law</button>
+<button onclick="showSection('topic4')">4. Ampère's Law</button>
+<button onclick="showSection('topic5')">5. Force on Wire</button>
+<button onclick="showSection('topic6')">6. Magnetic Flux</button>
+<button onclick="showSection('topic7')">7. Charged Particles</button>
+<button onclick="showSection('topic8')">8. Circular Motion</button>
+<button onclick="showSection('topic9')">9. Right-Hand Rules</button>
+<button onclick="showSection('topic10')">10. Unit Vectors</button>
+<button onclick="showSection('topic11')">11. Electromagnetic Induction</button>
+<button onclick="showSection('topic12')">12. Faraday's Law</button>
+<button onclick="showSection('topic13')">13. Lenz's Law</button>
+<button onclick="showSection('topic14')">14. Inductance</button>
+<button onclick="showSection('topic15')">15. AC Circuits</button>
+
+</div>
+
+
+<!-- ================= FORMULA SHEET ================= -->
+
+<div id="formulas" class="section">
+
+<h2>🧮 PHY 102 Formula Sheet</h2>
+
+<div class="formula">
+<h3>1. Magnetic Force on a Charge</h3>
+<p><b>F = qvB sinθ</b></p>
+<p><b>Symbols:</b> F = force, q = charge, v = velocity, B = magnetic field.</p>
+<p><b>SI unit:</b> Newton (N)</p>
+<p><b>Use when:</b> a charged particle moves through a magnetic field.</p>
+</div>
+
+<div class="formula">
+<h3>2. Magnetic Field of a Long Straight Wire</h3>
+<p><b>B = μ₀I / 2πr</b></p>
+<p>I = current, r = distance from wire.</p>
+<p>μ₀ = 4π × 10⁻⁷ T·m/A</p>
+</div>
+
+<div class="formula">
+<h3>3. Biot–Savart Law</h3>
+<p><b>dB = (μ₀/4π)(I dl sinθ/r²)</b></p>
+<p>Used to calculate the magnetic field produced by a small current element.</p>
+</div>
+
+<div class="formula">
+<h3>4. Ampère's Law</h3>
+<p><b>∮ B · dl = μ₀I<sub>enclosed</sub></b></p>
+<p>Useful when the magnetic field has a high degree of symmetry.</p>
+</div>
+
+<div class="formula">
+<h3>5. Force on a Current-Carrying Wire</h3>
+<p><b>F = BIL sinθ</b></p>
+<p>For perpendicular field: <b>F = BIL</b></p>
+</div>
+
+<div class="formula">
+<h3>6. Magnetic Flux</h3>
+<p><b>Φ = BA cosθ</b></p>
+<p>Φ = magnetic flux, A = area.</p>
+<p>SI unit: Weber (Wb)</p>
+</div>
+
+<div class="formula">
+<h3>7. Radius of Charged Particle</h3>
+<p><b>r = mv / |q|B</b></p>
+</div>
+
+<div class="formula">
+<h3>8. Angular Frequency</h3>
+<p><b>ω = |q|B/m</b></p>
+</div>
+
+<div class="formula">
+<h3>9. Period of Circular Motion</h3>
+<p><b>T = 2πm / |q|B</b></p>
+</div>
+
+<div class="formula">
+<h3>10. Faraday's Law</h3>
+<p><b>ε = -N ΔΦ/Δt</b></p>
+</div>
+
+<div class="formula">
+<h3>11. Induced EMF</h3>
+<p><b>ε = -N dΦ/dt</b></p>
+</div>
+
+<div class="formula">
+<h3>12. Inductor</h3>
+<p><b>ε = -L di/dt</b></p>
+</div>
+
+<div class="formula">
+<h3>13. Energy Stored in an Inductor</h3>
+<p><b>U = ½LI²</b></p>
+</div>
+
+<div class="formula">
+<h3>14. Inductance of a Solenoid</h3>
+<p><b>L = μ₀N²A/l</b></p>
+</div>
+
+<div class="formula">
+<h3>15. AC Angular Frequency</h3>
+<p><b>ω = 2πf</b></p>
+</div>
+
+<div class="formula">
+<h3>16. RMS Voltage</h3>
+<p><b>V<sub>rms</sub> = V₀/√2</b></p>
+</div>
+
+<div class="formula">
+<h3>17. RMS Current</h3>
+<p><b>I<sub>rms</sub> = I₀/√2</b></p>
+</div>
+
+<div class="formula">
+<h3>18. Inductive Reactance</h3>
+<p><b>X<sub>L</sub> = ωL</b></p>
+</div>
+
+<div class="formula">
+<h3>19. Capacitive Reactance</h3>
+<p><b>X<sub>C</sub> = 1/(ωC)</b></p>
+</div>
+
+<div class="formula">
+<h3>20. Series RLC Impedance</h3>
+<p><b>Z = √[R² + (X<sub>L</sub> - X<sub>C</sub>)²]</b></p>
+</div>
+
+</div>
+
+
+<!-- ================= EXAM QUESTIONS ================= -->
+
+<div id="exams" class="section">
+
+<h2>📝 PHY 102 Exam Questions</h2>
+
+<div class="exam-card">
+<p><b>Question 1:</b> A charge of 3.2 × 10⁻¹⁹ C moves with velocity 2 × 10⁶ m/s perpendicular to a magnetic field of 1.5 T. Calculate the magnetic force.</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans1')">Show Answer</button>
+
+<div id="ans1" class="answer">
+<p><b>Formula:</b> F = qvB</p>
+<p>F = (3.2 × 10⁻¹⁹)(2 × 10⁶)(1.5)</p>
+<p><b>F = 9.6 × 10⁻¹³ N</b></p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 2:</b> State Biot–Savart law.</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans2')">Show Answer</button>
+
+<div id="ans2" class="answer">
+<p>Biot–Savart law states that the magnetic field due to a current element is proportional to the current, length element and sinθ, and inversely proportional to the square of the distance from the element.</p>
+<p><b>dB = (μ₀/4π)(I dl sinθ/r²)</b></p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 3:</b> Calculate the magnetic field 0.2 m from a long straight wire carrying 5 A.</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans3')">Show Answer</button>
+
+<div id="ans3" class="answer">
+<p><b>B = μ₀I / 2πr</b></p>
+<p>B = [(4π × 10⁻⁷)(5)] / [2π(0.2)]</p>
+<p><b>B = 5 × 10⁻⁶ T</b></p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 4:</b> State Ampère's law.</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans4')">Show Answer</button>
+
+<div id="ans4" class="answer">
+<p><b>∮B · dl = μ₀I<sub>enclosed</sub></b></p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 5:</b> A wire of length 0.5 m carries a current of 4 A in a magnetic field of 0.8 T perpendicular to the wire. Find the force.</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans5')">Show Answer</button>
+
+<div id="ans5" class="answer">
+<p><b>F = BIL</b></p>
+<p>F = (0.8)(4)(0.5)</p>
+<p><b>F = 1.6 N</b></p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 6:</b> What happens to a charged particle moving parallel to a magnetic field?</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans6')">Show Answer</button>
+
+<div id="ans6" class="answer">
+<p>Since θ = 0°, sin0° = 0. Therefore the magnetic force is zero and the particle is not deflected by the magnetic field.</p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 7:</b> Define magnetic flux and give its formula.</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans7')">Show Answer</button>
+
+<div id="ans7" class="answer">
+<p>Magnetic flux is a measure of the magnetic field passing through a surface.</p>
+<p><b>Φ = BA cosθ</b></p>
+<p>SI unit: Weber (Wb).</p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 8:</b> State Faraday's law of electromagnetic induction.</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans8')">Show Answer</button>
+
+<div id="ans8" class="answer">
+<p>The induced emf in a circuit is proportional to the rate of change of magnetic flux linkage.</p>
+<p><b>ε = -NΔΦ/Δt</b></p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 9:</b> What does the negative sign in Faraday's law represent?</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans9')">Show Answer</button>
+
+<div id="ans9" class="answer">
+<p>The negative sign represents <b>Lenz's law</b>: the induced effect opposes the change in magnetic flux that produces it.</p>
+</div>
+</div>
+
+<div class="exam-card">
+<p><b>Question 10:</b> Calculate the RMS voltage of an AC supply whose maximum voltage is 240 V.</p>
+
+<button class="action-btn" onclick="toggleAnswer('ans10')">Show Answer</button>
+
+<div id="ans10" class="answer">
+<p><b>V<sub>rms</sub> = V₀/√2</b></p>
+<p>V<sub>rms</sub> = 240/√2</p>
+<p><b>V<sub>rms</sub> ≈ 169.7 V</b></p>
+</div>
+</div>
+
+</div>
+
+
+<!-- ================= QUICK QUIZ ================= -->
+
+<div id="quiz" class="section">
+
+<h2>🎯 PHY 102 Quick Quiz</h2>
+
+<p>Choose the correct answer for each question.</p>
+
+<div class="quiz-card">
+<p><b>1. What is the SI unit of magnetic field?</b></p>
+
+<button class="option" onclick="answerQuiz(1,'A')">A. Newton</button>
+<button class="option" onclick="answerQuiz(1,'B')">B. Tesla</button>
+<button class="option" onclick="answerQuiz(1,'C')">C. Weber</button>
+<button class="option" onclick="answerQuiz(1,'D')">D. Joule</button>
+
+<div id="quizResult1" class="result"></div>
+</div>
+
+<div class="quiz-card">
+<p><b>2. Which formula gives magnetic force on a moving charge?</b></p>
+
+<button class="option" onclick="answerQuiz(2,'A')">A. F = ma</button>
+<button class="option" onclick="answerQuiz(2,'B')">B. F = qvB sinθ</button>
+<button class="option" onclick="answerQuiz(2,'C')">C. F = BIL</button>
+<button class="option" onclick="answerQuiz(2,'D')">D. F = mg</button>
+
+<div id="quizResult2" class="result"></div>
+</div>
+
+<div class="quiz-card">
+<p><b>3. What is the SI unit of magnetic flux?</b></p>
+
+<button class="option" onclick="answerQuiz(3,'A')">A. Tesla</button>
+<button class="option" onclick="answerQuiz(3,'B')">B. Weber</button>
+<button class="option" onclick="answerQuiz(3,'C')">C. Newton</button>
+<button class="option" onclick="answerQuiz(3,'D')">D. Ampere</button>
+
+<div id="quizResult3" class="result"></div>
+</div>
+
+<div class="quiz-card">
+<p><b>4. Which law explains electromagnetic induction?</b></p>
+
+<button class="option" onclick="answerQuiz(4,'A')">A. Faraday's law</button>
+<button class="option" onclick="answerQuiz(4,'B')">B. Ohm's law</button>
+<button class="option" onclick="answerQuiz(4,'C')">C. Newton's law</button>
+<button class="option" onclick="answerQuiz(4,'D')">D. Hooke's law</button>
+
+<div id="quizResult4" class="result"></div>
+</div>
+
+<div class="quiz-card">
+<p><b>5. If a charged particle moves parallel to B, the magnetic force is:</b></p>
+
+<button class="option" onclick="answerQuiz(5,'A')">A. Maximum</button>
+<button class="option" onclick="answerQuiz(5,'B')">B. Zero</button>
+<button class="option" onclick="answerQuiz(5,'C')">C. Infinite</button>
+<button class="option" onclick="answerQuiz(5,'D')">D. Negative</button>
+
+<div id="quizResult5" class="result"></div>
+</div>
+
+<button class="action-btn" onclick="showQuizScore()">📊 Calculate Quiz Score</button>
+
+<div id="quizScore" class="result"></div>
+
+</div>
+
+
+<!-- ================= PROGRESS ================= -->
+
+<div id="progress" class="section">
+
+<h2>📊 My PHY 102 Progress</h2>
+
+<div class="stat">
+    <b>Topics:</b>
+    <span id="topicsProgress">0 / 15 completed</span>
+</div>
+
+<div class="progress-container">
+    <div id="progressBar" class="progress-bar">0%</div>
+</div>
+
+<p>Click the button below after studying a topic.</p>
+
+<button class="action-btn" onclick="completeTopic()">
+    ✅ Mark Next Topic Completed
+</button>
+
+<button class="action-btn" onclick="resetProgress()">
+    🔄 Reset Progress
+</button>
+
+</div>
+
+
+<!-- ================= TOPICS ================= -->
+
+<div id="topic1" class="section">
+<h2>1. Magnetic Force</h2>
+<p>The magnetic force on a moving charge is:</p>
+<div class="formula"><b>F = qvB sinθ</b></div>
+<p>The force is maximum when the velocity is perpendicular to the magnetic field.</p>
+<p>The magnetic force does no work on a charged particle because it is perpendicular to the velocity.</p>
+</div>
+
+<div id="topic2" class="section">
+<h2>2. Magnetic Field</h2>
+<p>A magnetic field is a region where magnetic forces can act on moving charges or magnetic materials.</p>
+<div class="formula"><b>B = μ₀I / 2πr</b></div>
+</div>
+
+<div id="topic3" class="section">
+<h2>3. Biot–Savart Law</h2>
+<p>Biot–Savart law calculates the magnetic field produced by a current element.</p>
+<div class="formula"><b>dB = (μ₀/4π)(I dl sinθ/r²)</b></div>
+</div>
+
+<div id="topic4" class="section">
+<h2>4. Ampère's Law</h2>
+<p>Ampère's law relates the circulation of the magnetic field around a closed path to the current enclosed.</p>
+<div class="formula"><b>∮B · dl = μ₀I<sub>enclosed</sub></b></div>
+</div>
+
+<div id="topic5" class="section">
+<h2>5. Force on a Current-Carrying Wire</h2>
+<div class="formula"><b>F = BIL sinθ</b></div>
+<p>For perpendicular magnetic field, F = BIL.</p>
+</div>
+
+<div id="topic6" class="section">
+<h2>6. Magnetic Flux</h2>
+<div class="formula"><b>Φ = BA cosθ</b></div>
+<p>Magnetic flux is measured in Weber.</p>
+</div>
+
+<div id="topic7" class="section">
+<h2>7. Motion of Charged Particles</h2>
+<p>A charged particle moving perpendicular to a uniform magnetic field follows a circular path.</p>
+<div class="formula"><b>r = mv/|q|B</b></div>
+</div>
+
+<div id="topic8" class="section">
+<h2>8. Circular Motion in a Magnetic Field</h2>
+<div class="formula"><b>ω = |q|B/m</b></div>
+<div class="formula"><b>T = 2πm/|q|B</b></div>
+<div class="formula"><b>f = |q|B/2πm</b></div>
+</div>
+
+<div id="topic9" class="section">
+<h2>9. Right-Hand Rules</h2>
+<p>Right-hand rules help determine the direction of magnetic fields and magnetic forces.</p>
+<p>Always use conventional current when applying the wire magnetic-field rule.</p>
+</div>
+
+<div id="topic10" class="section">
+<h2>10. Unit Vectors</h2>
+<p>The unit vectors are:</p>
+<p><b>î</b> = x-direction</p>
+<p><b>ĵ</b> = y-direction</p>
+<p><b>k̂</b> = z-direction</p>
+<p>Important cross products:</p>
+<p><b>î × ĵ = k̂</b></p>
+<p><b>ĵ × k̂ = î</b></p>
+<p><b>k̂ × î = ĵ</b></p>
+</div>
+
+<div id="topic11" class="section">
+<h2>11. Electromagnetic Induction</h2>
+<p>Electromagnetic induction is the production of emf due to changing magnetic flux.</p>
+<div class="formula"><b>ε = -NΔΦ/Δt</b></div>
+</div>
+
+<div id="topic12" class="section">
+<h2>12. Faraday's Law</h2>
+<p>Faraday's law states that induced emf is proportional to the rate of change of magnetic flux linkage.</p>
+<div class="formula"><b>ε = -NΔΦ/Δt</b></div>
+</div>
+
+<div id="topic13" class="section">
+<h2>13. Lenz's Law</h2>
+<p>Lenz's law states that the induced current produces an effect that opposes the change in magnetic flux responsible for producing it.</p>
+</div>
+
+<div id="topic14" class="section">
+<h2>14. Inductance</h2>
+<div class="formula"><b>ε = -L di/dt</b></div>
+<div class="formula"><b>U = ½LI²</b></div>
+<p>For a solenoid:</p>
+<div class="formula"><b>L = μ₀N²A/l</b></div>
+</div>
+
+<div id="topic15" class="section">
+<h2>15. AC Circuits</h2>
+<div class="formula"><b>ω = 2πf</b></div>
+<div class="formula"><b>V<sub>rms</sub> = V₀/√2</b></div>
+<div class="formula"><b>I<sub>rms</sub> = I₀/√2</b></div>
+<div class="formula"><b>X<sub>L</sub> = ωL</b></div>
+<div class="formula"><b>X<sub>C</sub> = 1/(ωC)</b></div>
+<div class="formula"><b>Z = √[R²+(X<sub>L</sub>-X<sub>C</sub>)²]</b></div>
+</div>
+<!-- ================= PHY 102 CBT LINK ================= -->
+
+<a href="#cbt">📝 PHY 102 CBT — 100 QUESTIONS</a>
+
+
+<!-- ================= PHY 102 CBT ================= -->
+
+<div id="cbt" class="section">
+
+<h2>📝 PHY 102 — COMPUTER BASED TEST</h2>
+
+<p><strong>100 Questions • 60 Minutes</strong></p>
+
+<label>
+Student Name:
+<input type="text" id="studentName"
+placeholder="Enter your name"
+style="width:100%;padding:10px;margin:5px 0 12px;">
+</label>
+
+<label>
+Matric Number:
+<input type="text" id="matricNumber"
+placeholder="Enter your matric number"
+style="width:100%;padding:10px;margin:5px 0 12px;">
+</label>
+
+<h3 id="cbtTimer">Time Left: 60:00</h3>
+
+<div id="cbtQuestions">
+
+<!-- 1 -->
+<div class="question">
+<p><strong>1. What is the SI unit of magnetic field?</strong></p>
+<label><input type="radio" name="q1" value="A"> A. Weber</label><br>
+<label><input type="radio" name="q1" value="B"> B. Tesla</label><br>
+<label><input type="radio" name="q1" value="C"> C. Henry</label><br>
+<label><input type="radio" name="q1" value="D"> D. Coulomb</label>
+</div>
+
+<!-- 2 -->
+<div class="question">
+<p><strong>2. The magnetic force on a moving charge is given by:</strong></p>
+<label><input type="radio" name="q2" value="A"> A. F = qE</label><br>
+<label><input type="radio" name="q2" value="B"> B. F = q(v × B)</label><br>
+<label><input type="radio" name="q2" value="C"> C. F = mg</label><br>
+<label><input type="radio" name="q2" value="D"> D. F = ma</label>
+</div>
+
+<!-- 3 -->
+<div class="question">
+<p><strong>3. When a charged particle moves parallel to a magnetic field, the magnetic force is:</strong></p>
+<label><input type="radio" name="q3" value="A"> A. Maximum</label><br>
+<label><input type="radio" name="q3" value="B"> B. Zero</label><br>
+<label><input type="radio" name="q3" value="C"> C. Negative</label><br>
+<label><input type="radio" name="q3" value="D"> D. Infinite</label>
+</div>
+
+<!-- 4 -->
+<div class="question">
+<p><strong>4. A charged particle moving perpendicular to a uniform magnetic field experiences:</strong></p>
+<label><input type="radio" name="q4" value="A"> A. Maximum magnetic force</label><br>
+<label><input type="radio" name="q4" value="B"> B. Zero force</label><br>
+<label><input type="radio" name="q4" value="C"> C. Gravitational force only</label><br>
+<label><input type="radio" name="q4" value="D"> D. No acceleration</label>
+</div>
+
+<!-- 5 -->
+<div class="question">
+<p><strong>5. The magnetic force does no work because it is always:</strong></p>
+<label><input type="radio" name="q5" value="A"> A. Parallel to velocity</label><br>
+<label><input type="radio" name="q5" value="B"> B. Perpendicular to velocity</label><br>
+<label><input type="radio" name="q5" value="C"> C. Opposite to velocity</label><br>
+<label><input type="radio" name="q5" value="D"> D. Equal to gravity</label>
+</div>
+
+<!-- 6 -->
+<div class="question">
+<p><strong>6. The magnetic force on a charge is maximum when the angle between v and B is:</strong></p>
+<label><input type="radio" name="q6" value="A"> A. 0°</label><br>
+<label><input type="radio" name="q6" value="B"> B. 30°</label><br>
+<label><input type="radio" name="q6" value="C"> C. 90°</label><br>
+<label><input type="radio" name="q6" value="D"> D. 180°</label>
+</div>
+
+<!-- 7 -->
+<div class="question">
+<p><strong>7. If q = 2 C, v = 3 m/s and B = 4 T, with v perpendicular to B, the force is:</strong></p>
+<label><input type="radio" name="q7" value="A"> A. 6 N</label><br>
+<label><input type="radio" name="q7" value="B"> B. 8 N</label><br>
+<label><input type="radio" name="q7" value="C"> C. 12 N</label><br>
+<label><input type="radio" name="q7" value="D"> D. 24 N</label>
+</div>
+
+<!-- 8 -->
+<div class="question">
+<p><strong>8. The SI unit of magnetic flux is:</strong></p>
+<label><input type="radio" name="q8" value="A"> A. Tesla</label><br>
+<label><input type="radio" name="q8" value="B"> B. Weber</label><br>
+<label><input type="radio" name="q8" value="C"> C. Henry</label><br>
+<label><input type="radio" name="q8" value="D"> D. Ampere</label>
+</div>
+
+<!-- 9 -->
+<div class="question">
+<p><strong>9. The magnetic field around a long straight current-carrying wire has the form:</strong></p>
+<label><input type="radio" name="q9" value="A"> A. Radial</label><br>
+<label><input type="radio" name="q9" value="B"> B. Circular</label><br>
+<label><input type="radio" name="q9" value="C"> C. Straight only</label><br>
+<label><input type="radio" name="q9" value="D"> D. Elliptical</label>
+</div>
+
+<!-- 10 -->
+<div class="question">
+<p><strong>10. For a long straight wire, B is proportional to:</strong></p>
+<label><input type="radio" name="q10" value="A"> A. r</label><br>
+<label><input type="radio" name="q10" value="B"> B. 1/r</label><br>
+<label><input type="radio" name="q10" value="C"> C. r²</label><br>
+<label><input type="radio" name="q10" value="D"> D. 1/r²</label>
+</div>
+
+<!-- 11 -->
+<div class="question">
+<p><strong>11. The magnetic field due to a long straight wire is:</strong></p>
+<label><input type="radio" name="q11" value="A"> A. μ₀I/(2πr)</label><br>
+<label><input type="radio" name="q11" value="B"> B. μ₀Ir</label><br>
+<label><input type="radio" name="q11" value="C"> C. μ₀I/(4πr²)</label><br>
+<label><input type="radio" name="q11" value="D"> D. μ₀Ir²</label>
+</div>
+
+<!-- 12 -->
+<div class="question">
+<p><strong>12. The magnetic field at the center of a circular loop of radius R carrying current I is:</strong></p>
+<label><input type="radio" name="q12" value="A"> A. μ₀I/(2R)</label><br>
+<label><input type="radio" name="q12" value="B"> B. μ₀I/(2πR)</label><br>
+<label><input type="radio" name="q12" value="C"> C. μ₀IR</label><br>
+<label><input type="radio" name="q12" value="D"> D. μ₀I/R²</label>
+</div>
+
+<!-- 13 -->
+<div class="question">
+<p><strong>13. Increasing the current in a straight wire generally makes its magnetic field:</strong></p>
+<label><input type="radio" name="q13" value="A"> A. Decrease</label><br>
+<label><input type="radio" name="q13" value="B"> B. Increase</label><br>
+<label><input type="radio" name="q13" value="C"> C. Become zero</label><br>
+<label><input type="radio" name="q13" value="D"> D. Remain unchanged</label>
+</div>
+
+<!-- 14 -->
+<div class="question">
+<p><strong>14. The Biot–Savart law is used to calculate:</strong></p>
+<label><input type="radio" name="q14" value="A"> A. Electric potential only</label><br>
+<label><input type="radio" name="q14" value="B"> B. Magnetic field due to current</label><br>
+<label><input type="radio" name="q14" value="C"> C. Gravitational field</label><br>
+<label><input type="radio" name="q14" value="D"> D. Capacitance</label>
+</div>
+
+<!-- 15 -->
+<div class="question">
+<p><strong>15. In the Biot–Savart law, dB is proportional to:</strong></p>
+<label><input type="radio" name="q15" value="A"> A. I dl sinθ/r²</label><br>
+<label><input type="radio" name="q15" value="B"> B. I r²</label><br>
+<label><input type="radio" name="q15" value="C"> C. r²/I</label><br>
+<label><input type="radio" name="q15" value="D"> D. I/r³</label>
+</div>
+
+<!-- 16 -->
+<div class="question">
+<p><strong>16. The constant μ₀ is called the:</strong></p>
+<label><input type="radio" name="q16" value="A"> A. Electric permittivity</label><br>
+<label><input type="radio" name="q16" value="B"> B. Magnetic permeability of free space</label><br>
+<label><input type="radio" name="q16" value="C"> C. Coulomb constant</label><br>
+<label><input type="radio" name="q16" value="D"> D. Gas constant</label>
+</div>
+
+<!-- 17 -->
+<div class="question">
+<p><strong>17. In Biot–Savart law, the magnetic field is maximum when θ is:</strong></p>
+<label><input type="radio" name="q17" value="A"> A. 0°</label><br>
+<label><input type="radio" name="q17" value="B"> B. 45°</label><br>
+<label><input type="radio" name="q17" value="C"> C. 90°</label><br>
+<label><input type="radio" name="q17" value="D"> D. 180°</label>
+</div>
+
+<!-- 18 -->
+<div class="question">
+<p><strong>18. The vector form of Biot–Savart law contains:</strong></p>
+<label><input type="radio" name="q18" value="A"> A. A cross product</label><br>
+<label><input type="radio" name="q18" value="B"> B. A dot product only</label><br>
+<label><input type="radio" name="q18" value="C"> C. No vectors</label><br>
+<label><input type="radio" name="q18" value="D"> D. A scalar product only</label>
+</div>
+
+<!-- 19 -->
+<div class="question">
+<p><strong>19. For a wire element, doubling the distance from the element makes its Biot–Savart contribution:</strong></p>
+<label><input type="radio" name="q19" value="A"> A. Four times larger</label><br>
+<label><input type="radio" name="q19" value="B"> B. Half as large</label><br>
+<label><input type="radio" name="q19" value="C"> C. One-quarter as large</label><br>
+<label><input type="radio" name="q19" value="D"> D. Unchanged</label>
+</div>
+
+<!-- 20 -->
+<div class="question">
+<p><strong>20. For N turns of a circular coil, the field at its center is:</strong></p>
+<label><input type="radio" name="q20" value="A"> A. μ₀NI/(2R)</label><br>
+<label><input type="radio" name="q20" value="B"> B. μ₀I/(2NR)</label><br>
+<label><input type="radio" name="q20" value="C"> C. μ₀R/(2NI)</label><br>
+<label><input type="radio" name="q20" value="D"> D. μ₀N/(IR)</label>
+</div>
+
+<!-- 21 -->
+<div class="question">
+<p><strong>21. Ampère's law relates the circulation of magnetic field to:</strong></p>
+<label><input type="radio" name="q21" value="A"> A. Enclosed current</label><br>
+<label><input type="radio" name="q21" value="B"> B. Temperature</label><br>
+<label><input type="radio" name="q21" value="C"> C. Electric potential</label><br>
+<label><input type="radio" name="q21" value="D"> D. Resistance only</label>
+</div>
+
+<!-- 22 -->
+<div class="question">
+<p><strong>22. Ampère's law is written as:</strong></p>
+<label><input type="radio" name="q22" value="A"> A. ∮B·dl = μ₀I<sub>enc</sub></label><br>
+<label><input type="radio" name="q22" value="B"> B. B = qE</label><br>
+<label><input type="radio" name="q22" value="C"> C. F = ma</label><br>
+<label><input type="radio" name="q22" value="D"> D. V = IR</label>
+</div>
+
+<!-- 23 -->
+<div class="question">
+<p><strong>23. Ampère's law is especially useful when the system has:</strong></p>
+<label><input type="radio" name="q23" value="A"> A. High symmetry</label><br>
+<label><input type="radio" name="q23" value="B"> B. No current</label><br>
+<label><input type="radio" name="q23" value="C"> C. No magnetic field</label><br>
+<label><input type="radio" name="q23" value="D"> D. Zero dimensions</label>
+</div>
+
+<!-- 24 -->
+<div class="question">
+<p><strong>24. The magnetic field inside an ideal long solenoid is:</strong></p>
+<label><input type="radio" name="q24" value="A"> A. μ₀nI</label><br>
+<label><input type="radio" name="q24" value="B"> B. μ₀I/n</label><br>
+<label><input type="radio" name="q24" value="C"> C. μ₀n/I</label><br>
+<label><input type="radio" name="q24" value="D"> D. nI/μ₀</label>
+</div>
+
+<!-- 25 -->
+<div class="question">
+<p><strong>25. In a solenoid, n represents:</strong></p>
+<label><input type="radio" name="q25" value="A"> A. Current</label><br>
+<label><input type="radio" name="q25" value="B"> B. Turns per unit length</label><br>
+<label><input type="radio" name="q25" value="C"> C. Number of charges</label><br>
+<label><input type="radio" name="q25" value="D"> D. Radius</label>
+</div>
+
+<!-- 26 -->
+<div class="question">
+<p><strong>26. For an ideal toroid, the magnetic field is:</strong></p>
+<label><input type="radio" name="q26" value="A"> A. μ₀NI/(2πr)</label><br>
+<label><input type="radio" name="q26" value="B"> B. μ₀Nr/(2πI)</label><br>
+<label><input type="radio" name="q26" value="C"> C. μ₀I/(2πN)</label><br>
+<label><input type="radio" name="q26" value="D"> D. μ₀rI</label>
+</div>
+
+<!-- 27 -->
+<div class="question">
+<p><strong>27. A current-carrying wire in a magnetic field experiences:</strong></p>
+<label><input type="radio" name="q27" value="A"> A. Magnetic force</label><br>
+<label><input type="radio" name="q27" value="B"> B. No force under all conditions</label><br>
+<label><input type="radio" name="q27" value="C"> C. Gravitational force only</label><br>
+<label><input type="radio" name="q27" value="D"> D. Nuclear force</label>
+</div>
+
+<!-- 28 -->
+<div class="question">
+<p><strong>28. The force on a current-carrying wire is:</strong></p>
+<label><input type="radio" name="q28" value="A"> A. F = BIL sinθ</label><br>
+<label><input type="radio" name="q28" value="B"> B. F = B/I L</label><br>
+<label><input type="radio" name="q28" value="C"> C. F = IL/B</label><br>
+<label><input type="radio" name="q28" value="D"> D. F = BIL cosθ only</label>
+</div>
+
+<!-- 29 -->
+<div class="question">
+<p><strong>29. The force on a wire is maximum when the wire is:</strong></p>
+<label><input type="radio" name="q29" value="A"> A. Parallel to B</label><br>
+<label><input type="radio" name="q29" value="B"> B. Perpendicular to B</label><br>
+<label><input type="radio" name="q29" value="C"> C. At 0° only</label><br>
+<label><input type="radio" name="q29" value="D"> D. At 180° only</label>
+</div>
+
+<!-- 30 -->
+<div class="question">
+<p><strong>30. Two parallel currents flowing in the same direction:</strong></p>
+<label><input type="radio" name="q30" value="A"> A. Attract</label><br>
+<label><input type="radio" name="q30" value="B"> B. Repel</label><br>
+<label><input type="radio" name="q30" value="C"> C. Have no interaction</label><br>
+<label><input type="radio" name="q30" value="D"> D. Become zero</label>
+</div>
+
+<!-- 31 -->
+<div class="question">
+<p><strong>31. Two parallel currents flowing in opposite directions:</strong></p>
+<label><input type="radio" name="q31" value="A"> A. Attract</label><br>
+<label><input type="radio" name="q31" value="B"> B. Repel</label><br>
+<label><input type="radio" name="q31" value="C"> C. Always cancel</label><br>
+<label><input type="radio" name="q31" value="D"> D. Produce gravity</label>
+</div>
+
+<!-- 32 -->
+<div class="question">
+<p><strong>32. Magnetic flux through a surface is:</strong></p>
+<label><input type="radio" name="q32" value="A"> A. Φ = BA cosθ</label><br>
+<label><input type="radio" name="q32" value="B"> B. Φ = B/A</label><br>
+<label><input type="radio" name="q32" value="C"> C. Φ = A/B</label><br>
+<label><input type="radio" name="q32" value="D"> D. Φ = B + A</label>
+</div>
+
+<!-- 33 -->
+<div class="question">
+<p><strong>33. Magnetic flux is maximum when θ is measured from the normal and equals:</strong></p>
+<label><input type="radio" name="q33" value="A"> A. 0°</label><br>
+<label><input type="radio" name="q33" value="B"> B. 45°</label><br>
+<label><input type="radio" name="q33" value="C"> C. 90°</label><br>
+<label><input type="radio" name="q33" value="D"> D. 180° only</label>
+</div>
+
+<!-- 34 -->
+<div class="question">
+<p><strong>34. Magnetic flux is zero when the magnetic field is:</strong></p>
+<label><input type="radio" name="q34" value="A"> A. Along the surface normal</label><br>
+<label><input type="radio" name="q34" value="B"> B. Parallel to the surface</label><br>
+<label><input type="radio" name="q34" value="C"> C. Very strong</label><br>
+<label><input type="radio" name="q34" value="D"> D. Zero only</label>
+</div>
+
+<!-- 35 -->
+<div class="question">
+<p><strong>35. The SI unit of magnetic flux is:</strong></p>
+<label><input type="radio" name="q35" value="A"> A. Tesla</label><br>
+<label><input type="radio" name="q35" value="B"> B. Weber</label><br>
+<label><input type="radio" name="q35" value="C"> C. Newton</label><br>
+<label><input type="radio" name="q35" value="D"> D. Volt</label>
+</div>
+
+<!-- 36 -->
+<div class="question">
+<p><strong>36. A charged particle entering a magnetic field perpendicular to it follows a:</strong></p>
+<label><input type="radio" name="q36" value="A"> A. Circular path</label><br>
+<label><input type="radio" name="q36" value="B"> B. Straight path always</label><br>
+<label><input type="radio" name="q36" value="C"> C. Parabolic path</label><br>
+<label><input type="radio" name="q36" value="D"> D. Random path</label>
+</div>
+
+<!-- 37 -->
+<div class="question">
+<p><strong>37. The radius of circular motion of a charged particle is:</strong></p>
+<label><input type="radio" name="q37" value="A"> A. mv/(|q|B)</label><br>
+<label><input type="radio" name="q37" value="B"> B. |q|B/(mv)</label><br>
+<label><input type="radio" name="q37" value="C"> C. qvB</label><br>
+<label><input type="radio" name="q37" value="D"> D. mB/qv</label>
+</div>
+
+<!-- 38 -->
+<div class="question">
+<p><strong>38. Increasing the speed of a charged particle in circular motion increases its radius.</strong></p>
+<label><input type="radio" name="q38" value="A"> A. True</label><br>
+<label><input type="radio" name="q38" value="B"> B. False</label><br>
+<label><input type="radio" name="q38" value="C"> C. Only for neutral particles</label><br>
+<label><input type="radio" name="q38" value="D"> D. Cannot be determined</label>
+</div>
+
+<!-- 39 -->
+<div class="question">
+<p><strong>39. A charged particle moving with a velocity component parallel to B follows a:</strong></p>
+<label><input type="radio" name="q39" value="A"> A. Helical path</label><br>
+<label><input type="radio" name="q39" value="B"> B. Square path</label><br>
+<label><input type="radio" name="q39" value="C"> C. Stationary path</label><br>
+<label><input type="radio" name="q39" value="D"> D. Zigzag path</label>
+</div>
+
+<!-- 40 -->
+<div class="question">
+<p><strong>40. The magnetic field changes the particle's:</strong></p>
+<label><input type="radio" name="q40" value="A"> A. Speed only</label><br>
+<label><input type="radio" name="q40" value="B"> B. Direction of velocity</label><br>
+<label><input type="radio" name="q40" value="C"> C. Mass</label><br>
+<label><input type="radio" name="q40" value="D"> D. Charge</label>
+</div>
+
+<!-- 41 -->
+<div class="question">
+<p><strong>41. The angular frequency of a charged particle in a magnetic field is:</strong></p>
+<label><input type="radio" name="q41" value="A"> A. |q|B/m</label><br>
+<label><input type="radio" name="q41" value="B"> B. m/|q|B</label><br>
+<label><input type="radio" name="q41" value="C"> C. |q|m/B</label><br>
+<label><input type="radio" name="q41" value="D"> D. Bm/|q|</label>
+</div>
+
+<!-- 42 -->
+<div class="question">
+<p><strong>42. The period of circular motion is:</strong></p>
+<label><input type="radio" name="q42" value="A"> A. 2πm/(|q|B)</label><br>
+<label><input type="radio" name="q42" value="B"> B. |q|B/(2πm)</label><br>
+<label><input type="radio" name="q42" value="C"> C. 2π|q|B/m</label><br>
+<label><input type="radio" name="q42" value="D"> D. mB/2πq</label>
+</div>
+
+<!-- 43 -->
+<div class="question">
+<p><strong>43. The cyclotron frequency is:</strong></p>
+<label><input type="radio" name="q43" value="A"> A. |q|B/(2πm)</label><br>
+<label><input type="radio" name="q43" value="B"> B. 2πm/(|q|B)</label><br>
+<label><input type="radio" name="q43" value="C"> C. qB/m²</label><br>
+<label><input type="radio" name="q43" value="D"> D. m/qB</label>
+</div>
+
+<!-- 44 -->
+<div class="question">
+<p><strong>44. The right-hand rule for a positive moving charge determines the direction of:</strong></p>
+<label><input type="radio" name="q44" value="A"> A. Magnetic force</label><br>
+<label><input type="radio" name="q44" value="B"> B. Mass</label><br>
+<label><input type="radio" name="q44" value="C"> C. Temperature</label><br>
+<label><input type="radio" name="q44" value="D"> D. Resistance</label>
+</div>
+
+<!-- 45 -->
+<div class="question">
+<p><strong>45. For a negative charge, the magnetic force direction is:</strong></p>
+<label><input type="radio" name="q45" value="A"> A. Same as positive charge</label><br>
+<label><input type="radio" name="q45" value="B"> B. Opposite to the positive-charge result</label><br>
+<label><input type="radio" name="q45" value="C"> C. Always upward</label><br>
+<label><input type="radio" name="q45" value="D"> D. Always downward</label>
+</div>
+
+<!-- 46 -->
+<div class="question">
+<p><strong>46. The right-hand grip rule is commonly used to determine:</strong></p>
+<label><input type="radio" name="q46" value="A"> A. Magnetic field direction around a current-carrying wire</label><br>
+<label><input type="radio" name="q46" value="B"> B. Electric resistance</label><br>
+<label><input type="radio" name="q46" value="C"> C. Mass</label><br>
+<label><input type="radio" name="q46" value="D"> D. Temperature</label>
+</div>
+
+<!-- 47 -->
+<div class="question">
+<p><strong>47. Conventional current is taken to flow from:</strong></p>
+<label><input type="radio" name="q47" value="A"> A. Negative to positive</label><br>
+<label><input type="radio" name="q47" value="B"> B. Positive to negative</label><br>
+<label><input type="radio" name="q47" value="C"> C. North to south only</label><br>
+<label><input type="radio" name="q47" value="D"> D. South to north only</label>
+</div>
+
+<!-- 48 -->
+<div class="question">
+<p><strong>48. The unit vector î represents the:</strong></p>
+<label><input type="radio" name="q48" value="A"> A. x-direction</label><br>
+<label><input type="radio" name="q48" value="B"> B. y-direction</label><br>
+<label><input type="radio" name="q48" value="C"> C. z-direction</label><br>
+<label><input type="radio" name="q48" value="D"> D. time direction</label>
+</div>
+
+<!-- 49 -->
+<div class="question">
+<p><strong>49. The unit vector ĵ represents the:</strong></p>
+<label><input type="radio" name="q49" value="A"> A. x-direction</label><br>
+<label><input type="radio" name="q49" value="B"> B. y-direction</label><br>
+<label><input type="radio" name="q49" value="C"> C. z-direction</label><br>
+<label><input type="radio" name="q49" value="D"> D. radial direction</label>
+</div>
+
+<!-- 50 -->
+<div class="question">
+<p><strong>50. The unit vector k̂ represents the:</strong></p>
+<label><input type="radio" name="q50" value="A"> A. x-direction</label><br>
+<label><input type="radio" name="q50" value="B"> B. y-direction</label><br>
+<label><input type="radio" name="q50" value="C"> C. z-direction</label><br>
+<label><input type="radio" name="q50" value="D"> D. negative direction only</label>
+</div>
+
+<!-- 51 -->
+<div class="question">
+<p><strong>51. What is î × ĵ?</strong></p>
+<label><input type="radio" name="q51" value="A"> A. î</label><br>
+<label><input type="radio" name="q51" value="B"> B. ĵ</label><br>
+<label><input type="radio" name="q51" value="C"> C. k̂</label><br>
+<label><input type="radio" name="q51" value="D"> D. 0</label>
+</div>
+
+<!-- 52 -->
+<div class="question">
+<p><strong>52. What is ĵ × k̂?</strong></p>
+<label><input type="radio" name="q52" value="A"> A. î</label><br>
+<label><input type="radio" name="q52" value="B"> B. ĵ</label><br>
+<label><input type="radio" name="q52" value="C"> C. k̂</label><br>
+<label><input type="radio" name="q52" value="D"> D. 0</label>
+</div>
+
+<!-- 53 -->
+<div class="question">
+<p><strong>53. What is k̂ × î?</strong></p>
+<label><input type="radio" name="q53" value="A"> A. î</label><br>
+<label><input type="radio" name="q53" value="B"> B. ĵ</label><br>
+<label><input type="radio" name="q53" value="C"> C. k̂</label><br>
+<label><input type="radio" name="q53" value="D"> D. 0</label>
+</div>
+
+<!-- 54 -->
+<div class="question">
+<p><strong>54. The cross product of two parallel vectors is:</strong></p>
+<label><input type="radio" name="q54" value="A"> A. Maximum</label><br>
+<label><input type="radio" name="q54" value="B"> B. Zero</label><br>
+<label><input type="radio" name="q54" value="C"> C. One</label><br>
+<label><input type="radio" name="q54" value="D"> D. Infinite</label>
+</div>
+
+<!-- 55 -->
+<div class="question">
+<p><strong>55. Electromagnetic induction occurs when there is a change in:</strong></p>
+<label><input type="radio" name="q55" value="A"> A. Magnetic flux</label><br>
+<label><input type="radio" name="q55" value="B"> B. Mass</label><br>
+<label><input type="radio" name="q55" value="C"> C. Temperature only</label><br>
+<label><input type="radio" name="q55" value="D"> D. Density</label>
+</div>
+
+<!-- 56 -->
+<div class="question">
+<p><strong>56. Faraday's law gives the magnitude of induced emf as being related to:</strong></p>
+<label><input type="radio" name="q56" value="A"> A. Rate of change of magnetic flux</label><br>
+<label><input type="radio" name="q56" value="B"> B. Mass of conductor</label><br>
+<label><input type="radio" name="q56" value="C"> C. Resistance only</label><br>
+<label><input type="radio" name="q56" value="D"> D. Temperature only</label>
+</div>
+
+<!-- 57 -->
+<div class="question">
+<p><strong>57. Faraday's law for N turns is:</strong></p>
+<label><input type="radio" name="q57" value="A"> A. ε = −N dΦ/dt</label><br>
+<label><input type="radio" name="q57" value="B"> B. ε = NΦt</label><br>
+<label><input type="radio" name="q57" value="C"> C. ε = Φ/N</label><br>
+<label><input type="radio" name="q57" value="D"> D. ε = N/Φ</label>
+</div>
+
+<!-- 58 -->
+<div class="question">
+<p><strong>58. The negative sign in Faraday's law represents:</strong></p>
+<label><input type="radio" name="q58" value="A"> A. Ohm's law</label><br>
+<label><input type="radio" name="q58" value="B"> B. Lenz's law</label><br>
+<label><input type="radio" name="q58" value="C"> C. Newton's law</label><br>
+<label><input type="radio" name="q58" value="D"> D. Coulomb's law</label>
+</div>
+
+<!-- 59 -->
+<div class="question">
+<p><strong>59. Increasing the number of turns in a coil generally increases induced emf when the flux change per turn is the same.</strong></p>
+<label><input type="radio" name="q59" value="A"> A. True</label><br>
+<label><input type="radio" name="q59" value="B"> B. False</label><br>
+<label><input type="radio" name="q59" value="C"> C. Only in vacuum</label><br>
+<label><input type="radio" name="q59" value="D"> D. Only at zero current</label>
+</div>
+
+<!-- 60 -->
+<div class="question">
+<p><strong>60. A changing magnetic field can produce:</strong></p>
+<label><input type="radio" name="q60" value="A"> A. Induced emf</label><br>
+<label><input type="radio" name="q60" value="B"> B. Mass</label><br>
+<label><input type="radio" name="q60" value="C"> C. Gravity</label><br>
+<label><input type="radio" name="q60" value="D"> D. Nuclear charge</label>
+</div>
+
+<!-- 61 -->
+<div class="question">
+<p><strong>61. Lenz's law states that the induced effect:</strong></p>
+<label><input type="radio" name="q61" value="A"> A. Opposes the change in magnetic flux</label><br>
+<label><input type="radio" name="q61" value="B"> B. Always increases the flux</label><br>
+<label><input type="radio" name="q61" value="C"> C. Removes gravity</label><br>
+<label><input type="radio" name="q61" value="D"> D. Has no direction</label>
+</div>
+
+<!-- 62 -->
+<div class="question">
+<p><strong>62. Lenz's law is consistent with conservation of:</strong></p>
+<label><input type="radio" name="q62" value="A"> A. Energy</label><br>
+<label><input type="radio" name="q62" value="B"> B. Mass only</label><br>
+<label><input type="radio" name="q62" value="C"> C. Charge only</label><br>
+<label><input type="radio" name="q62" value="D"> D. Temperature</label>
+</div>
+
+<!-- 63 -->
+<div class="question">
+<p><strong>63. If magnetic flux into a coil increases, the induced current produces a magnetic field that:</strong></p>
+<label><input type="radio" name="q63" value="A"> A. Supports the increase</label><br>
+<label><input type="radio" name="q63" value="B"> B. Opposes the increase</label><br>
+<label><input type="radio" name="q63" value="C"> C. Is always zero</label><br>
+<label><input type="radio" name="q63" value="D"> D. Has no direction</label>
+</div>
+
+<!-- 64 -->
+<div class="question">
+<p><strong>64. Lenz's law determines the:</strong></p>
+<label><input type="radio" name="q64" value="A"> A. Direction of induced current</label><br>
+<label><input type="radio" name="q64" value="B"> B. Mass of electron</label><br>
+<label><input type="radio" name="q64" value="C"> C. Speed of light</label><br>
+<label><input type="radio" name="q64" value="D"> D. Resistance of vacuum</label>
+</div>
+
+<!-- 65 -->
+<div class="question">
+<p><strong>65. An inductor opposes changes in:</strong></p>
+<label><input type="radio" name="q65" value="A"> A. Current</label><br>
+<label><input type="radio" name="q65" value="B"> B. Mass</label><br>
+<label><input type="radio" name="q65" value="C"> C. Temperature</label><br>
+<label><input type="radio" name="q65" value="D"> D. Charge number</label>
+</div>
+
+<!-- 66 -->
+<div class="question">
+<p><strong>66. The SI unit of inductance is:</strong></p>
+<label><input type="radio" name="q66" value="A"> A. Tesla</label><br>
+<label><input type="radio" name="q66" value="B"> B. Henry</label><br>
+<label><input type="radio" name="q66" value="C"> C. Weber</label><br>
+<label><input type="radio" name="q66" value="D"> D. Volt</label>
+</div>
+
+<!-- 67 -->
+<div class="question">
+<p><strong>67. The induced emf across an inductor is:</strong></p>
+<label><input type="radio" name="q67" value="A"> A. ε = −L di/dt</label><br>
+<label><input type="radio" name="q67" value="B"> B. ε = LI</label><br>
+<label><input type="radio" name="q67" value="C"> C. ε = L/I</label><br>
+<label><input type="radio" name="q67" value="D"> D. ε = I/L</label>
+</div>
+
+<!-- 68 -->
+<div class="question">
+<p><strong>68. Energy stored in an inductor is:</strong></p>
+<label><input type="radio" name="q68" value="A"> A. ½LI²</label><br>
+<label><input type="radio" name="q68" value="B"> B. LI</label><br>
+<label><input type="radio" name="q68" value="C"> C. L/I</label><br>
+<label><input type="radio" name="q68" value="D"> D. 2LI²</label>
+</div>
+
+<!-- 69 -->
+<div class="question">
+<p><strong>69. The inductance of an ideal solenoid is:</strong></p>
+<label><input type="radio" name="q69" value="A"> A. μ₀N²A/l</label><br>
+<label><input type="radio" name="q69" value="B"> B. μ₀Nl/A</label><br>
+<label><input type="radio" name="q69" value="C"> C. μ₀A/N²l</label><br>
+<label><input type="radio" name="q69" value="D"> D. Nl/μ₀A</label>
+</div>
+
+<!-- 70 -->
+<div class="question">
+<p><strong>70. Mutual inductance describes induction between:</strong></p>
+<label><input type="radio" name="q70" value="A"> A. Two circuits or coils</label><br>
+<label><input type="radio" name="q70" value="B"> B. Two masses only</label><br>
+<label><input type="radio" name="q70" value="C"> C. Two resistors only</label><br>
+<label><input type="radio" name="q70" value="D"> D. Two batteries only</label>
+</div>
+
+<!-- 71 -->
+<div class="question">
+<p><strong>71. The RMS value of a sinusoidal voltage with peak value V₀ is:</strong></p>
+<label><input type="radio" name="q71" value="A"> A. V₀</label><br>
+<label><input type="radio" name="q71" value="B"> B. V₀/√2</label><br>
+<label><input type="radio" name="q71" value="C"> C. √2V₀</label><br>
+<label><input type="radio" name="q71" value="D"> D. 2V₀</label>
+</div>
+
+<!-- 72 -->
+<div class="question">
+<p><strong>72. Angular frequency is related to frequency by:</strong></p>
+<label><input type="radio" name="q72" value="A"> A. ω = 2πf</label><br>
+<label><input type="radio" name="q72" value="B"> B. ω = f/2π</label><br>
+<label><input type="radio" name="q72" value="C"> C. ω = 2f</label><br>
+<label><input type="radio" name="q72" value="D"> D. ω = f²</label>
+</div>
+
+<!-- 73 -->
+<div class="question">
+<p><strong>73. Inductive reactance is:</strong></p>
+<label><input type="radio" name="q73" value="A"> A. X<sub>L</sub> = ωL</label><br>
+<label><input type="radio" name="q73" value="B"> B. X<sub>L</sub> = L/ω</label><br>
+<label><input type="radio" name="q73" value="C"> C. X<sub>L</sub> = ω/L</label><br>
+<label><input type="radio" name="q73" value="D"> D. X<sub>L</sub> = R/L</label>
+</div>
+
+<!-- 74 -->
+<div class="question">
+<p><strong>74. Capacitive reactance is:</strong></p>
+<label><input type="radio" name="q74" value="A"> A. X<sub>C</sub> = 1/(ωC)</label><br>
+<label><input type="radio" name="q74" value="B"> B. X<sub>C</sub> = ωC</label><br>
+<label><input type="radio" name="q74" value="C"> C. X<sub>C</sub> = C/ω</label><br>
+<label><input type="radio" name="q74" value="D"> D. X<sub>C</sub> = ω/C²</label>
+</div>
+
+<!-- 75 -->
+<div class="question">
+<p><strong>75. Increasing frequency in an inductor causes X<sub>L</sub> to:</strong></p>
+<label><input type="radio" name="q75" value="A"> A. Increase</label><br>
+<label><input type="radio" name="q75" value="B"> B. Decrease</label><br>
+<label><input type="radio" name="q75" value="C"> C. Become zero</label><br>
+<label><input type="radio" name="q75" value="D"> D. Remain unchanged</label>
+</div>
+
+<!-- 76 -->
+<div class="question">
+<p><strong>76. Increasing frequency in a capacitor causes X<sub>C</sub> to:</strong></p>
+<label><input type="radio" name="q76" value="A"> A. Increase</label><br>
+<label><input type="radio" name="q76" value="B"> B. Decrease</label><br>
+<label><input type="radio" name="q76" value="C"> C. Become infinite</label><br>
+<label><input type="radio" name="q76" value="D"> D. Remain unchanged</label>
+</div>
+
+<!-- 77 -->
+<div class="question">
+<p><strong>77. The impedance of a series RLC circuit is:</strong></p>
+<label><input type="radio" name="q77" value="A"> A. √[R² + (X<sub>L</sub> − X<sub>C</sub>)²]</label><br>
+<label><input type="radio" name="q77" value="B"> B. R + X<sub>L</sub> + X<sub>C</sub></label><br>
+<label><input type="radio" name="q77" value="C"> C. R/X<sub>L</sub></label><br>
+<label><input type="radio" name="q77" value="D"> D. X<sub>L</sub>X<sub>C</sub>/R</label>
+</div>
+
+<!-- 78 -->
+<div class="question">
+<p><strong>78. In an AC circuit, current is related to RMS voltage by:</strong></p>
+<label><input type="radio" name="q78" value="A"> A. I = VZ</label><br>
+<label><input type="radio" name="q78" value="B"> B. I = V/Z</label><br>
+<label><input type="radio" name="q78" value="C"> C. I = Z/V</label><br>
+<label><input type="radio" name="q78" value="D"> D. I = V + Z</label>
+</div>
+
+<!-- 79 -->
+<div class="question">
+<p><strong>79. At resonance in a series RLC circuit:</strong></p>
+<label><input type="radio" name="q79" value="A"> A. X<sub>L</sub> = X<sub>C</sub></label><br>
+<label><input type="radio" name="q79" value="B"> A. X<sub>L</sub> = 0</label><br>
+<label><input type="radio" name="q79" value="C"> C. X<sub>C</sub> = 0</label><br>
+<label><input type="radio" name="q79" value="D"> D. R = 0</label>
+</div>
+
+<!-- 80 -->
+<div class="question">
+<p><strong>80. At series resonance, the impedance is ideally:</strong></p>
+<label><input type="radio" name="q80" value="A"> A. R</label><br>
+<label><input type="radio" name="q80" value="B"> B. 2R</label><br>
+<label><input type="radio" name="q80" value="C"> C. Zero for any R</label><br>
+<label><input type="radio" name="q80" value="D"> D. Infinite</label>
+</div>
+
+<!-- 81 -->
+<div class="question">
+<p><strong>81. The frequency of an AC supply is measured in:</strong></p>
+<label><input type="radio" name="q81" value="A"> A. Hertz</label><br>
+<label><input type="radio" name="q81" value="B"> B. Tesla</label><br>
+<label><input type="radio" name="q81" value="C"> C. Weber</label><br>
+<label><input type="radio" name="q81" value="D"> D. Henry</label>
+</div>
+
+<!-- 82 -->
+<div class="question">
+<p><strong>82. A transformer operates mainly using:</strong></p>
+<label><input type="radio" name="q82" value="A"> A. Electromagnetic induction</label><br>
+<label><input type="radio" name="q82" value="B"> B. Gravitational induction</label><br>
+<label><input type="radio" name="q82" value="C"> C. Static friction</label><br>
+<label><input type="radio" name="q82" value="D"> D. Nuclear fission</label>
+</div>
+
+<!-- 83 -->
+<div class="question">
+<p><strong>83. A step-up transformer increases:</strong></p>
+<label><input type="radio" name="q83" value="A"> A. Voltage</label><br>
+<label><input type="radio" name="q83" value="B"> B. Frequency</label><br>
+<label><input type="radio" name="q83" value="C"> C. Charge of electrons</label><br>
+<label><input type="radio" name="q83" value="D"> D. Magnetic monopoles</label>
+</div>
+
+<!-- 84 -->
+<div class="question">
+<p><strong>84. In an ideal transformer, the voltage ratio equals the:</strong></p>
+<label><input type="radio" name="q84" value="A"> A. Turns ratio</label><br>
+<label><input type="radio" name="q84" value="B"> B. Resistance ratio only</label><br>
+<label><input type="radio" name="q84" value="C"> C. Frequency squared</label><br>
+<label><input type="radio" name="q84" value="D"> D. Current squared</label>
+</div>
+
+<!-- 85 -->
+<div class="question">
+<p><strong>85. Which quantity is a vector?</strong></p>
+<label><input type="radio" name="q85" value="A"> A. Magnetic field</label><br>
+<label><input type="radio" name="q85" value="B"> B. Temperature</label><br>
+<label><input type="radio" name="q85" value="C"> C. Mass</label><br>
+<label><input type="radio" name="q85" value="D"> D. Time</label>
+</div>
+
+<!-- 86 -->
+<div class="question">
+<p><strong>86. The direction of magnetic force can be found using:</strong></p>
+<label><input type="radio" name="q86" value="A"> A. Right-hand rule</label><br>
+<label><input type="radio" name="q86" value="B"> B. Boyle's law</label><br>
+<label><input type="radio" name="q86" value="C"> C. Hooke's law only</label><br>
+<label><input type="radio" name="q86" value="D"> D. Snell's law</label>
+</div>
+
+<!-- 87 -->
+<div class="question">
+<p><strong>87. The magnetic force equation contains the cross product of:</strong></p>
+<label><input type="radio" name="q87" value="A"> A. v and B</label><br>
+<label><input type="radio" name="q87" value="B"> B. m and g</label><br>
+<label><input type="radio" name="q87" value="C"> C. R and I only</label><br>
+<label><input type="radio" name="q87" value="D"> D. V and R</label>
+</div>
+
+<!-- 88 -->
+<div class="question">
+<p><strong>88. If the charge of a particle doubles while v and B remain constant and perpendicular, the magnetic force:</strong></p>
+<label><input type="radio" name="q88" value="A"> A. Doubles</label><br>
+<label><input type="radio" name="q88" value="B"> B. Halves</label><br>
+<label><input type="radio" name="q88" value="C"> C. Becomes zero</label><br>
+<label><input type="radio" name="q88" value="D"> D. Remains unchanged</label>
+</div>
+
+<!-- 89 -->
+<div class="question">
+<p><strong>89. If the magnetic field doubles while q and v remain constant and perpendicular, the magnetic force:</strong></p>
+<label><input type="radio" name="q89" value="A"> A. Doubles</label><br>
+<label><input type="radio" name="q89" value="B"> B. Halves</label><br>
+<label><input type="radio" name="q89" value="C"> C. Becomes zero</label><br>
+<label><input type="radio" name="q89" value="D"> D. Remains unchanged</label>
+</div>
+
+<!-- 90 -->
+<div class="question">
+<p><strong>90. If the current in a wire is doubled, with B, L and θ unchanged, the force:</strong></p>
+<label><input type="radio" name="q90" value="A"> A. Doubles</label><br>
+<label><input type="radio" name="q90" value="B"> B. Halves</label><br>
+<label><input type="radio" name="q90" value="C"> C. Becomes zero</label><br>
+<label><input type="radio" name="q90" value="D"> D. Remains unchanged</label>
+</div>
+
+<!-- 91 -->
+<div class="question">
+<p><strong>91. A magnetic field of 2 T acts on a 3 m wire carrying 4 A perpendicular to the field. The force is:</strong></p>
+<label><input type="radio" name="q91" value="A"> A. 6 N</label><br>
+<label><input type="radio" name="q91" value="B"> B. 12 N</label><br>
+<label><input type="radio" name="q91" value="C"> C. 24 N</label><br>
+<label><input type="radio" name="q91" value="D"> D. 48 N</label>
+</div>
+
+<!-- 92 -->
+<div class="question">
+<p><strong>92. A charge of 2 C moves at 5 m/s perpendicular to a 3 T field. The force is:</strong></p>
+<label><input type="radio" name="q92" value="A"> A. 10 N</label><br>
+<label><input type="radio" name="q92" value="B"> B. 15 N</label><br>
+<label><input type="radio" name="q92" value="C"> C. 30 N</label><br>
+<label><input type="radio" name="q92" value="D"> D. 60 N</label>
+</div>
+
+<!-- 93 -->
+<div class="question">
+<p><strong>93. A particle has q = 2 C, m = 4 kg, v = 8 m/s and B = 2 T. Its circular radius is:</strong></p>
+<label><input type="radio" name="q93" value="A"> A. 4 m</label><br>
+<label><input type="radio" name="q93" value="B"> B. 8 m</label><br>
+<label><input type="radio" name="q93" value="C"> C. 16 m</label><br>
+<label><input type="radio" name="q93" value="D"> D. 2 m</label>
+</div>
+
+<!-- 94 -->
+<div class="question">
+<p><strong>94. If B = 0.5 T, A = 4 m² and θ = 0°, the magnetic flux is:</strong></p>
+<label><input type="radio" name="q94" value="A"> A. 0.5 Wb</label><br>
+<label><input type="radio" name="q94" value="B"> B. 1 Wb</label><br>
+<label><input type="radio" name="q94" value="C"> C. 2 Wb</label><br>
+<label><input type="radio" name="q94" value="D"> D. 4 Wb</label>
+</div>
+
+<!-- 95 -->
+<div class="question">
+<p><strong>95. A coil has N = 100 turns and flux changes by 0.02 Wb in 0.5 s. The magnitude of average induced emf is:</strong></p>
+<label><input type="radio" name="q95" value="A"> A. 2 V</label><br>
+<label><input type="radio" name="q95" value="B"> B. 4 V</label><br>
+<label><input type="radio" name="q95" value="C"> C. 20 V</label><br>
+<label><input type="radio" name="q95" value="D"> D. 40 V</label>
+</div>
+
+<!-- 96 -->
+<div class="question">
+<p><strong>96. If an AC voltage has a peak value of 100 V, its RMS value is approximately:</strong></p>
+<label><input type="radio" name="q96" value="A"> A. 50 V</label><br>
+<label><input type="radio" name="q96" value="B"> B. 70.7 V</label><br>
+<label><input type="radio" name="q96" value="C"> C. 100 V</label><br>
+<label><input type="radio" name="q96" value="D"> D. 141.4 V</label>
+</div>
+
+<!-- 97 -->
+<div class="question">
+<p><strong>97. If f = 50 Hz, the angular frequency is:</strong></p>
+<label><input type="radio" name="q97" value="A"> A. 50 rad/s</label><br>
+<label><input type="radio" name="q97" value="B"> B. 100 rad/s</label><br>
+<label><input type="radio" name="q97" value="C"> C. 314 rad/s</label><br>
+<label><input type="radio" name="q97" value="D"> D. 628 rad/s</label>
+</div>
+
+<!-- 98 -->
+<div class="question">
+<p><strong>98. If L = 2 H and I = 3 A, the energy stored in the inductor is:</strong></p>
+<label><input type="radio" name="q98" value="A"> A. 3 J</label><br>
+<label><input type="radio" name="q98" value="B"> B. 6 J</label><br>
+<label><input type="radio" name="q98" value="C"> C. 9 J</label><br>
+<label><input type="radio" name="q98" value="D"> D. 18 J</label>
+</div>
+
+<!-- 99 -->
+<div class="question">
+<p><strong>99. If X<sub>L</sub> = 10 Ω and X<sub>C</sub> = 10 Ω in a series RLC circuit, the circuit is:</strong></p>
+<label><input type="radio" name="q99" value="A"> A. At resonance</label><br>
+<label><input type="radio" name="q99" value="B"> B. Open circuit</label><br>
+<label><input type="radio" name="q99" value="C"> C. Purely capacitive</label><br>
+<label><input type="radio" name="q99" value="D"> D. Purely inductive</label>
+</div>
+
+<!-- 100 -->
+<div class="question">
+<p><strong>100. Which law explains why an induced current opposes the change that produces it?</strong></p>
+<label><input type="radio" name="q100" value="A"> A. Ohm's law</label><br>
+<label><input type="radio" name="q100" value="B"> B. Lenz's law</label><br>
+<label><input type="radio" name="q100" value="C"> C. Boyle's law</label><br>
+<label><input type="radio" name="q100" value="D"> D. Hooke's law</label>
+</div>
+
+</div>
+
+<br>
+
+<button class="action-btn" onclick="submitCBT()">
+✅ SUBMIT CBT
+</button>
+
+<button class="action-btn" onclick="location.reload()">
+🔄 RETAKE CBT
+</button>
+
+<h3 id="cbtScore"></h3>
+
+</div>
+
+
+<!-- ================= CBT JAVASCRIPT ================= -->
+
+<script>
+
+const cbtAnswers = [
+"B","B","B","A","B","C","C","B","B","B",
+"A","A","B","B","A","B","C","A","C","A",
+"A","A","A","A","B","A","A","A","B","A",
+"B","A","A","B","B","A","A","A","A","B",
+"A","A","A","A","B","A","B","A","B","C",
+"C","A","B","B","A","A","A","B","A","A",
+"A","A","B","A","A","B","A","A","A","A",
+"B","A","A","A","A","B","A","B","A","A",
+"A","A","A","A","A","A","A","A","A","A",
+"C","C","A","C","C","B","C","C","A","B"
+];
+
+function submitCBT() {
+
+    let score = 0;
+
+    for (let i = 1; i <= 100; i++) {
+
+        const selected =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+        if (selected &&
+            selected.value === cbtAnswers[i - 1]) {
+
+            score++;
+        }
+    }
+
+    const percentage = (score / 100) * 100;
+
+    document.getElementById("cbtScore").innerHTML =
+        "🎯 Score: " + score +
+        " / 100<br>" +
+        "📊 Percentage: " + percentage.toFixed(1) + "%";
+}
+
+
+/* ================= CBT TIMER ================= */
+
+let timeLeft = 60 * 60;
+
+const cbtTimer = setInterval(function() {
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("cbtTimer").innerHTML =
+        "⏱️ Time Left: " + minutes + ":" + seconds;
+
+    if (timeLeft <= 0) {
+
+        clearInterval(cbtTimer);
+
+        submitCBT();
+
+        document.getElementById("cbtTimer").innerHTML =
+            "⛔ TIME UP";
+
+    }
+
+    timeLeft--;
+
+}, 1000);
+
+</script>
+
+<!-- ================= END PHY 102 CBT ================= -->
+
+<!-- ================= 300 FLASHCARDS ================= -->
+
+<div id="flashcards" class="section">
+
+<h2>🧠 PHY 102 — 300 Flashcards</h2>
+
+<p>Select a topic to study its 20 flashcards.</p>
+
+<select id="flashTopic" onchange="changeFlashTopic()"
+style="width:100%;padding:13px;border:2px solid #123c88;border-radius:7px;font-size:16px;">
+
+<option value="0">1. Magnetic Force</option>
+<option value="1">2. Magnetic Field</option>
+<option value="2">3. Biot–Savart Law</option>
+<option value="3">4. Ampère's Law</option>
+<option value="4">5. Force on a Current-Carrying Wire</option>
+<option value="5">6. Magnetic Flux</option>
+<option value="6">7. Motion of Charged Particles</option>
+<option value="7">8. Circular Motion in a Magnetic Field</option>
+<option value="8">9. Right-Hand Rules</option>
+<option value="9">10. Unit Vectors</option>
+<option value="10">11. Electromagnetic Induction</option>
+<option value="11">12. Faraday's Law</option>
+<option value="12">13. Lenz's Law</option>
+<option value="13">14. Inductance</option>
+<option value="14">15. AC Circuits</option>
+
+</select>
+
+<div class="flashcard">
+
+<p id="flashTopicName"
+style="color:#123c88;font-weight:bold;">
+Magnetic Force
+</p>
+
+<p id="flashQuestion" class="flashcard-question">
+Loading question...
+</p>
+
+<div id="flashAnswer" class="answer">
+Loading answer...
+</div>
+
+<button class="action-btn" onclick="showFlashAnswer()">
+👁️ SHOW ANSWER
+</button>
+
+<button class="action-btn" onclick="nextFlashcard()">
+➡️ NEXT CARD
+</button>
+
+<p id="flashCount">
+Card 1 of 20
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================= SECTION NAVIGATION ================= */
+
+function showSection(id) {
+
+    let sections = document.querySelectorAll(".section");
+
+    sections.forEach(function(section) {
+        section.classList.remove("active");
+    });
+
+    let selected = document.getElementById(id);
+
+    if(selected) {
+        selected.classList.add("active");
+        selected.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+
+
+/* ================= ANSWER TOGGLE ================= */
+
+function toggleAnswer(id) {
+
+    let answer = document.getElementById(id);
+
+    if(answer.style.display === "block") {
+        answer.style.display = "none";
+    } else {
+        answer.style.display = "block";
+    }
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchContent() {
+
+    let input = document.getElementById("searchBox").value.toLowerCase();
+
+    let sections = document.querySelectorAll(".section");
+
+    sections.forEach(function(section) {
+
+        let text = section.innerText.toLowerCase();
+
+        if(input === "") {
+            section.style.display = "";
+        }
+
+        else if(text.includes(input)) {
+            section.style.display = "block";
+        }
+
+        else {
+            section.style.display = "none";
+        }
+
+    });
+}
+
+
+/* ================= QUIZ ================= */
+
+let quizAnswers = {
+    1: "B",
+    2: "B",
+    3: "B",
+    4: "A",
+    5: "B"
+};
+
+let userAnswers = {};
+
+function answerQuiz(question, answer) {
+
+    userAnswers[question] = answer;
+
+    let result = document.getElementById("quizResult" + question);
+
+    if(answer === quizAnswers[question]) {
+
+        result.innerHTML = "✅ Correct!";
+
+    } else {
+
+        result.innerHTML = "❌ Incorrect. Try again.";
+
+    }
+}
+
+function showQuizScore() {
+
+    let score = 0;
+
+    for(let i = 1; i <= 5; i++) {
+
+        if(userAnswers[i] === quizAnswers[i]) {
+            score++;
+        }
+
+    }
+
+    let percentage = (score / 5) * 100;
+
+    document.getElementById("quizScore").innerHTML =
+        "Your Score: " + score + "/5 (" + percentage + "%)";
+
+}
+
+
+/* ================= PROGRESS ================= */
+
+let completedTopics =
+    Number(localStorage.getItem("phy102Progress")) || 0;
+
+function updateProgress() {
+
+    if(completedTopics > 15) {
+        completedTopics = 15;
+    }
+
+    let percentage =
+        Math.round((completedTopics / 15) * 100);
+
+    document.getElementById("topicsProgress").innerHTML =
+        completedTopics + " / 15 completed";
+
+    document.getElementById("progressBar").style.width =
+        percentage + "%";
+
+    document.getElementById("progressBar").innerHTML =
+        percentage + "%";
+}
+
+function completeTopic() {
+
+    if(completedTopics < 15) {
+
+        completedTopics++;
+
+        localStorage.setItem(
+            "phy102Progress",
+            completedTopics
+        );
+
+        updateProgress();
+
+        alert(
+            "Topic marked as completed! 🎉\nProgress: " +
+            completedTopics +
+            "/15"
+        );
+
+    } else {
+
+        alert("All 15 topics are completed! 🎉");
+
+    }
+}
+
+function resetProgress() {
+
+    completedTopics = 0;
+
+    localStorage.setItem(
+        "phy102Progress",
+        0
+    );
+
+    updateProgress();
+
+}
+
+
+/* ================= 300 PHY 102 FLASHCARDS ================= */
+
+const flashcardsByTopic = [
+
+/* 1. MAGNETIC FORCE */
+[
+["What is magnetic force?", "The force exerted by a magnetic field on a moving charge or current-carrying conductor."],
+["What is the formula for magnetic force on a charge?", "F = qvB sinθ."],
+["What does q represent?", "The electric charge of the particle, measured in coulombs (C)."],
+["What does v represent?", "The velocity of the charged particle, measured in m/s."],
+["What does B represent?", "Magnetic flux density, measured in tesla (T)."],
+["What angle gives maximum magnetic force?", "θ = 90°."],
+["What angle gives zero magnetic force?", "θ = 0° or 180°."],
+["What is the vector formula for magnetic force?", "F⃗ = q(v⃗ × B⃗)."],
+["What is the magnitude of magnetic force?", "F = |q|vB sinθ."],
+["Does a stationary charge experience magnetic force?", "No, because v = 0."],
+["What happens when velocity is parallel to B?", "The magnetic force is zero."],
+["What happens when velocity is perpendicular to B?", "The magnetic force is maximum."],
+["Does magnetic force do work on a charged particle?", "No. It is perpendicular to the particle's velocity."],
+["What is the SI unit of magnetic force?", "Newton (N)."],
+["What determines the direction of magnetic force?", "The cross product v⃗ × B⃗ for a positive charge."],
+["What happens for a negative charge?", "The force direction is opposite to v⃗ × B⃗."],
+["What is the right-hand rule used for?", "Determining the direction of magnetic force or magnetic field."],
+["What happens to magnetic force if B doubles?", "The force doubles, if other quantities remain constant."],
+["What happens if the charge doubles?", "The magnitude of the magnetic force doubles."],
+["What happens if v = 0?", "The magnetic force is zero."]
+],
+
+/* 2. MAGNETIC FIELD */
+[
+["What is a magnetic field?", "A region of space where magnetic forces can act on moving charges, currents, or magnetic materials."],
+["What is the SI unit of magnetic field?", "Tesla (T)."],
+["What symbol represents magnetic field?", "B."],
+["What is the magnetic field around a long straight wire?", "B = μ₀I/(2πr)."],
+["What does μ₀ represent?", "The permeability of free space."],
+["What is the value of μ₀?", "Approximately 4π × 10⁻⁷ T·m/A."],
+["What happens to B as distance from a straight wire increases?", "B decreases as 1/r."],
+["What determines the direction around a straight current-carrying wire?", "The right-hand grip rule."],
+["What are magnetic field lines?", "Imaginary lines used to represent the direction and strength of a magnetic field."],
+["Can magnetic field lines cross?", "No."],
+["Where are magnetic field lines strongest?", "Where they are closest together."],
+["What is the field at the center of a circular loop?", "B = μ₀I/(2R)."],
+["What is the field at the center of an N-turn coil?", "B = μ₀NI/(2R)."],
+["What happens when the number of turns increases?", "The magnetic field increases proportionally."],
+["What happens when current increases?", "The magnetic field increases."],
+["What happens when radius of a loop increases?", "The field at its center decreases."],
+["What is the direction of magnetic field around a wire?", "It forms concentric circles around the wire."],
+["What is a uniform magnetic field?", "A field having constant magnitude and direction throughout a region."],
+["What is the SI unit of magnetic flux density?", "Tesla."],
+["Is magnetic field a scalar or vector?", "A vector quantity."]
+],
+
+/* 3. BIOT-SAVART LAW */
+[
+["What is the Biot–Savart law?", "It gives the magnetic field produced by a small current element."],
+["Write the Biot–Savart law.", "dB = (μ₀/4π)(I dl sinθ/r²)."],
+["What does dl represent?", "A small element of the current-carrying conductor."],
+["What does r represent?", "The distance from the current element to the observation point."],
+["What does θ represent?", "The angle between dl and the line joining the element to the point."],
+["What is the vector form?", "dB⃗ = (μ₀/4π)[I(dℓ⃗ × r̂)/r²]."],
+["What is the constant μ₀/4π?", "10⁻⁷ T·m/A approximately."],
+["When is dB maximum?", "When θ = 90°."],
+["When is dB zero?", "When θ = 0° or 180°."],
+["How does dB depend on distance?", "It varies as 1/r² for a small current element."],
+["How does dB depend on current?", "It is directly proportional to I."],
+["How does dB depend on dl?", "It is directly proportional to dl."],
+["What law can calculate the field of a current element?", "Biot–Savart law."],
+["What is the field at the center of a circular loop?", "B = μ₀I/(2R)."],
+["What is the field of an N-turn loop?", "B = μ₀NI/(2R)."],
+["What is the direction of dB?", "Perpendicular to the plane containing dl and r."],
+["What mathematical operation appears in the vector law?", "The cross product."],
+["What happens if current doubles?", "The magnetic field doubles."],
+["What happens if distance doubles?", "For a small current element, dB becomes one-quarter."],
+["Who is the law named after?", "Jean-Baptiste Biot and Félix Savart."]
+],
+
+/* 4. AMPÈRE'S LAW */
+[
+["What is Ampère's law?", "It relates the circulation of magnetic field around a closed path to the enclosed current."],
+["Write Ampère's law.", "∮B⃗·dℓ⃗ = μ₀I_enclosed."],
+["What does ∮ mean?", "A closed line integral."],
+["What is I_enclosed?", "The net current enclosed by the Amperian loop."],
+["What is an Amperian loop?", "A chosen closed path used to apply Ampère's law."],
+["When is Ampère's law especially useful?", "When the magnetic field has sufficient symmetry."],
+["What symmetry is useful for a long straight wire?", "Cylindrical symmetry."],
+["What is the field around a long straight wire?", "B = μ₀I/(2πr)."],
+["For a long wire, what is ∮B·dl?", "B(2πr)."],
+["What does the closed path length around a wire equal?", "2πr."],
+["What is the field inside an ideal solenoid?", "B = μ₀nI."],
+["What does n represent in a solenoid?", "Number of turns per unit length."],
+["What is n mathematically?", "n = N/L."],
+["What is the field inside an ideal toroid?", "B = μ₀NI/(2πr)."],
+["What current is used in Ampère's law?", "The net enclosed current."],
+["Does current outside the loop contribute to enclosed current?", "No."],
+["What happens if enclosed current is zero?", "The closed integral is zero."],
+["What is the direction of dl?", "Along the chosen Amperian path."],
+["Why is symmetry important?", "It allows B to be constant or have a simple form along the path."],
+["What law is analogous to Gauss's law for magnetism/current situations?", "Ampère's law."]
+],
+
+/* 5. FORCE ON A CURRENT-CARRYING WIRE */
+[
+["What is the force on a current-carrying wire?", "The magnetic force exerted on the wire by a magnetic field."],
+["What is the formula?", "F = BIL sinθ."],
+["What is the vector formula?", "F⃗ = I(L⃗ × B⃗)."],
+["What does I represent?", "Current in the conductor."],
+["What does L represent?", "Length of the conductor within the magnetic field."],
+["When is the force maximum?", "When θ = 90°."],
+["When is the force zero?", "When the wire is parallel or antiparallel to B."],
+["What is the SI unit of force?", "Newton."],
+["What determines the force direction?", "The right-hand rule or L⃗ × B⃗."],
+["What happens to force if current doubles?", "It doubles."],
+["What happens if wire length doubles?", "The force doubles."],
+["What happens if magnetic field doubles?", "The force doubles."],
+["What is the force between parallel wires?", "F/L = μ₀I₁I₂/(2πr)."],
+["What happens when parallel currents flow in the same direction?", "The wires attract."],
+["What happens when currents flow in opposite directions?", "The wires repel."],
+["What causes force on a current-carrying wire?", "Interaction between the current and magnetic field."],
+["What is the angle in F = BIL sinθ?", "The angle between the current direction and magnetic field."],
+["Can a wire experience force in a magnetic field without current?", "Not from this current-force relationship."],
+["What is L⃗?", "A vector directed along conventional current."],
+["What happens when θ changes from 90° to 0°?", "The force decreases from maximum to zero."]
+],
+
+/* 6. MAGNETIC FLUX */
+[
+["What is magnetic flux?", "A measure of magnetic field passing through a surface."],
+["What is the formula for magnetic flux?", "Φ = BA cosθ."],
+["What is the SI unit of magnetic flux?", "Weber (Wb)."],
+["What does A represent?", "Area of the surface."],
+["What does θ represent?", "The angle between B and the normal to the surface."],
+["When is flux maximum?", "When θ = 0°."],
+["When is flux zero?", "When θ = 90°."],
+["What is the maximum flux?", "Φ = BA."],
+["What happens when B doubles?", "Flux doubles if area and angle remain constant."],
+["What happens when area doubles?", "Flux doubles."],
+["Is magnetic flux scalar or vector?", "Magnetic flux is a scalar quantity."],
+["What is 1 weber equal to?", "1 T·m²."],
+["What is magnetic flux density?", "Magnetic flux per unit area normal to the field."],
+["What is the relationship between B and Φ?", "B = Φ/A for a perpendicular uniform field."],
+["What does cosθ mean physically?", "It accounts for the component of B normal to the surface."],
+["What happens when the surface is parallel to B?", "Flux is zero."],
+["What happens when the surface is perpendicular to B?", "Flux is maximum."],
+["What changes flux in a coil?", "Changing B, area, orientation, or number of turns in an induced-emf setup."],
+["What law uses changing magnetic flux?", "Faraday's law."],
+["What is flux through N identical turns?", "The flux linkage is NΦ."]
+],
+
+/* 7. MOTION OF CHARGED PARTICLES */
+[
+["What happens to a charged particle moving in a magnetic field?", "It can experience a magnetic force."],
+["What is the magnetic force formula?", "F = |q|vB sinθ."],
+["What happens when velocity is perpendicular to B?", "The particle moves in circular motion."],
+["What happens when velocity has a component parallel to B?", "The particle can follow a helical path."],
+["Does magnetic force change speed?", "No, magnetic force does no work."],
+["What does magnetic force change?", "The direction of velocity."],
+["What is the radius of circular motion?", "r = mv/(|q|B)."],
+["What happens to radius if velocity increases?", "Radius increases."],
+["What happens to radius if B increases?", "Radius decreases."],
+["What happens to radius if particle mass increases?", "Radius increases."],
+["What happens to radius if charge magnitude increases?", "Radius decreases."],
+["What is angular frequency?", "ω = |q|B/m."],
+["What is the period?", "T = 2πm/(|q|B)."],
+["What is frequency?", "f = |q|B/(2πm)."],
+["What determines the direction of curvature?", "The sign of charge and direction of v⃗ × B⃗."],
+["What happens to a neutral particle?", "It does not experience this magnetic force because q = 0."],
+["What happens if v is parallel to B?", "The magnetic force is zero."],
+["What path results from perpendicular velocity?", "A circle."],
+["What path can result from both parallel and perpendicular velocity?", "A helix."],
+["What force provides centripetal force?", "The magnetic force."]
+],
+
+/* 8. CIRCULAR MOTION IN A MAGNETIC FIELD */
+[
+["What causes circular motion?", "Magnetic force acting perpendicular to velocity."],
+["What is centripetal force?", "The inward force required for circular motion."],
+["What is the centripetal-force equation?", "F = mv²/r."],
+["Equate magnetic and centripetal force.", "|q|vB = mv²/r."],
+["What is the resulting radius?", "r = mv/(|q|B)."],
+["What is angular velocity?", "ω = |q|B/m."],
+["What is the period?", "T = 2πm/(|q|B)."],
+["What is frequency?", "f = |q|B/(2πm)."],
+["Does the period depend on velocity?", "No, for nonrelativistic motion in a uniform B field."],
+["Does radius depend on velocity?", "Yes."],
+["Does radius depend on mass?", "Yes."],
+["Does frequency depend on mass?", "Yes."],
+["Does frequency depend on charge magnitude?", "Yes."],
+["Does frequency depend on magnetic field?", "Yes."],
+["What happens to radius if B increases?", "It decreases."],
+["What happens to period if B increases?", "It decreases."],
+["What happens to frequency if B increases?", "It increases."],
+["What is cyclotron frequency?", "f = |q|B/(2πm)."],
+["What direction is centripetal force?", "Toward the center of the circular path."],
+["Is magnetic force perpendicular to velocity?", "Yes, for the circular-motion case."]
+],
+
+/* 9. RIGHT-HAND RULES */
+[
+["What is the right-hand rule?", "A method for determining directions involving vectors, current, and magnetic fields."],
+["Which current convention is normally used?", "Conventional current."],
+["How do you find the field around a straight wire?", "Point the right thumb along current; curled fingers show B."],
+["How do you find force on a positive charge?", "Use the direction of v⃗ × B⃗."],
+["What happens for a negative charge?", "Reverse the direction obtained for a positive charge."],
+["How do you determine force on a wire?", "Use the direction of I(L⃗ × B⃗)."],
+["What does the thumb represent in the wire rule?", "Current direction."],
+["What do curled fingers represent?", "Magnetic field direction."],
+["What happens if current reverses?", "The magnetic field direction reverses."],
+["What happens if B reverses?", "The magnetic force direction reverses."],
+["What happens if both v and B reverse?", "The force direction remains unchanged."],
+["What does i × j equal?", "k."],
+["What does j × k equal?", "i."],
+["What does k × i equal?", "j."],
+["What does j × i equal?", "-k."],
+["What does k × j equal?", "-i."],
+["What does i × k equal?", "-j."],
+["Why is direction important?", "Magnetic force is a vector quantity."],
+["Can a right-hand rule determine magnitude?", "No, it primarily determines direction."],
+["What is the key idea of cross products?", "The result is perpendicular to both original vectors."]
+],
+
+/* 10. UNIT VECTORS */
+[
+["What is a unit vector?", "A vector with magnitude 1 used to indicate direction."],
+["What is î?", "The unit vector in the positive x-direction."],
+["What is ĵ?", "The unit vector in the positive y-direction."],
+["What is k̂?", "The unit vector in the positive z-direction."],
+["What is î × ĵ?", "k̂."],
+["What is ĵ × k̂?", "î."],
+["What is k̂ × î?", "ĵ."],
+["What is ĵ × î?", "-k̂."],
+["What is k̂ × ĵ?", "-î."],
+["What is î × k̂?", "-ĵ."],
+["What is î × î?", "0."],
+["What is ĵ × ĵ?", "0."],
+["What is k̂ × k̂?", "0."],
+["What is î · î?", "1."],
+["What is ĵ · ĵ?", "1."],
+["What is k̂ · k̂?", "1."],
+["What is î · ĵ?", "0."],
+["What is ĵ · k̂?", "0."],
+["What is k̂ · î?", "0."],
+["Why are unit vectors useful?", "They express vector quantities in component form."]
+],
+
+/* 11. ELECTROMAGNETIC INDUCTION */
+[
+["What is electromagnetic induction?", "The production of an emf due to a change in magnetic flux."],
+["Who discovered electromagnetic induction?", "Michael Faraday."],
+["What is induced emf?", "An electromotive force produced by changing magnetic flux."],
+["What can cause changing flux?", "Changing B, area, orientation, or relative motion."],
+["What law describes electromagnetic induction?", "Faraday's law."],
+["What is the unit of emf?", "Volt (V)."],
+["What happens when a magnet moves toward a coil?", "A changing flux can induce an emf and current if the circuit is closed."],
+["What happens when the magnet is stationary?", "No emf is induced from that unchanged flux."],
+["What happens when the magnet moves faster?", "The magnitude of induced emf generally increases."],
+["What is flux linkage?", "NΦ for a coil of N turns."],
+["What device uses electromagnetic induction?", "Electric generators and transformers."],
+["What is mutual induction?", "Induction of emf in one circuit due to changing current in another."],
+["What is self-induction?", "Induction of emf in a circuit due to change in its own current."],
+["What is the basic requirement for induction?", "A change in magnetic flux."],
+["What happens if flux remains constant?", "No induced emf from Faraday induction."],
+["What does the induced current produce?", "Its own magnetic field."],
+["What determines the direction of induced current?", "Lenz's law."],
+["What is motional emf?", "Emf produced when a conductor moves through a magnetic field."],
+["What is an example of induction?", "Moving a magnet through a coil."],
+["Why is induction important?", "It is fundamental to generators, transformers, and many electrical devices."]
+],
+
+/* 12. FARADAY'S LAW */
+[
+["State Faraday's law.", "The induced emf is proportional to the rate of change of magnetic flux linkage."],
+["What is Faraday's law formula?", "ε = -N dΦ/dt."],
+["What is the average form?", "ε = -NΔΦ/Δt."],
+["What does N represent?", "Number of turns in the coil."],
+["What does Φ represent?", "Magnetic flux."],
+["What does the negative sign indicate?", "Lenz's law."],
+["What happens if N doubles?", "The induced emf doubles for the same rate of flux change."],
+["What happens if flux changes faster?", "The induced emf increases."],
+["What is the SI unit of emf?", "Volt."],
+["What is the SI unit of flux?", "Weber."],
+["What is dΦ/dt?", "Rate of change of magnetic flux."],
+["What {
+
+    currentFlashcard++;
+
+    if(currentFlashcard >= flashcards.length) {
+        currentFlashcard = 0;
+    }
+
+    document.getElementById("flashQuestion").innerHTML =
+        flashcards[currentFlashcard][0];
+
+    document.getElementById("flashAnswer").innerHTML =
+        flashcards[currentFlashcard][1];
+
+    document.getElementById("flashAnswer").style.display =
+        "none";
+
+    document.getElementById("flashCount").innerHTML =
+        "Card " +
+        (currentFlashcard + 1) +
+        " of " +
+        flashcards.length;
+
+}
+
+
+/* ================= START ================= */
+
+updateProgress();
+
+showSection("topic1");
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PHY 102 | MOAU STUDY HUB</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#F4F7FB;
+    color:#10233F;
+    line-height:1.6;
+}
+
+header{
+    background:#123C88;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+header h1{
+    margin:0;
+    font-size:30px;
+}
+
+header p{
+    color:#F4B942;
+    font-weight:bold;
+    margin:8px 0 0;
+}
+
+.nav{
+    background:white;
+    padding:12px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#123C88;
+    font-weight:bold;
+    margin:5px 10px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.hero{
+    background:#123C88;
+    color:white;
+    padding:30px 20px;
+    border-radius:15px;
+    text-align:center;
+    margin:20px 0;
+}
+
+.hero h2{
+    font-size:28px;
+    margin:0 0 10px;
+}
+
+.hero p{
+    margin:5px 0;
+}
+
+.search-box{
+    width:100%;
+    padding:15px;
+    border:2px solid #D5DEED;
+    border-radius:10px;
+    font-size:16px;
+    margin:15px 0 25px;
+}
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.topic-button{
+    background:white;
+    border:none;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    text-align:left;
+    cursor:pointer;
+    font-size:16px;
+    color:#10233F;
+    transition:0.2s;
+}
+
+.topic-button:hover{
+    transform:translateY(-3px);
+    background:#EEF4FF;
+}
+
+.topic-number{
+    display:inline-block;
+    background:#F4B942;
+    color:#10233F;
+    padding:5px 9px;
+    border-radius:50%;
+    font-weight:bold;
+    margin-right:8px;
+}
+
+.topic-content{
+    display:none;
+    background:white;
+    margin-top:25px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.topic-content.active{
+    display:block;
+}
+
+.topic-content h2{
+    color:#123C88;
+    border-bottom:3px solid #F4B942;
+    padding-bottom:8px;
+}
+
+.topic-content h3{
+    color:#123C88;
+}
+
+.formula{
+    background:#EEF4FF;
+    border-left:5px solid #123C88;
+    padding:15px;
+    margin:15px 0;
+    font-size:19px;
+    font-weight:bold;
+    overflow-x:auto;
+}
+
+.example{
+    background:#F8F8F8;
+    border-left:5px solid #F4B942;
+    padding:15px;
+    margin:15px 0;
+}
+
+.exam{
+    background:#FFF8E8;
+    border-left:5px solid #F4B942;
+    padding:15px;
+    margin:15px 0;
+}
+
+.tip{
+    background:#EAF8EE;
+    border-left:5px solid #2E8B57;
+    padding:15px;
+    margin:15px 0;
+}
+
+.diagram{
+    background:#10233F;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    font-family:monospace;
+    font-size:18px;
+    margin:20px 0;
+    overflow-x:auto;
+}
+
+.back-button{
+    background:#123C88;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    margin-bottom:15px;
+}
+
+.flashcards{
+    margin-top:30px;
+}
+
+.card{
+    background:#123C88;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    margin:15px 0;
+}
+
+.card button{
+    background:#F4B942;
+    border:none;
+    padding:10px 15px;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.answer{
+    display:none;
+    margin-top:15px;
+    background:white;
+    color:#10233F;
+    padding:15px;
+    border-radius:8px;
+}
+
+footer{
+    background:#123C88;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+
+@media(max-width:600px){
+    header h1{
+        font-size:24px;
+    }
+
+    .container{
+        padding:12px;
+    }
+
+    .topic-content{
+        padding:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MOAU STUDY HUB</h1>
+    <p>LEARN • GROW • BECOME</p>
+</header>
+
+<div class="nav">
+    <a href="index.html">Home</a>
+     <a href="cbt.html">📝 CBT</a>
+    <a href="materials.html">Materials</a>
+    <a href="flashcards.html">Flashcards</a>
+</div>
+
+<div class="container">
+
+<div class="hero">
+    <h2>⚡ PHY 102 STUDY CENTER</h2>
+    <p>Electricity, Magnetism & Electromagnetic Physics</p>
+    <p><b>Study • Practice • Understand • Excel</b></p>
+</div>
+
+<input
+    type="text"
+    id="search"
+    class="search-box"
+    placeholder="🔎 Search a PHY 102 topic..."
+    onkeyup="searchTopics()"
+>
+
+<h2 style="color:#123C88;">📚 PHY 102 TOPICS</h2>
+
+<div class="topic-grid" id="topicGrid">
+
+<button class="topic-button" onclick="openTopic(1)">
+<span class="topic-number">1</span>
+<b>Magnetic Force</b><br>
+Force on moving charges.
+</button>
+
+<button class="topic-button" onclick="openTopic(2)">
+<span class="topic-number">2</span>
+<b>Magnetic Field</b><br>
+Magnetic fields and field lines.
+</button>
+
+<button class="topic-button" onclick="openTopic(3)">
+<span class="topic-number">3</span>
+<b>Biot–Savart Law</b><br>
+Magnetic field due to current.
+</button>
+
+<button class="topic-button" onclick="openTopic(4)">
+<span class="topic-number">4</span>
+<b>Ampère's Law</b><br>
+Magnetic field using symmetry.
+</button>
+
+<button class="topic-button" onclick="openTopic(5)">
+<span class="topic-number">5</span>
+<b>Force on a Current-Carrying Wire</b><br>
+Force on a conductor.
+</button>
+
+<button class="topic-button" onclick="openTopic(6)">
+<span class="topic-number">6</span>
+<b>Magnetic Flux</b><br>
+Flux through a surface.
+</button>
+
+<button class="topic-button" onclick="openTopic(7)">
+<span class="topic-number">7</span>
+<b>Motion of Charged Particles</b><br>
+Charged particles in magnetic fields.
+</button>
+
+<button class="topic-button" onclick="openTopic(8)">
+<span class="topic-number">8</span>
+<b>Circular Motion</b><br>
+Charged particles moving in circles.
+</button>
+
+<button class="topic-button" onclick="openTopic(9)">
+<span class="topic-number">9</span>
+<b>Right-Hand Rules</b><br>
+Determining directions.
+</button>
+
+<button class="topic-button" onclick="openTopic(10)">
+<span class="topic-number">10</span>
+<b>Unit Vectors</b><br>
+î, ĵ and k̂ in magnetism.
+</button>
+
+<button class="topic-button" onclick="openTopic(11)">
+<span class="topic-number">11</span>
+<b>Electromagnetic Induction</b><br>
+Induced emf and current.
+</button>
+
+<button class="topic-button" onclick="openTopic(12)">
+<span class="topic-number">12</span>
+<b>Faraday's Law</b><br>
+Relationship between flux and emf.
+</button>
+
+<button class="topic-button" onclick="openTopic(13)">
+<span class="topic-number">13</span>
+<b>Lenz's Law</b><br>
+Direction of induced current.
+</button>
+
+<button class="topic-button" onclick="openTopic(14)">
+<span class="topic-number">14</span>
+<b>Inductance</b><br>
+Self and mutual inductance.
+</button>
+
+<button class="topic-button" onclick="openTopic(15)">
+<span class="topic-number">15</span>
+<b>AC Circuits</b><br>
+Alternating current basics.
+</button>
+
+</div>
+
+
+<!-- TOPIC 1 -->
+
+<div id="topic1" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>1. ⚡ Magnetic Force</h2>
+
+<h3>Definition</h3>
+
+<p>
+Magnetic force is the force experienced by a charged particle moving through
+a magnetic field.
+</p>
+
+<div class="formula">
+F = qvB sinθ
+</div>
+
+<p>Where:</p>
+
+<ul>
+<li><b>F</b> = magnetic force in newtons (N)</li>
+<li><b>q</b> = charge in coulombs (C)</li>
+<li><b>v</b> = velocity in m/s</li>
+<li><b>B</b> = magnetic field in tesla (T)</li>
+<li><b>θ</b> = angle between velocity and magnetic field</li>
+</ul>
+
+<h3>Vector Formula</h3>
+
+<div class="formula">
+F⃗ = q(v⃗ × B⃗)
+</div>
+
+<div class="diagram">
+        B ↑
+          |
+          |
+     +q → v
+
+Magnetic force F is perpendicular
+to both v and B.
+</div>
+
+<h3>Important Cases</h3>
+
+<p>If θ = 90°:</p>
+
+<div class="formula">
+F = qvB
+</div>
+
+<p>If θ = 0° or 180°:</p>
+
+<div class="formula">
+F = 0
+</div>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p><b>Question:</b></p>
+
+<p>
+A charge of 3.2 × 10⁻¹⁹ C moves with velocity
+2 × 10⁶ m/s perpendicular to a magnetic field of
+1.5 T. Calculate the magnetic force.
+</p>
+
+<p><b>Solution:</b></p>
+
+<p>Since the charge moves perpendicular to the field:</p>
+
+<p>θ = 90°</p>
+
+<div class="formula">
+F = qvB
+</div>
+
+<p>
+F = (3.2 × 10⁻¹⁹)(2 × 10⁶)(1.5)
+</p>
+
+<p>
+F = 9.6 × 10⁻¹³ N
+</p>
+
+<p><b>Answer: 9.6 × 10⁻¹³ N</b></p>
+
+</div>
+
+<div class="tip">
+<b>Exam Tip:</b> Always check the angle before using
+F = qvB. The complete formula is F = qvB sinθ.
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>Define magnetic force.</li>
+<li>State the formula for magnetic force on a moving charge.</li>
+<li>When is magnetic force maximum?</li>
+<li>When is magnetic force zero?</li>
+<li>Calculate the force on a charge moving perpendicular to a magnetic field.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 2 -->
+
+<div id="topic2" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>2. 🧲 Magnetic Field</h2>
+
+<h3>Definition</h3>
+
+<p>
+A magnetic field is the region around a magnet or current-carrying conductor
+where magnetic forces can be experienced.
+</p>
+
+<div class="formula">
+B = F / (qv sinθ)
+</div>
+
+<p>The SI unit of magnetic field is the <b>tesla (T)</b>.</p>
+
+<h3>Magnetic Field Lines</h3>
+
+<p>
+Magnetic field lines show the direction and relative strength of a magnetic field.
+Outside a bar magnet, field lines go from the north pole to the south pole.
+</p>
+
+<div class="diagram">
+        N  ─────────────→  S
+       ↗                   ↘
+      ↗                     ↘
+     ↖                     ↙
+       ↖                 ↙
+
+Field lines indicate the magnetic field direction.
+</div>
+
+<h3>Important Properties</h3>
+
+<ul>
+<li>Magnetic field lines never cross each other.</li>
+<li>Closer lines represent a stronger field.</li>
+<li>The field direction is along the tangent to a field line.</li>
+<li>The SI unit of B is tesla.</li>
+</ul>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>Define magnetic field.</li>
+<li>State the SI unit of magnetic field.</li>
+<li>What do magnetic field lines represent?</li>
+<li>State three properties of magnetic field lines.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 3 -->
+
+<div id="topic3" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>3. 🧮 Biot–Savart Law</h2>
+
+<p>
+The Biot–Savart law is used to calculate the magnetic field produced by a
+small element of current.
+</p>
+
+<div class="formula">
+dB = (μ₀ / 4π) × (I dl sinθ / r²)
+</div>
+
+<p>Where:</p>
+
+<ul>
+<li>μ₀ = permeability of free space</li>
+<li>I = current</li>
+<li>dl = small length element</li>
+<li>r = distance from the current element</li>
+<li>θ = angle between dl and r</li>
+</ul>
+
+<div class="formula">
+μ₀ = 4π × 10⁻⁷ T·m/A
+</div>
+
+<h3>Long Straight Wire</h3>
+
+<div class="formula">
+B = μ₀I / (2πr)
+</div>
+
+<h3>Centre of a Circular Loop</h3>
+
+<div class="formula">
+B = μ₀I / (2R)
+</div>
+
+<p>For N turns:</p>
+
+<div class="formula">
+B = μ₀NI / (2R)
+</div>
+
+<div class="tip">
+<b>Remember:</b> Biot–Savart law is especially useful when the current
+geometry does not have enough symmetry for a simple Ampère's law calculation.
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>State the Biot–Savart law.</li>
+<li>Define permeability of free space.</li>
+<li>Derive the magnetic field due to a long straight wire.</li>
+<li>Calculate the field at the center of a circular current loop.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 4 -->
+
+<div id="topic4" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>4. 🔄 Ampère's Law</h2>
+
+<p>
+Ampère's law relates the circulation of the magnetic field around a closed
+path to the current enclosed by that path.
+</p>
+
+<div class="formula">
+∮ B⃗ · dl⃗ = μ₀I<sub>enclosed</sub>
+</div>
+
+<h3>How to Solve Ampère's Law Questions</h3>
+
+<ol>
+<li>Identify the symmetry of the system.</li>
+<li>Choose a suitable Amperian loop.</li>
+<li>Determine where B is constant.</li>
+<li>Evaluate the line integral.</li>
+<li>Set it equal to μ₀I.</li>
+<li>Solve for B.</li>
+</ol>
+
+<h3>Long Straight Wire</h3>
+
+<div class="formula">
+B(2πr) = μ₀I
+</div>
+
+Therefore:
+
+<div class="formula">
+B = μ₀I / (2πr)
+</div>
+
+<div class="diagram">
+             B → → →
+          ┌───────────┐
+        ↗ │           │ ↘
+       ↑  │     I ↑   │  ↓
+        ↖ │           │ ↙
+          └───────────┘
+
+      Circular Amperian path
+</div>
+
+<div class="tip">
+<b>Key idea:</b> In Ampère's law, symmetry helps you take B outside
+the integral.
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>State Ampère's law.</li>
+<li>Explain what an Amperian loop is.</li>
+<li>Why is symmetry important in Ampère's law?</li>
+<li>Use Ampère's law to derive the field around a long straight wire.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 5 -->
+
+<div id="topic5" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>5. 🔌 Force on a Current-Carrying Wire</h2>
+
+<p>
+A current-carrying conductor placed in a magnetic field experiences a force.
+</p>
+
+<div class="formula">
+F = BIL sinθ
+</div>
+
+<p>Where:</p>
+
+<ul>
+<li>B = magnetic field</li>
+<li>I = current</li>
+<li>L = length of conductor</li>
+<li>θ = angle between wire and magnetic field</li>
+</ul>
+
+<p>For a perpendicular wire:</p>
+
+<div class="formula">
+F = BIL
+</div>
+
+<div class="diagram">
+B → → → → → → →
+
+          ↑ F
+          |
+          |
+          I
+          |
+          ↓
+
+Current-carrying wire
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>State the formula for force on a current-carrying wire.</li>
+<li>What happens when the conductor is parallel to the field?</li>
+<li>Calculate the force on a wire carrying a given current.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 6 -->
+
+<div id="topic6" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>6. 🌐 Magnetic Flux</h2>
+
+<p>
+Magnetic flux measures the amount of magnetic field passing through a surface.
+</p>
+
+<div class="formula">
+Φ = BA cosθ
+</div>
+
+<p>Where:</p>
+
+<ul>
+<li>Φ = magnetic flux</li>
+<li>B = magnetic field</li>
+<li>A = area</li>
+<li>θ = angle between B and the normal to the surface</li>
+</ul>
+
+<div class="formula">
+SI unit of magnetic flux = weber (Wb)
+</div>
+
+<p>Maximum flux occurs when θ = 0°.</p>
+
+<div class="formula">
+Φ<sub>max</sub> = BA
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>Define magnetic flux.</li>
+<li>State the formula for magnetic flux.</li>
+<li>State the SI unit of magnetic flux.</li>
+<li>Calculate flux through a given surface.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 7 -->
+
+<div id="topic7" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>7. ⚛️ Motion of Charged Particles</h2>
+
+<p>
+A charged particle moving through a magnetic field can experience a force
+that changes the direction of its motion.
+</p>
+
+<p>
+If the velocity is perpendicular to the magnetic field, the magnetic force
+acts as a centripetal force.
+</p>
+
+<div class="formula">
+qvB = mv²/r
+</div>
+
+<p>Therefore:</p>
+
+<div class="formula">
+r = mv / (qB)
+</div>
+
+<p>The particle follows a circular path.</p>
+
+<div class="diagram">
+             v →
+          ●────────
+        ↗           ↘
+      ●               ●
+       ↖             ↙
+          ●───────●
+
+     Charged particle
+       circular path
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>Describe the motion of a charged particle in a uniform magnetic field.</li>
+<li>Derive r = mv/qB.</li>
+<li>Calculate the radius of a charged particle's path.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 8 -->
+
+<div id="topic8" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>8. 🔵 Circular Motion in a Magnetic Field</h2>
+
+<div class="formula">
+r = mv / (qB)
+</div>
+
+<h3>Angular Frequency</h3>
+
+<div class="formula">
+ω = qB / m
+</div>
+
+<h3>Period</h3>
+
+<div class="formula">
+T = 2πm / (qB)
+</div>
+
+<h3>Frequency</h3>
+
+<div class="formula">
+f = qB / (2πm)
+</div>
+
+<div class="tip">
+The radius depends on velocity, but the period of circular motion in a
+uniform magnetic field does not depend on velocity in the non-relativistic case.
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>Derive the radius of circular motion.</li>
+<li>Calculate the period of a charged particle.</li>
+<li>Calculate the frequency of circular motion.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 9 -->
+
+<div id="topic9" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>9. ✋ Right-Hand Rules</h2>
+
+<p>
+Right-hand rules help determine the direction of magnetic fields, forces,
+and motion involving currents and moving charges.
+</p>
+
+<h3>For a Positive Charge</h3>
+
+<p>
+Point your fingers in the direction of velocity <b>v</b>, curl them toward
+the magnetic field <b>B</b>. Your thumb gives the direction of magnetic force.
+</p>
+
+<h3>For a Negative Charge</h3>
+
+<p>
+The force direction is opposite to the direction obtained for a positive charge.
+</p>
+
+<div class="diagram">
+        THUMB
+          ↑
+          │ F
+          │
+       ✋ RIGHT HAND
+      /   /   /
+     v   B
+
+Velocity × Magnetic field
+determines force direction.
+</div>
+
+<div class="tip">
+<b>Exam Tip:</b> Always check whether the charge is positive or negative.
+Electrons require the opposite force direction.
+</div>
+
+</div>
+
+
+<!-- TOPIC 10 -->
+
+<div id="topic10" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>10. 📐 Unit Vectors in Magnetism</h2>
+
+<p>
+Unit vectors describe directions in three-dimensional space.
+</p>
+
+<div class="formula">
+î = x-direction
+</div>
+
+<div class="formula">
+ĵ = y-direction
+</div>
+
+<div class="formula">
+k̂ = z-direction
+</div>
+
+<h3>Important Cross Products</h3>
+
+<div class="formula">
+î × ĵ = k̂
+</div>
+
+<div class="formula">
+ĵ × k̂ = î
+</div>
+
+<div class="formula">
+k̂ × î = ĵ
+</div>
+
+<p>Reversing the order changes the sign:</p>
+
+<div class="formula">
+ĵ × î = -k̂
+</div>
+
+<div class="formula">
+k̂ × ĵ = -î
+</div>
+
+<div class="formula">
+î × k̂ = -ĵ
+</div>
+
+<div class="tip">
+Remember the cycle:
+<b>i → j → k → i</b> gives positive results.
+The reverse direction gives negative results.
+</div>
+
+<div class="exam">
+<b>Practice</b>
+
+<p>Calculate:</p>
+
+<p>(2î) × (3ĵ)</p>
+
+<p><b>Answer:</b></p>
+
+<div class="formula">
+6k̂
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TOPIC 11 -->
+
+<div id="topic11" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>11. ⚡ Electromagnetic Induction</h2>
+
+<p>
+Electromagnetic induction is the production of an emf when the magnetic
+flux through a circuit changes.
+</p>
+
+<p>
+A change in magnetic field, area, or orientation can change the magnetic flux.
+</p>
+
+<div class="formula">
+ε = - dΦ/dt
+</div>
+
+<p>For N turns:</p>
+
+<div class="formula">
+ε = -N dΦ/dt
+</div>
+
+<div class="diagram">
+       MAGNET
+        N  → → →
+
+
+     ┌───────────┐
+     │   COIL    │
+     │   ↻       │
+     └───────────┘
+
+Changing magnetic flux
+produces induced emf.
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>Define electromagnetic induction.</li>
+<li>What causes induced emf?</li>
+<li>State Faraday's law.</li>
+<li>State Lenz's law.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 12 -->
+
+<div id="topic12" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>12. 📜 Faraday's Law</h2>
+
+<p>
+Faraday's law states that the induced emf in a circuit is proportional to
+the rate of change of magnetic flux linkage.
+</p>
+
+<div class="formula">
+ε = -N dΦ/dt
+</div>
+
+<p>
+The negative sign represents Lenz's law: the induced effect opposes the
+change producing it.
+</p>
+
+<h3>Average Form</h3>
+
+<div class="formula">
+ε = -N(ΔΦ/Δt)
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+<p>
+A coil has 100 turns. The magnetic flux changes by
+0.02 Wb in 0.5 s. Find the magnitude of the average induced emf.
+</p>
+
+<p>Use:</p>
+
+<div class="formula">
+|ε| = NΔΦ/Δt
+</div>
+
+<p>
+|ε| = (100 × 0.02)/0.5
+</p>
+
+<p>
+|ε| = 4 V
+</p>
+
+<p><b>Answer: 4 V</b></p>
+
+</div>
+
+</div>
+
+
+<!-- TOPIC 13 -->
+
+<div id="topic13" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>13. 🔄 Lenz's Law</h2>
+
+<p>
+Lenz's law states that the direction of an induced current is such that
+its magnetic effect opposes the change in magnetic flux that produced it.
+</p>
+
+<div class="tip">
+<b>Simple meaning:</b> Nature opposes the change.
+</div>
+
+<p>
+For example, if magnetic flux through a coil is increasing, the induced
+magnetic field acts in a direction that opposes that increase.
+</p>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>State Lenz's law.</li>
+<li>Explain the meaning of the negative sign in Faraday's law.</li>
+<li>Determine the direction of an induced current using Lenz's law.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- TOPIC 14 -->
+
+<div id="topic14" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>14. 🌀 Inductance</h2>
+
+<p>
+Inductance is the property of a circuit that opposes changes in current.
+</p>
+
+<h3>Self-Inductance</h3>
+
+<div class="formula">
+ε = -L di/dt
+</div>
+
+<p>Where L is the self-inductance.</p>
+
+<div class="formula">
+Unit of inductance = henry (H)
+</div>
+
+<h3>Energy Stored in an Inductor</h3>
+
+<div class="formula">
+U = ½LI²
+</div>
+
+<div class="example">
+
+<b>Example:</b>
+
+<p>
+An inductor of 2 H carries a current of 3 A.
+Calculate the energy stored.
+</p>
+
+<p>
+U = ½LI²
+</p>
+
+<p>
+U = ½(2)(3²)
+</p>
+
+<p>
+U = 9 J
+</p>
+
+<p><b>Answer: 9 J</b></p>
+
+</div>
+
+</div>
+
+
+<!-- TOPIC 15 -->
+
+<div id="topic15" class="topic-content">
+
+<button class="back-button" onclick="closeTopics()">← Back to Topics</button>
+
+<h2>15. 🔌 AC Circuits</h2>
+
+<p>
+Alternating current is an electric current that changes magnitude and
+direction periodically.
+</p>
+
+<h3>Instantaneous AC Voltage</h3>
+
+<div class="formula">
+V = V₀ sin(ωt)
+</div>
+
+<h3>RMS Voltage</h3>
+
+<div class="formula">
+V<sub>rms</sub> = V₀ / √2
+</div>
+
+<h3>RMS Current</h3>
+
+<div class="formula">
+I<sub>rms</sub> = I₀ / √2
+</div>
+
+<h3>Angular Frequency</h3>
+
+<div class="formula">
+ω = 2πf
+</div>
+
+<p>Where f is frequency in hertz.</p>
+
+<div class="tip">
+<b>Remember:</b> RMS values are commonly used to describe the effective
+voltage and current in AC circuits.
+</div>
+
+<div class="exam">
+<b>Possible Exam Questions</b>
+
+<ol>
+<li>Define alternating current.</li>
+<li>Write the equation for sinusoidal AC voltage.</li>
+<li>Define RMS voltage.</li>
+<li>Calculate RMS voltage from peak voltage.</li>
+<li>Calculate angular frequency from frequency.</li>
+</ol>
+</div>
+
+</div>
+
+
+<!-- FLASHCARDS -->
+
+<div class="flashcards">
+
+<h2 style="color:#123C88;">🧠 PHY 102 QUICK FLASHCARDS</h2>
+
+<div class="card">
+<b>Flashcard 1</b>
+<p>What is the SI unit of magnetic field?</p>
+<button onclick="showAnswer('a1')">SHOW ANSWER</button>
+<div class="answer" id="a1">Tesla (T).</div>
+</div>
+
+<div class="card">
+<b>Flashcard 2</b>
+<p>What is the magnetic force formula?</p>
+<button onclick="showAnswer('a2')">SHOW ANSWER</button>
+<div class="answer" id="a2">F = qvB sinθ.</div>
+</div>
+
+<div class="card">
+<b>Flashcard 3</b>
+<p>What is the force on a current-carrying wire?</p>
+<button onclick="showAnswer('a3')">SHOW ANSWER</button>
+<div class="answer" id="a3">F = BIL sinθ.</div>
+</div>
+
+<div class="card">
+<b>Flashcard 4</b>
+<p>What is the SI unit of magnetic flux?</p>
+<button onclick="showAnswer('a4')">SHOW ANSWER</button>
+<div class="answer" id="a4">Weber (Wb).</div>
+</div>
+
+<div class="card">
+<b>Flashcard 5</b>
+<p>State Biot–Savart law.</p>
+<button onclick="showAnswer('a5')">SHOW ANSWER</button>
+<div class="answer" id="a5">dB = (μ₀/4π)(I dl sinθ/r²).</div>
+</div>
+
+<div class="card">
+<b>Flashcard 6</b>
+<p>State Ampère's law.</p>
+<button onclick="showAnswer('a6')">SHOW ANSWER</button>
+<div class="answer" id="a6">∮B⃗·dl⃗ = μ₀I<sub>enclosed</sub>.</div>
+</div>
+
+<div class="card">
+<b>Flashcard 7</b>
+<p>What is the radius of circular motion of a charged particle?</p>
+<button onclick="showAnswer('a7')">SHOW ANSWER</button>
+<div class="answer" id="a7">r = mv/(qB).</div>
+</div>
+
+<div class="card">
+<b>Flashcard 8</b>
+<p>What is Faraday's law?</p>
+<button onclick="showAnswer('a8')">SHOW ANSWER</button>
+<div class="answer" id="a8">ε = -N dΦ/dt.</div>
+</div>
+
+<div class="card">
+<b>Flashcard 9</b>
+<p>What does Lenz's law tell us?</p>
+<button onclick="showAnswer('a9')">SHOW ANSWER</button>
+<div class="answer" id="a9">The induced effect opposes the change that produced it.</div>
+</div>
+
+<div class="card">
+<b>Flashcard 10</b>
+<p>What are the basic unit-vector cross products?</p>
+<button onclick="showAnswer('a10')">SHOW ANSWER</button>
+<div class="answer" id="a10">î × ĵ = k̂, ĵ × k̂ = î, and k̂ × î = ĵ.</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p><b>MOAU STUDY HUB</b></p>
+<p>LEARN • GROW • BECOME</p>
+<p>© 2026 MOAU STUDY HUB</p>
+</footer>
+
+
+<script>
+
+function openTopic(number){
+
+    document.getElementById("topicGrid").style.display="none";
+
+    document.querySelector(".hero").style.display="none";
+
+    document.querySelector(".search-box").style.display="none";
+
+    document.querySelector(".flashcards").style.display="none";
+
+    let topics=document.querySelectorAll(".topic-content");
+
+    topics.forEach(function(topic){
+        topic.classList.remove("active");
+    });
+
+    document.getElementById("topic"+number).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+function closeTopics(){
+
+    let topics=document.querySelectorAll(".topic-content");
+
+    topics.forEach(function(topic){
+        topic.classList.remove("active");
+    });
+
+    document.getElementById("topicGrid").style.display="grid";
+
+    document.querySelector(".hero").style.display="block";
+
+    document.querySelector(".search-box").style.display="block";
+
+    document.querySelector(".flashcards").style.display="block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+function showAnswer(id){
+
+    let answer=document.getElementById(id);
+
+    if(answer.style.display==="block"){
+        answer.style.display="none";
+    }else{
+        answer.style.display="block";
+    }
+}
+
+
+function searchTopics(){
+
+    let search=document.getElementById("search").value.toLowerCase();
+
+    let buttons=document.querySelectorAll(".topic-button");
+
+    buttons.forEach(function(button){
+
+        let text=button.innerText.toLowerCase();
+
+        if(text.includes(search)){
+            button.style.display="block";
+        }else{
+            button.style.display="none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHY 102 Study Center | MOAU STUDY HUB</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#F4F7FB;
+color:#10233F;
+line-height:1.7
+}
+
+header{
+background:#123C88;
+color:white;
+text-align:center;
+padding:28px 15px
+}
+
+header h1{margin:0;font-size:30px}
+header p{color:#F4B942;font-weight:bold;margin:5px}
+
+nav{
+background:white;
+padding:14px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:20;
+box-shadow:0 2px 8px #0002
+}
+
+nav a{
+color:#123C88;
+text-decoration:none;
+font-weight:bold;
+margin:0 8px
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px
+}
+
+.hero{
+background:#123C88;
+color:white;
+padding:30px 20px;
+border-radius:16px;
+text-align:center;
+margin-bottom:25px
+}
+
+.hero h2{font-size:28px;margin:0}
+.hero strong{color:#F4B942}
+
+.search{
+width:100%;
+padding:15px;
+border:2px solid #d6dfed;
+border-radius:10px;
+font-size:16px;
+margin-bottom:20px
+}
+
+.topic-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px
+}
+
+.topic-btn{
+background:white;
+border:0;
+border-radius:14px;
+padding:20px;
+text-align:left;
+font-size:16px;
+color:#10233F;
+box-shadow:0 4px 12px #0002;
+cursor:pointer
+}
+
+.topic-btn:hover{
+background:#EEF4FF;
+transform:translateY(-2px)
+}
+
+.num{
+background:#F4B942;
+border-radius:50%;
+padding:5px 9px;
+font-weight:bold;
+margin-right:7px
+}
+
+.lesson{
+display:none;
+background:white;
+padding:25px;
+border-radius:16px;
+box-shadow:0 4px 15px #0002;
+margin-top:20px
+}
+
+.lesson.active{display:block}
+
+.lesson h2{
+color:#123C88;
+border-bottom:3px solid #F4B942;
+padding-bottom:8px
+}
+
+.lesson h3{color:#123C88}
+
+.formula{
+background:#EEF4FF;
+border-left:6px solid #123C88;
+padding:15px;
+margin:15px 0;
+font-size:20px;
+font-weight:bold;
+overflow-x:auto
+}
+
+.example{
+background:#F8F8F8;
+border-left:6px solid #F4B942;
+padding:18px;
+margin:18px 0
+}
+
+.tip{
+background:#EAF8EE;
+border-left:6px solid #25834b;
+padding:18px;
+margin:18px 0
+}
+
+.warning{
+background:#FFF0F0;
+border-left:6px solid #c62828;
+padding:18px;
+margin:18px 0
+}
+
+.diagram{
+background:#10233F;
+color:white;
+padding:20px;
+border-radius:10px;
+font-family:monospace;
+white-space:pre;
+overflow-x:auto;
+text-align:center;
+margin:20px 0
+}
+
+.exam{
+background:#FFF8E5;
+border-left:6px solid #F4B942;
+padding:18px;
+margin-top:20px
+}
+
+.back{
+background:#123C88;
+color:white;
+border:0;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold
+}
+
+.flash-section{
+margin-top:35px
+}
+
+.flashcard{
+background:#123C88;
+color:white;
+padding:22px;
+border-radius:14px;
+margin:14px 0
+}
+
+.flashcard button{
+background:#F4B942;
+border:0;
+padding:10px 15px;
+border-radius:7px;
+font-weight:bold
+}
+
+.answer{
+display:none;
+background:white;
+color:#10233F;
+padding:14px;
+border-radius:8px;
+margin-top:12px
+}
+
+footer{
+background:#123C88;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:40px
+}
+
+@media(max-width:600px){
+.container{padding:12px}
+.lesson{padding:18px}
+.hero h2{font-size:23px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MOAU STUDY HUB</h1>
+<p>LEARN • GROW • BECOME</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cbt.html">CBT</a>
+<a href="materials.html">Materials</a>
+<a href="flashcards.html">Flashcards</a>
+</nav>
+
+<div class="container">
+
+<div class="hero">
+<h2>⚡ PHY 102 DIGITAL STUDY CENTER</h2>
+<p>Electricity • Magnetism • Electromagnetic Induction • AC</p>
+<p><strong>UNDERSTAND • PRACTICE • MASTER</strong></p>
+</div>
+
+<input
+id="search"
+class="search"
+placeholder="🔎 Search for a PHY 102 topic..."
+onkeyup="searchTopics()"
+>
+
+<div id="topics">
+
+<div class="topic-grid">
+
+<button class="topic-btn" onclick="openTopic(1)">
+<span class="num">1</span><b>Magnetic Force</b><br>
+Force on moving charges
+</button>
+
+<button class="topic-btn" onclick="openTopic(2)">
+<span class="num">2</span><b>Magnetic Field</b><br>
+Magnetic fields and field lines
+</button>
+
+<button class="topic-btn" onclick="openTopic(3)">
+<span class="num">3</span><b>Biot–Savart Law</b><br>
+Magnetic field due to current
+</button>
+
+<button class="topic-btn" onclick="openTopic(4)">
+<span class="num">4</span><b>Ampère's Law</b><br>
+Magnetic field using symmetry
+</button>
+
+<button class="topic-btn" onclick="openTopic(5)">
+<span class="num">5</span><b>Force on Current-Carrying Wire</b><br>
+Force on conductors
+</button>
+
+<button class="topic-btn" onclick="openTopic(6)">
+<span class="num">6</span><b>Magnetic Flux</b><br>
+Flux through a surface
+</button>
+
+<button class="topic-btn" onclick="openTopic(7)">
+<span class="num">7</span><b>Motion of Charged Particles</b><br>
+Charged particles in magnetic fields
+</button>
+
+<button class="topic-btn" onclick="openTopic(8)">
+<span class="num">8</span><b>Circular Motion</b><br>
+Charged particles moving in circles
+</button>
+
+<button class="topic-btn" onclick="openTopic(9)">
+<span class="num">9</span><b>Right-Hand Rules</b><br>
+Determining directions
+</button>
+
+<button class="topic-btn" onclick="openTopic(10)">
+<span class="num">10</span><b>Unit Vectors</b><br>
+î, ĵ and k̂
+</button>
+
+<button class="topic-btn" onclick="openTopic(11)">
+<span class="num">11</span><b>Electromagnetic Induction</b><br>
+Induced emf and current
+</button>
+
+<button class="topic-btn" onclick="openTopic(12)">
+<span class="num">12</span><b>Faraday's Law</b><br>
+Flux and induced emf
+</button>
+
+<button class="topic-btn" onclick="openTopic(13)">
+<span class="num">13</span><b>Lenz's Law</b><br>
+Direction of induced current
+</button>
+
+<button class="topic-btn" onclick="openTopic(14)">
+<span class="num">14</span><b>Inductance</b><br>
+Self and mutual inductance
+</button>
+
+<button class="topic-btn" onclick="openTopic(15)">
+<span class="num">15</span><b>AC Circuits</b><br>
+Alternating current
+</button>
+
+</div>
+</div>
+
+
+<!-- ================= TOPIC 1 ================= -->
+
+<section id="topic1" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>1. ⚡ MAGNETIC FORCE</h2>
+
+<h3>Definition</h3>
+
+<p>
+Magnetic force is the force exerted by a magnetic field on a moving
+charged particle or a current-carrying conductor.
+</p>
+
+<h3>Force on a Moving Charge</h3>
+
+<div class="formula">
+F = qvB sinθ
+</div>
+
+<p>
+Where q is charge, v is velocity, B is magnetic field and θ is the angle
+between velocity and magnetic field.
+</p>
+
+<h3>Vector Form</h3>
+
+<div class="formula">
+F⃗ = q(v⃗ × B⃗)
+</div>
+
+<div class="diagram">
+              B
+              ↑
+              │
+              │
+              ●────────→ v
+             /
+            /
+           F
+
+F is perpendicular to v and B
+</div>
+
+<h3>Special Cases</h3>
+
+<p><b>1. θ = 90°</b></p>
+
+<div class="formula">F = qvB</div>
+
+<p>The force is maximum.</p>
+
+<p><b>2. θ = 0°</b></p>
+
+<div class="formula">F = 0</div>
+
+<p>The particle is moving parallel to the field.</p>
+
+<p><b>3. θ = 180°</b></p>
+
+<div class="formula">F = 0</div>
+
+<p>The particle is moving opposite to the field.</p>
+
+<h3>Direction</h3>
+
+<p>
+For a positive charge, use the right-hand rule. For a negative charge,
+the direction is opposite.
+</p>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p>
+A charge of 3.2 × 10⁻¹⁹ C moves at 2 × 10⁶ m/s perpendicular to a
+1.5 T magnetic field. Find the force.
+</p>
+
+<div class="formula">
+F = qvB
+</div>
+
+<p>
+F = (3.2 × 10⁻¹⁹)(2 × 10⁶)(1.5)
+</p>
+
+<div class="formula">
+F = 9.6 × 10⁻¹³ N
+</div>
+
+</div>
+
+<h3>Important Facts</h3>
+
+<ul>
+<li>Magnetic force is perpendicular to velocity.</li>
+<li>A magnetic field does no work on a moving charged particle.</li>
+<li>Force increases when q, v or B increases.</li>
+<li>Maximum force occurs at 90°.</li>
+</ul>
+
+<div class="warning">
+<b>Common mistake:</b> Do not forget sinθ. Use F = qvB only when
+the motion is perpendicular to the magnetic field.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Define magnetic force.</li>
+<li>State the magnetic force equation.</li>
+<li>When is magnetic force maximum?</li>
+<li>When is magnetic force zero?</li>
+<li>Calculate the force on a moving charge.</li>
+<li>Explain the direction of force on a negative charge.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 2 ================= -->
+
+<section id="topic2" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>2. 🧲 MAGNETIC FIELD</h2>
+
+<h3>Definition</h3>
+
+<p>
+A magnetic field is the region around a magnet, current-carrying conductor,
+or moving charge where magnetic effects can be experienced.
+</p>
+
+<div class="formula">
+Unit of magnetic field = Tesla (T)
+</div>
+
+<h3>Magnetic Field Lines</h3>
+
+<div class="diagram">
+       → → → → → → →
+     ↗               ↘
+   ↗                   ↘
+ N                       S
+   ↘                   ↗
+     ↘               ↗
+       → → → → → → →
+
+       BAR MAGNET
+</div>
+
+<h3>Properties</h3>
+
+<ul>
+<li>Outside a magnet, lines go from N to S.</li>
+<li>They form closed loops.</li>
+<li>They never cross.</li>
+<li>Closer lines indicate stronger fields.</li>
+<li>The tangent gives field direction.</li>
+</ul>
+
+<h3>Field Due to a Long Straight Wire</h3>
+
+<div class="formula">
+B = μ₀I / 2πr
+</div>
+
+<p>
+The field increases with current and decreases with distance.
+</p>
+
+<div class="formula">
+μ₀ = 4π × 10⁻⁷ T·m/A
+</div>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p>
+A wire carries 10 A. Find B at 0.20 m.
+</p>
+
+<div class="formula">
+B = μ₀I / 2πr
+</div>
+
+<p>
+B = [(4π × 10⁻⁷)(10)] / [(2π)(0.20)]
+</p>
+
+<div class="formula">
+B = 1.0 × 10⁻⁵ T
+</div>
+
+</div>
+
+<div class="tip">
+<b>Remember:</b> Doubling I doubles B. Doubling r halves B.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Define magnetic field.</li>
+<li>State its SI unit.</li>
+<li>List five properties of magnetic field lines.</li>
+<li>Derive B = μ₀I/2πr.</li>
+<li>Calculate the field around a straight wire.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 3 ================= -->
+
+<section id="topic3" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>3. 🧮 BIOT–SAVART LAW</h2>
+
+<h3>Meaning</h3>
+
+<p>
+The Biot–Savart law determines the magnetic field contribution produced by
+a small current element.
+</p>
+
+<div class="formula">
+dB = (μ₀/4π)(I dl sinθ/r²)
+</div>
+
+<h3>Vector Form</h3>
+
+<div class="formula">
+dB⃗ = (μ₀/4π)[I(dl⃗ × r̂)/r²]
+</div>
+
+<h3>Meaning of Symbols</h3>
+
+<ul>
+<li>dB = small magnetic field contribution</li>
+<li>I = current</li>
+<li>dl = small conductor length</li>
+<li>r = distance to observation point</li>
+<li>θ = angle between dl and r</li>
+<li>μ₀ = permeability of free space</li>
+</ul>
+
+<div class="formula">
+μ₀ = 4π × 10⁻⁷ T·m/A
+</div>
+
+<h3>Long Straight Wire</h3>
+
+<div class="formula">
+B = μ₀I / 2πr
+</div>
+
+<h3>Circular Coil</h3>
+
+<p>At the center of a single circular loop:</p>
+
+<div class="formula">
+B = μ₀I / 2R
+</div>
+
+<p>For N turns:</p>
+
+<div class="formula">
+B = μ₀NI / 2R
+</div>
+
+<div class="diagram">
+             ↻ I
+        ┌───────────┐
+       /             \
+      |       ●       |
+       \             /
+        └───────────┘
+             R
+
+B at the center is perpendicular
+to the plane of the loop.
+</div>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p>
+A 50-turn coil carries 2 A and has radius 0.10 m.
+</p>
+
+<div class="formula">
+B = μ₀NI/2R
+</div>
+
+<p>
+B = [(4π × 10⁻⁷)(50)(2)]/[2(0.10)]
+</p>
+
+<div class="formula">
+B ≈ 6.28 × 10⁻⁴ T
+</div>
+
+</div>
+
+<div class="tip">
+Biot–Savart is especially useful for calculating fields from particular
+current geometries such as loops and arcs.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>State Biot–Savart law.</li>
+<li>Write its vector form.</li>
+<li>Explain every symbol.</li>
+<li>Derive the field of a long straight wire.</li>
+<li>Derive the field at the center of a circular coil.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 4 ================= -->
+
+<section id="topic4" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>4. 🔄 AMPÈRE'S LAW</h2>
+
+<h3>Statement</h3>
+
+<p>
+Ampère's law relates the circulation of the magnetic field around a closed
+path to the current enclosed by that path.
+</p>
+
+<div class="formula">
+∮ B⃗ · dl⃗ = μ₀I<sub>enclosed</sub>
+</div>
+
+<h3>Amperian Loop</h3>
+
+<p>
+An Amperian loop is an imaginary closed path chosen to apply Ampère's law.
+The best path is one that takes advantage of symmetry.
+</p>
+
+<div class="diagram">
+          ↻ ↻ ↻
+       ┌─────────┐
+      /           \
+     |      I ↑    |
+      \           /
+       └─────────┘
+
+       Amperian loop
+</div>
+
+<h3>Long Straight Wire Derivation</h3>
+
+<div class="formula">
+∮B⃗·dl⃗ = μ₀I
+</div>
+
+<p>
+Because B has the same magnitude around a circular path:
+</p>
+
+<div class="formula">
+B∮dl = μ₀I
+</div>
+
+<p>The circumference is 2πr:</p>
+
+<div class="formula">
+B(2πr) = μ₀I
+</div>
+
+Therefore:</p>
+
+<div class="formula">
+B = μ₀I / 2πr
+</div>
+
+<h3>Procedure for Ampère Problems</h3>
+
+<ol>
+<li>Identify the symmetry.</li>
+<li>Choose an Amperian path.</li>
+<li>Write Ampère's law.</li>
+<li>Determine B along the path.</li>
+<li>Evaluate the integral.</li>
+<li>Solve for the unknown.</li>
+</ol>
+
+<div class="warning">
+Do not automatically use Ampère's law for every magnetic field problem.
+It is most convenient when symmetry makes the integral simple.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>State Ampère's law.</li>
+<li>What is an Amperian loop?</li>
+<li>Why is symmetry important?</li>
+<li>Derive B = μ₀I/2πr.</li>
+<li>Calculate B using Ampère's law.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 5 ================= -->
+
+<section id="topic5" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>5. 🔌 FORCE ON A CURRENT-CARRYING WIRE</h2>
+
+<h3>Definition</h3>
+
+<p>
+A current-carrying conductor placed in an external magnetic field experiences
+a magnetic force.
+</p>
+
+<div class="formula">
+F = BIL sinθ
+</div>
+
+<h3>Vector Form</h3>
+
+<div class="formula">
+F⃗ = I(L⃗ × B⃗)
+</div>
+
+<h3>Maximum Force</h3>
+
+<p>
+When θ = 90°:
+</p>
+
+<div class="formula">
+F = BIL
+</div>
+
+<h3>Zero Force</h3>
+
+<p>
+When the wire is parallel to B:
+</p>
+
+<div class="formula">
+θ = 0° → F = 0
+</div>
+
+<div class="diagram">
+B → → → → → → →
+
+        ↑ F
+        │
+        │
+        │ I
+        │
+        │
+
+Current-carrying wire
+</div>
+
+<h3>Force Between Parallel Wires</h3>
+
+<div class="formula">
+F/L = μ₀I₁I₂ / 2πr
+</div>
+
+<p>
+Parallel currents in the same direction attract.
+Parallel currents in opposite directions repel.
+</p>
+
+<div class="diagram">
+Same direction:
+
+I₁ ↑        ↑ I₂
+│           │
+│           │
+│           │
+
+     ATTRACT
+
+
+Opposite direction:
+
+I₁ ↑        ↓ I₂
+│           │
+│           │
+│           │
+
+      REPEL
+</div>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p>
+A 0.50 m wire carries 4 A in a 0.8 T field at 90°.
+</p>
+
+<div class="formula">
+F = BIL
+</div>
+
+<p>
+F = (0.8)(4)(0.50)
+</p>
+
+<div class="formula">
+F = 1.6 N
+</div>
+
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>State F = BIL sinθ.</li>
+<li>When is force maximum?</li>
+<li>When is force zero?</li>
+<li>Calculate the force on a conductor.</li>
+<li>State the force per unit length between two parallel wires.</li>
+<li>Explain attraction and repulsion of parallel currents.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 6 ================= -->
+
+<section id="topic6" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>6. 🌐 MAGNETIC FLUX</h2>
+
+<h3>Definition</h3>
+
+<p>
+Magnetic flux is a measure of the magnetic field passing through a given
+surface.
+</p>
+
+<div class="formula">
+Φ = BA cosθ
+</div>
+
+<p>
+Here θ is the angle between the magnetic field and the <b>normal</b>
+(perpendicular line) to the surface.
+</p>
+
+<div class="formula">
+Unit of Φ = weber (Wb)
+</div>
+
+<h3>Important Cases</h3>
+
+<p><b>Maximum flux:</b></p>
+
+<div class="formula">
+θ = 0° → Φ = BA
+</div>
+
+<p><b>Zero flux:</b></p>
+
+<div class="formula">
+θ = 90° → Φ = 0
+</div>
+
+<h3>Area Vector</h3>
+
+<p>
+The area vector is perpendicular to the surface. This is why the angle in
+Φ = BA cosθ is measured from the normal rather than from the plane itself.
+</p>
+
+<div class="diagram">
+       B → → → → →
+
+       ┌───────────┐
+       │   SURFACE │
+       │     ↑     │
+       │     │ A   │
+       └───────────┘
+             ↑
+           normal
+</div>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p>
+B = 0.5 T, A = 2 m² and θ = 60°.
+</p>
+
+<div class="formula">
+Φ = BA cos60°
+</div>
+
+<p>
+Φ = (0.5)(2)(0.5)
+</p>
+
+<div class="formula">
+Φ = 0.5 Wb
+</div>
+
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Define magnetic flux.</li>
+<li>State its SI unit.</li>
+<li>Write Φ = BA cosθ.</li>
+<li>Explain the meaning of the angle.</li>
+<li>Calculate magnetic flux through a surface.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 7 ================= -->
+
+<section id="topic7" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>7. ⚛️ MOTION OF CHARGED PARTICLES</h2>
+
+<h3>Charge Moving Perpendicular to B</h3>
+
+<p>
+If a charged particle enters a uniform magnetic field with its velocity
+perpendicular to B, the magnetic force continuously changes its direction
+of motion.
+</p>
+
+<p>
+The speed remains constant in an ideal uniform magnetic field because the
+magnetic force is perpendicular to the velocity.
+</p>
+
+<h3>Centripetal Force</h3>
+
+<div class="formula">
+qvB = mv²/r
+</div>
+
+Therefore:
+
+<div class="formula">
+r = mv/qB
+</div>
+
+<h3>Meaning</h3>
+
+<ul>
+<li>Greater mass → larger radius.</li>
+<li>Greater velocity → larger radius.</li>
+<li>Greater magnetic field → smaller radius.</li>
+<li>Greater charge magnitude → smaller radius.</li>
+</ul>
+
+<h3>Helical Motion</h3>
+
+<p>
+If the particle has both a velocity component parallel to B and another
+component perpendicular to B, the particle follows a helical path.
+</p>
+
+<div class="diagram">
+             B ↑
+               │
+        ↗      │      ↗
+      ↗        │    ↗
+    ●───────────●
+      ↘        │
+        ↘      │
+             helical path
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Describe the motion of a charged particle in a magnetic field.</li>
+<li>Derive r = mv/qB.</li>
+<li>Explain why the speed remains constant.</li>
+<li>What is helical motion?</li>
+<li>Calculate the radius of a particle's path.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 8 ================= -->
+
+<section id="topic8" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>8. 🔵 CIRCULAR MOTION IN A MAGNETIC FIELD</h2>
+
+<h3>Radius</h3>
+
+<div class="formula">
+r = mv/qB
+</div>
+
+<h3>Angular Velocity</h3>
+
+<div class="formula">
+ω = qB/m
+</div>
+
+<p>
+Strictly, for direction-independent scalar formulas, use the magnitude |q|
+when discussing frequency or angular frequency.
+</p>
+
+<div class="formula">
+ω = |q|B/m
+</div>
+
+<h3>Period</h3>
+
+<div class="formula">
+T = 2πm/|q|B
+</div>
+
+<h3>Frequency</h3>
+
+<div class="formula">
+f = |q|B/2πm
+</div>
+
+<h3>Cyclotron Idea</h3>
+
+<p>
+A cyclotron uses a magnetic field to bend charged particles into circular
+paths while an alternating electric field accelerates them.
+</p>
+
+<div class="diagram">
+       _________
+     /           \
+    |    ↻  ↻     |
+    |  ↻     ↻    |
+    |    ↻  ↻     |
+     \___________/
+
+ Charged particle follows
+ circular paths.
+</div>
+
+<div class="tip">
+The period is independent of the particle's speed in the non-relativistic
+uniform-field model.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Derive the radius of circular motion.</li>
+<li>Derive the period.</li>
+<li>Derive the frequency.</li>
+<li>Define cyclotron frequency.</li>
+<li>Calculate radius or period.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 9 ================= -->
+
+<section id="topic9" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>9. ✋ RIGHT-HAND RULES</h2>
+
+<h3>Why They Matter</h3>
+
+<p>
+Right-hand rules help determine the direction of magnetic fields and
+magnetic forces.
+</p>
+
+<h3>Current-Carrying Straight Wire</h3>
+
+<p>
+Point your right thumb in the direction of conventional current.
+Your curled fingers show the direction of the magnetic field around the wire.
+</p>
+
+<div class="diagram">
+             ↺ ↺ ↺
+          ↺    ↑    ↺
+        ↺      │ I    ↺
+          ↺    │    ↺
+             ↺ ↺ ↺
+
+Thumb = current
+Curled fingers = magnetic field
+</div>
+
+<h3>Force on Positive Charge</h3>
+
+<p>
+Use the cross product:
+</p>
+
+<div class="formula">
+v⃗ × B⃗ = direction of F⃗
+</div>
+
+<p>
+For a negative charge, reverse the resulting direction.
+</p>
+
+<h3>Three Things to Remember</h3>
+
+<ul>
+<li>Conventional current direction is used for ordinary current rules.</li>
+<li>Electron motion is opposite to conventional current.</li>
+<li>Negative charge reverses the force direction.</li>
+</ul>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Explain the right-hand grip rule.</li>
+<li>Determine the field direction around a wire.</li>
+<li>Determine force direction on a positive charge.</li>
+<li>Explain what changes for a negative charge.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 10 ================= -->
+
+<section id="topic10" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>10. 📐 UNIT VECTORS</h2>
+
+<h3>Three Basic Directions</h3>
+
+<div class="formula">
+î = x-direction
+</div>
+
+<div class="formula">
+ĵ = y-direction
+</div>
+
+<div class="formula">
+k̂ = z-direction
+</div>
+
+<div class="diagram">
+              z
+              ↑
+              │
+              │
+              │
+              O────────→ x
+             /
+            /
+           y
+
+î → x
+ĵ → y
+k̂ → z
+</div>
+
+<h3>Cross Products</h3>
+
+<div class="formula">
+î × ĵ = k̂
+</div>
+
+<div class="formula">
+ĵ × k̂ = î
+</div>
+
+<div class="formula">
+k̂ × î = ĵ
+</div>
+
+<p>Reverse order gives a negative result:</p>
+
+<div class="formula">
+ĵ × î = -k̂
+</div>
+
+<div class="formula">
+k̂ × ĵ = -î
+</div>
+
+<div class="formula">
+î × k̂ = -ĵ
+</div>
+
+<h3>Example</h3>
+
+<div class="example">
+
+<p>Calculate:</p>
+
+<div class="formula">
+(2î) × (3ĵ)
+</div>
+
+<p>
+Multiply the numbers:
+</p>
+
+<p>2 × 3 = 6</p>
+
+<p>Then:</p>
+
+<div class="formula">
+î × ĵ = k̂
+</div>
+
+<div class="formula">
+Answer = 6k̂
+</div>
+
+</div>
+
+<h3>Magnetic Force Using Vectors</h3>
+
+<div class="formula">
+F⃗ = q(v⃗ × B⃗)
+</div>
+
+<p>
+This is especially important when velocity and magnetic field are given
+using î, ĵ and k̂.
+</p>
+
+<div class="tip">
+<b>Memory:</b> i → j → k → i is positive. Reverse direction is negative.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Define a unit vector.</li>
+<li>State î × ĵ.</li>
+<li>State ĵ × î.</li>
+<li>Calculate a vector cross product.</li>
+<li>Use vectors to calculate magnetic force.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 11 ================= -->
+
+<section id="topic11" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>11. ⚡ ELECTROMAGNETIC INDUCTION</h2>
+
+<h3>Definition</h3>
+
+<p>
+Electromagnetic induction is the production of an induced emf when the
+magnetic flux linking a circuit changes.
+</p>
+
+<h3>How Flux Can Change</h3>
+
+<ul>
+<li>Move a magnet toward or away from a coil.</li>
+<li>Move the coil through a magnetic field.</li>
+<li>Change the magnetic field strength.</li>
+<li>Change the area of the coil.</li>
+<li>Rotate the coil.</li>
+</ul>
+
+<div class="diagram">
+       N  → → →
+
+          ┌─────────┐
+          │  COIL   │
+          │  ↻      │
+          └─────────┘
+
+Changing magnetic flux
+      ↓
+Induced emf
+      ↓
+Possible induced current
+</div>
+
+<h3>Faraday's Law</h3>
+
+<div class="formula">
+ε = -N dΦ/dt
+</div>
+
+<p>
+The greater the rate of change of flux and the greater the number of turns,
+the greater the induced emf.
+</p>
+
+<h3>Motional EMF</h3>
+
+<p>
+For a straight conductor of length L moving with speed v perpendicular to
+a magnetic field:
+</p>
+
+<div class="formula">
+ε = BLv
+</div>
+
+<div class="example">
+
+<p>
+A 0.5 m conductor moves at 4 m/s perpendicular to a 2 T field.
+</p>
+
+<div class="formula">
+ε = BLv
+</div>
+
+<p>
+ε = (2)(0.5)(4)
+</p>
+
+<div class="formula">
+ε = 4 V
+</div>
+
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Define electromagnetic induction.</li>
+<li>State two ways magnetic flux can change.</li>
+<li>State Faraday's law.</li>
+<li>Explain motional emf.</li>
+<li>Calculate induced emf.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 12 ================= -->
+
+<section id="topic12" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>12. 📜 FARADAY'S LAW</h2>
+
+<h3>Statement</h3>
+
+<p>
+Faraday's law states that the magnitude of induced emf is proportional to
+the rate of change of magnetic flux linkage.
+</p>
+
+<div class="formula">
+ε = -N dΦ/dt
+</div>
+
+<h3>Average Form</h3>
+
+<div class="formula">
+ε = -N(ΔΦ/Δt)
+</div>
+
+<p>
+If only magnitude is required:
+</p>
+
+<div class="formula">
+|ε| = NΔΦ/Δt
+</div>
+
+<h3>Flux Linkage</h3>
+
+<p>
+If a coil has N turns and each turn experiences flux Φ, the flux linkage
+is NΦ.
+</p>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p>
+A 100-turn coil experiences a change in flux of 0.02 Wb in 0.5 s.
+Find the magnitude of induced emf.
+</p>
+
+<div class="formula">
+|ε| = NΔΦ/Δt
+</div>
+
+<p>
+|ε| = (100)(0.02)/0.5
+</p>
+
+<div class="formula">
+|ε| = 4 V
+</div>
+
+</div>
+
+<div class="tip">
+The negative sign in Faraday's law is connected to Lenz's law.
+It represents opposition to the change in flux.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>State Faraday's law.</li>
+<li>Explain flux linkage.</li>
+<li>Explain the negative sign.</li>
+<li>Calculate average induced emf.</li>
+<li>Calculate the number of turns when emf is known.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 13 ================= -->
+
+<section id="topic13" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>13. 🔄 LENZ'S LAW</h2>
+
+<h3>Statement</h3>
+
+<p>
+Lenz's law states that the direction of an induced current is such that
+the magnetic effect produced by the induced current opposes the change
+in magnetic flux that caused it.
+</p>
+
+<div class="formula">
+ε = -N dΦ/dt
+</div>
+
+<p>
+The negative sign represents this opposition.
+</p>
+
+<h3>Magnet Approaching a Coil</h3>
+
+<div class="diagram">
+       N
+       │
+       │ → → → →     ┌─────────┐
+       │             │  COIL   │
+       │             └─────────┘
+      MAGNET
+
+Flux is increasing.
+
+The coil produces a magnetic effect
+that opposes the increase.
+</div>
+
+<h3>Magnet Moving Away</h3>
+
+<p>
+If the magnet moves away, the magnetic flux decreases. The induced current
+produces a magnetic field that tends to oppose that decrease.
+</p>
+
+<h3>Why Lenz's Law Is Important</h3>
+
+<p>
+It is a direct consequence of conservation of energy. The induced effect
+cannot simply reinforce the change without an energy source.
+</p>
+
+<div class="tip">
+<b>Simple memory:</b> Lenz's law says the induced effect opposes the change.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>State Lenz's law.</li>
+<li>Explain the negative sign in Faraday's law.</li>
+<li>Determine induced-current direction when a magnet approaches a coil.</li>
+<li>Determine induced-current direction when a magnet moves away.</li>
+<li>Explain the relationship between Lenz's law and conservation of energy.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 14 ================= -->
+
+<section id="topic14" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>14. 🌀 INDUCTANCE</h2>
+
+<h3>Definition</h3>
+
+<p>
+Inductance is the property of an electrical circuit that opposes changes
+in current by producing an induced emf.
+</p>
+
+<h3>Self-Inductance</h3>
+
+<div class="formula">
+ε = -L di/dt
+</div>
+
+<p>
+L is the self-inductance and its SI unit is the henry (H).
+</p>
+
+<h3>Energy Stored in an Inductor</h3>
+
+<div class="formula">
+U = ½LI²
+</div>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p>
+An inductor has L = 2 H and carries I = 3 A.
+Find the stored energy.
+</p>
+
+<div class="formula">
+U = ½LI²
+</div>
+
+<p>
+U = ½(2)(3²)
+</p>
+
+<p>
+U = 1 × 9
+</p>
+
+<div class="formula">
+U = 9 J
+</div>
+
+</div>
+
+<h3>Mutual Inductance</h3>
+
+<p>
+Mutual inductance occurs when a changing current in one circuit produces
+an induced emf in another nearby circuit.
+</p>
+
+<div class="formula">
+ε₂ = -M di₁/dt
+</div>
+
+<p>
+M is the mutual inductance.
+</p>
+
+<h3>Inductor in a Solenoid</h3>
+
+<p>
+For an ideal long air-core solenoid:
+</p>
+
+<div class="formula">
+L = μ₀N²A/l
+</div>
+
+<p>
+where N is number of turns, A is cross-sectional area and l is length.
+</p>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Define inductance.</li>
+<li>State the unit of inductance.</li>
+<li>State the self-induced emf equation.</li>
+<li>Derive or use U = ½LI².</li>
+<li>Calculate energy stored in an inductor.</li>
+<li>Define mutual inductance.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= TOPIC 15 ================= -->
+
+<section id="topic15" class="lesson">
+
+<button class="back" onclick="back()">← Back to Topics</button>
+
+<h2>15. 🔌 AC CIRCUITS</h2>
+
+<h3>Definition</h3>
+
+<p>
+Alternating current is an electric current whose magnitude and direction
+vary periodically with time.
+</p>
+
+<h3>Sinusoidal Voltage</h3>
+
+<div class="formula">
+v = V₀ sin(ωt)
+</div>
+
+<p>
+V₀ is the peak voltage and ω is angular frequency.
+</p>
+
+<h3>Angular Frequency</h3>
+
+<div class="formula">
+ω = 2πf
+</div>
+
+<h3>RMS Voltage</h3>
+
+<div class="formula">
+V<sub>rms</sub> = V₀/√2
+</div>
+
+<h3>RMS Current</h3>
+
+<div class="formula">
+I<sub>rms</sub> = I₀/√2
+</div>
+
+<h3>AC Resistor</h3>
+
+<p>
+For a pure resistor:
+</p>
+
+<div class="formula">
+V = IR
+</div>
+
+<p>
+Voltage and current are in phase.
+</p>
+
+<h3>Inductive Reactance</h3>
+
+<div class="formula">
+X<sub>L</sub> = ωL
+</div>
+
+<h3>Capacitive Reactance</h3>
+
+<div class="formula">
+X<sub>C</sub> = 1/ωC
+</div>
+
+<h3>Impedance in a Series RLC Circuit</h3>
+
+<div class="formula">
+Z = √[R² + (X<sub>L</sub> - X<sub>C</sub>)²]
+</div>
+
+<h3>RMS Current</h3>
+
+<div class="formula">
+I<sub>rms</sub> = V<sub>rms</sub>/Z
+</div>
+
+<h3>Worked Example</h3>
+
+<div class="example">
+
+<p>
+An AC source has peak voltage 100 V.
+Find its RMS voltage.
+</p>
+
+<div class="formula">
+V<sub>rms</sub> = V₀/√2
+</div>
+
+<p>
+V<sub>rms</sub> = 100/√2
+</p>
+
+<div class="formula">
+V<sub>rms</sub> ≈ 70.7 V
+</div>
+
+</div>
+
+<div class="tip">
+<b>Important:</b> Do not confuse peak value with RMS value.
+For a sinusoidal waveform, RMS = peak/√2.
+</div>
+
+<div class="exam">
+<b>Exam Practice</b>
+<ol>
+<li>Define alternating current.</li>
+<li>Write the equation for sinusoidal voltage.</li>
+<li>Define RMS voltage.</li>
+<li>Calculate RMS voltage from peak voltage.</li>
+<li>Define inductive reactance.</li>
+<li>Define capacitive reactance.</li>
+<li>Calculate impedance of a series RLC circuit.</li>
+</ol>
+</div>
+
+</section>
+
+
+<!-- ================= FLASHCARDS ================= -->
+
+<div id="flashSection" class="flash-section">
+
+<h2 style="color:#123C88">🧠 PHY 102 MASTER FLASHCARDS</h2>
+
+<p>
+These flashcards cover the major formulas and concepts from all 15 topics.
+</p>
+
+<div id="cards"></div>
+
+</div>
+
+</div>
+
+<footer>
+<p><b>MOAU STUDY HUB</b></p>
+<p>LEARN • GROW • BECOME</p>
+<p>PHY 102 DIGITAL STUDY CENTER</p>
+<p>© 2026</p>
+</footer>
+
+
+<script>
+
+/* ================= TOPIC NAVIGATION ================= */
+
+function openTopic(n){
+
+document.getElementById("topics").style.display="none";
+document.getElementById("search").style.display="none";
+document.getElementById("flashSection").style.display="none";
+
+document.querySelectorAll(".lesson").forEach(function(x){
+x.classList.remove("active");
+});
+
+document.getElementById("topic"+n).classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function back(){
+
+document.querySelectorAll(".lesson").forEach(function(x){
+x.classList.remove("active");
+});
+
+document.getElementById("topics").style.display="block";
+document.getElementById("search").style.display="block";
+document.getElementById("flashSection").style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchTopics(){
+
+let text=document.getElementById("search").value.toLowerCase();
+
+document.querySelectorAll(".topic-btn").forEach(function(btn){
+
+if(btn.innerText.toLowerCase().includes(text)){
+btn.style.display="block";
+}else{
+btn.style.display="none";
+}
+
+});
+
+}
+
+
+/* ================= FLASHCARDS ================= */
+
+const flashcards=[
+
+/* TOPIC 1 */
+
+["1. Magnetic Force","What is magnetic force?","The force exerted by a magnetic field on a moving charged particle or current-carrying conductor."],
+["1. Magnetic Force","Formula for magnetic force?","F = qvB sinθ."],
+["1. Magnetic Force","Vector form?","F⃗ = q(v⃗ × B⃗)."],
+["1. Magnetic Force","SI unit of force?","Newton (N)."],
+["1. Magnetic Force","When is force maximum?","When θ = 90°."],
+["1. Magnetic Force","When is force zero?","When v = 0 or θ = 0° or 180°."],
+["1. Magnetic Force","What happens when q doubles?","Force doubles if all other quantities remain constant."],
+["1. Magnetic Force","What happens when B doubles?","Force doubles."],
+["1. Magnetic Force","Does magnetic force do work?","No, because the magnetic force is perpendicular to instantaneous velocity."],
+["1. Magnetic Force","What happens to a negative charge's force direction?","It is opposite to the positive-charge right-hand-rule result."],
+["1. Magnetic Force","What is B?","Magnetic field or magnetic flux density."],
+["1. Magnetic Force","Unit of B?","Tesla (T)."],
+["1. Magnetic Force","What is q?","Electric charge in coulombs."],
+["1. Magnetic Force","What is v?","Velocity in metres per second."],
+["1. Magnetic Force","What does sinθ represent?","The angular dependence of the magnetic force."],
+["1. Magnetic Force","At 90°, what is sinθ?","1."],
+["1. Magnetic Force","At 0°, what is sinθ?","0."],
+["1. Magnetic Force","At 180°, what is sinθ?","0."],
+["1. Magnetic Force","Direction of magnetic force?","Perpendicular to both v and B."],
+["1. Magnetic Force","Most important exam formula?","F = qvB sinθ."],
+
+/* TOPIC 2 */
+
+["2. Magnetic Field","Define magnetic field.","Region where magnetic effects can be experienced."],
+["2. Magnetic Field","SI unit of B?","Tesla (T)."],
+["2. Magnetic Field","Formula around long straight wire?","B = μ₀I/(2πr)."],
+["2. Magnetic Field","What is μ₀?","Permeability of free space."],
+["2. Magnetic Field","Value of μ₀?","4π × 10⁻⁷ T·m/A in the usual vacuum approximation."],
+["2. Magnetic Field","What happens when current increases?","Magnetic field increases."],
+["2. Magnetic Field","What happens when distance increases?","Magnetic field decreases."],
+["2. Magnetic Field","Direction around a wire?","Determined using the right-hand grip rule."],
+["2. Magnetic Field","Where do external field lines of a bar magnet point?","From north to south."],
+["2. Magnetic Field","Can field lines cross?","No."],
+["2. Magnetic Field","What do close field lines mean?","Stronger field."],
+["2. Magnetic Field","What do widely spaced lines mean?","Weaker field."],
+["2. Magnetic Field","What does tangent to a field line show?","Field direction."],
+["2. Magnetic Field","What shape are field lines around a straight wire?","Concentric circles."],
+["2. Magnetic Field","If current doubles, B becomes?","Twice as large."],
+["2. Magnetic Field","If distance doubles, B becomes?","Half as large."],
+["2. Magnetic Field","Symbol for magnetic field?","B."],
+["2. Magnetic Field","SI unit of current?","Ampere (A)."],
+["2. Magnetic Field","SI unit of distance?","Metre (m)."],
+["2. Magnetic Field","Main straight-wire formula?","B = μ₀I/(2πr)."],
+
+/* TOPIC 3 */
+
+["3. Biot–Savart","State Biot–Savart law.","dB = (μ₀/4π)(I dl sinθ/r²)."],
+["3. Biot–Savart","What does dB mean?","Small magnetic-field contribution."],
+["3. Biot–Savart","What does dl mean?","Small length element of current-carrying conductor."],
+["3. Biot–Savart","What does r represent?","Distance from current element to observation point."],
+["3. Biot–Savart","Vector form?","dB⃗ = (μ₀/4π)[I(dl⃗ × r̂)/r²]."],
+["3. Biot–Savart","What happens if current increases?","Magnetic field increases."],
+["3. Biot–Savart","Field of long straight wire?","B = μ₀I/(2πr)."],
+["3. Biot–Savart","Field at center of one circular loop?","B = μ₀I/(2R)."],
+["3. Biot–Savart","Field at center of N-turn coil?","B = μ₀NI/(2R)."],
+["3. Biot–Savart","Unit of μ₀?","T·m/A."],
+["3. Biot–Savart","What determines direction?","Cross product/right-hand rule."],
+["3. Biot–Savart","What does θ measure?","Angle between dl and r."],
+["3. Biot–Savart","What happens when θ = 90°?","The small contribution is maximum for given I, dl and r."],
+["3. Biot–Savart","What happens when θ = 0°?","The small contribution is zero."],
+["3. Biot–Savart","Why is Biot–Savart useful?","It handles specific current geometries."],
+["3. Biot–Savart","What is R for a loop?","Radius of the loop."],
+["3. Biot–Savart","What is N?","Number of turns."],
+["3. Biot–Savart","What is I?","Current."],
+["3. Biot–Savart","What is the 4π doing in the formula?","It is part of the SI proportionality constant μ₀/4π."],
+["3. Biot–Savart","Key exam skill?","Identify geometry, direction and integrate when required."],
+
+/* TOPIC 4 */
+
+["4. Ampère","State Ampère's law.","∮B⃗·dl⃗ = μ₀I_enclosed."],
+["4. Ampère","What is an Amperian loop?","An imaginary closed path used in Ampère's law."],
+["4. Ampère","Why is symmetry important?","It can make B constant along the chosen path."],
+["4. Ampère","Straight-wire result?","B = μ₀I/(2πr)."],
+["4. Ampère","Meaning of ∮?","Integration around a closed path."],
+["4. Ampère","What current appears on the right side?","Enclosed current."],
+["4. Ampère","Best path around straight wire?","Circular path centered on the wire."],
+["4. Ampère","First step in solving?","Identify symmetry."],
+["4. Ampère","Second step?","Choose an appropriate Amperian loop."],
+["4. Ampère","Third step?","Write Ampère's law."],
+["4. Ampère","If B is constant, what happens?","It can be taken outside the integral."],
+["4. Ampère","Integral of dl around circle?","2πr."],
+["4. Ampère","Field unit?","Tesla."],
+["4. Ampère","Current unit?","Ampere."],
+["4. Ampère","What law relates circulation of B to current?","Ampère's law."],
+["4. Ampère","Is Ampère always easiest?","No; it is especially convenient with symmetry."],
+["4. Ampère","Field inside an ideal long solenoid?","B = μ₀nI."],
+["4. Ampère","What is n?","Turns per unit length."],
+["4. Ampère","Field inside ideal toroid?","B = μ₀NI/(2πr) in the ideal approximation."],
+["4. Ampère","Main solving principle?","Use symmetry to simplify the closed integral."],
+
+/* TOPIC 5 */
+
+["5. Current Wire","Formula for force on wire?","F = BIL sinθ."],
+["5. Current Wire","Vector form?","F⃗ = I(L⃗ × B⃗)."],
+["5. Current Wire","Maximum force?","F = BIL when θ = 90°."],
+["5. Current Wire","Zero force?","When wire is parallel to B."],
+["5. Current Wire","Unit of force?","Newton."],
+["5. Current Wire","What does L represent?","Length of conductor in the magnetic field."],
+["5. Current Wire","What does I represent?","Current."],
+["5. Current Wire","What does B represent?","Magnetic field."],
+["5. Current Wire","Parallel currents same direction?","Attract."],
+["5. Current Wire","Parallel currents opposite directions?","Repel."],
+["5. Current Wire","Force per unit length?","F/L = μ₀I₁I₂/(2πr)."],
+["5. Current Wire","Direction of force?","Perpendicular to current direction and magnetic field."],
+["5. Current Wire","If current doubles?","Force doubles."],
+["5. Current Wire","If wire length doubles?","Force doubles."],
+["5. Current Wire","If B doubles?","Force doubles."],
+["5. Current Wire","If θ = 0°?","Force is zero."],
+["5. Current Wire","If θ = 90°?","Force is maximum."],
+["5. Current Wire","Which current convention is used?","Conventional current direction."],
+["5. Current Wire","What happens to force if current reverses?","Force direction reverses."],
+["5. Current Wire","Important formula?","F = BIL sinθ."],
+
+/* TOPIC 6 */
+
+["6. Magnetic Flux","Define magnetic flux.","Measure of magnetic field passing through a surface."],
+["6. Magnetic Flux","Formula?","Φ = BA cosθ."],
+["6. Magnetic Flux","Unit?","Weber (Wb)."],
+["6. Magnetic Flux","What is θ measured from?","The normal to the surface."],
+["6. Magnetic Flux","Maximum flux?","θ = 0°."],
+["6. Magnetic Flux","Maximum value?","Φ = BA."],
+["6. Magnetic Flux","Zero flux?","θ = 90°."],
+["6. Magnetic Flux","What is area vector?","A vector perpendicular to the surface."],
+["6. Magnetic Flux","If B doubles?","Flux doubles."],
+["6. Magnetic Flux","If area doubles?","Flux doubles."],
+["6. Magnetic Flux","If cosθ decreases?","Flux decreases."],
+["6. Magnetic Flux","Symbol for flux?","Φ."],
+["6. Magnetic Flux","What produces changing flux?","Changing B, A or orientation."],
+["6. Magnetic Flux","Unit of area?","m²."],
+["6. Magnetic Flux","Unit of B?","T."],
+["6. Magnetic Flux","Unit relation?","1 Wb = 1 T·m²."],
+["6. Magnetic Flux","Does flux have direction?","Magnetic flux is conventionally treated as signed according to the chosen area normal."],
+["6. Magnetic Flux","What is a surface normal?","A perpendicular direction to the surface."],
+["6. Magnetic Flux","Why cosθ?","Only the component of B normal to the surface contributes to flux."],
+["6. Magnetic Flux","Key formula?","Φ = BA cosθ."],
+
+/* TOPIC 7 */
+
+["7. Charged Motion","What happens to a charge moving perpendicular to B?","It follows circular motion in a uniform field."],
+["7. Charged Motion","Radius formula?","r = mv/(|q|B)."],
+["7. Charged Motion","Why circular?","Magnetic force provides centripetal force."],
+["7. Charged Motion","Centripetal equation?","qvB = mv²/r in magnitude."],
+["7. Charged Motion","Does B change speed?","Not in an ideal magnetic-only field."],
+["7. Charged Motion","Why no speed change?","Force is perpendicular to velocity."],
+["7. Charged Motion","What if velocity has parallel component?","Motion can become helical."],
+["7. Charged Motion","What increases radius?","Greater mass or speed."],
+["7. Charged Motion","What decreases radius?","Greater |q| or B."],
+["7. Charged Motion","Force direction?","Toward the center of circular motion."],
+["7. Charged Motion","What happens to kinetic energy?","It remains constant in a magnetic-only field."],
+["7. Charged Motion","Can a magnetic field change momentum direction?","Yes."],
+["7. Charged Motion","Can it change momentum magnitude?","Not by itself in the ideal magnetic-only case."],
+["7. Charged Motion","What determines charge direction?","Sign of q affects the curvature direction."],
+["7. Charged Motion","What is helical motion?","Combination of circular and uniform motion along B."],
+["7. Charged Motion","Main radius formula?","r = mv/(|q|B)."],
+["7. Charged Motion","If B increases?","Radius decreases."],
+["7. Charged Motion","If v increases?","Radius increases."],
+["7. Charged Motion","If mass increases?","Radius increases."],
+["7. Charged Motion","Main principle?","Magnetic force supplies centripetal force."],
+
+/* TOPIC 8 */
+
+["8. Circular Motion","Radius?","r = mv/(|q|B)."],
+["8. Circular Motion","Angular frequency?","ω = |q|B/m."],
+["8. Circular Motion","Period?","T = 2πm/(|q|B)."],
+["8. Circular Motion","Frequency?","f = |q|B/(2πm)."],
+["8. Circular Motion","Relation between f and T?","f = 1/T."],
+["8. Circular Motion","Relation between ω and f?","ω = 2πf."],
+["8. Circular Motion","What provides centripetal force?","Magnetic force."],
+["8. Circular Motion","Does period depend on speed?","Not in the non-relativistic uniform-field model."],
+["8. Circular Motion","What is a cyclotron?","Device that accelerates charged particles using magnetic and alternating electric fields."],
+["8. Circular Motion","Cyclotron angular frequency?","ωc = |q|B/m."],
+["8. Circular Motion","Cyclotron frequency?","fc = |q|B/(2πm)."],
+["8. Circular Motion","If B increases, frequency?","Frequency increases."],
+["8. Circular Motion","If mass increases, frequency?","Frequency decreases."],
+["8. Circular Motion","If charge magnitude increases?","Frequency increases."],
+["8. Circular Motion","Path for perpendicular velocity?","Circle."],
+["8. Circular Motion","Path with parallel and perpendicular velocity?","Helix."],
+["8. Circular Motion","SI unit of frequency?","Hz."],
+["8. Circular Motion","SI unit of period?","Second."],
+["8. Circular Motion","SI unit of angular frequency?","rad/s."],
+["8. Circular Motion","Key formula?","T = 2πm/(|q|B)."],
+
+/* TOPIC 9 */
+
+["9. Right Hand Rules","What does right-hand grip rule find?","Magnetic-field direction around a current-carrying wire."],
+["9. Right Hand Rules","Thumb represents what?","Conventional current."],
+["9. Right Hand Rules","Curled fingers represent what?","Magnetic field direction."],
+["9. Right Hand Rules","Force rule uses what vectors?","Velocity/current and magnetic field."],
+["9. Right Hand Rules","Positive charge force?","Use v × B."],
+["9. Right Hand Rules","Negative charge force?","Opposite to positive-charge result."],
+["9. Right Hand Rules","Electron charge?","Negative."],
+["9. Right Hand Rules","Conventional current direction?","Direction positive charge would move."],
+["9. Right Hand Rules","Electron motion relative to conventional current?","Opposite."],
+["9. Right Hand Rules","Field around straight wire?","Concentric circles."],
+["9. Right Hand Rules","Field direction if current is upward?","Use the right-hand grip rule."],
+["9. Right Hand Rules","What is v × B?","Vector operation giving force direction for a positive charge."],
+["9. Right Hand Rules","Is force parallel to B?","No."],
+["9. Right Hand Rules","Is force parallel to v?","No, for nonzero magnetic force."],
+["9. Right Hand Rules","What happens if current reverses?","Magnetic-field direction reverses."],
+["9. Right Hand Rules","What happens if B reverses?","Force direction reverses."],
+["9. Right Hand Rules","What happens if both v and B reverse?","v × B retains its original direction."],
+["9. Right Hand Rules","Why use right hand?","It provides a consistent convention for cross-product directions."],
+["9. Right Hand Rules","Main exam skill?","Identify directions carefully."],
+["9. Right Hand Rules","Most common mistake?","Forgetting to reverse force for a negative charge."],
+
+/* TOPIC 10 */
+
+["10. Unit Vectors","What is î?","Unit vector in x direction."],
+["10. Unit Vectors","What is ĵ?","Unit vector in y direction."],
+["10. Unit Vectors","What is k̂?","Unit vector in z direction."],
+["10. Unit Vectors","i × j?","k."],
+["10. Unit Vectors","j × k?","i."],
+["10. Unit Vectors","k × i?","j."],
+["10. Unit Vectors","j × i?","−k."],
+["10. Unit Vectors","k × j?","−i."],
+["10. Unit Vectors","i × k?","−j."],
+["10. Unit Vectors","What is a dot product?","A scalar product."],
+["10. Unit Vectors","What is a cross product?","A vector product."],
+["10. Unit Vectors","Magnetic force uses which product?","Cross product."],
+["10. Unit Vectors","Magnetic force vector formula?","F⃗ = q(v⃗ × B⃗)."],
+["10. Unit Vectors","What is i × i?","0."],
+["10. Unit Vectors","What is j × j?","0."],
+["10. Unit Vectors","What is k × k?","0."],
+["10. Unit Vectors","Why are same-vector cross products zero?","They are parallel."],
+["10. Unit Vectors","What determines cross-product magnitude?","AB sinθ."],
+["10. Unit Vectors","Maximum cross-product magnitude?","When θ = 90°."],
+["10. Unit Vectors","Key memory cycle?","i → j → k → i is positive."],
+
+/* TOPIC 11 */
+
+["11. Induction","Define electromagnetic induction.","Production of emf due to changing magnetic flux linkage."],
+["11. Induction","What can change flux?","B, area, orientation, or motion."],
+["11. Induction","Faraday formula?","ε = −N dΦ/dt."],
+["11. Induction","What is induced emf?","Emf generated by electromagnetic induction."],
+["11. Induction","What is motional emf?","Emf generated when a conductor moves through a magnetic field."],
+["11. Induction","Motional emf formula?","ε = BLv for perpendicular motion."],
+["11. Induction","What increases induced emf?","Greater rate of flux change or more turns."],
+["11. Induction","What law gives magnitude/rate relationship?","Faraday's law."],
+["11. Induction","What law determines induced-current opposition?","Lenz's law."],
+["11. Induction","Generator principle?","Electromagnetic induction."],
+["11. Induction","Does constant flux induce emf?","No, not by Faraday induction."],
+["11. Induction","If flux changes faster?","Induced emf increases."],
+["11. Induction","If number of turns increases?","Induced emf increases for the same flux-change rate."],
+["11. Induction","Unit of emf?","Volt."],
+["11. Induction","Unit of flux?","Weber."],
+["11. Induction","Can induction occur without physical contact?","Yes."],
+["11. Induction","Example of induction?","Transformer or generator."],
+["11. Induction","What causes induced current?","Induced emf in a closed conducting path."],
+["11. Induction","Open circuit and changing flux?","Emf can exist, but sustained current cannot flow."],
+["11. Induction","Key idea?","Changing magnetic flux produces induced emf."],
+
+/* TOPIC 12 */
+
+["12. Faraday","State Faraday's law.","Induced emf is proportional to rate of change of magnetic flux linkage."],
+["12. Faraday","Formula?","ε = −N dΦ/dt."],
+["12. Faraday","Average form?","ε = −NΔΦ/Δt."],
+["12. Faraday","Magnitude form?","|ε| = NΔΦ/Δt."],
+["12. Faraday","What is N?","Number of turns."],
+["12. Faraday","What is Φ?","Magnetic flux."],
+["12. Faraday","What does negative sign represent?","Lenz's law."],
+["12. Faraday","Unit of emf?","Volt."],
+["12. Faraday","If N doubles?","Emf doubles for the same flux-change rate."],
+["12. Faraday","If Δt becomes smaller?","Emf magnitude increases for the same flux change."],
+["12. Faraday","What is flux linkage?","NΦ."],
+["12. Faraday","What happens with constant flux?","No induced emf from flux change."],
+["12. Faraday","What happens when flux increases?","Induced effect opposes the increase."],
+["12. Faraday","What happens when flux decreases?","Induced effect opposes the decrease."],
+["12. Faraday","Basic calculation?","Substitute N, ΔΦ and Δt."],
+["12. Faraday","What does dΦ/dt mean?","Rate of change of magnetic flux."],
+["12. Faraday","What device demonstrates induction?","Generator."],
+["12. Faraday","What device transfers AC energy by induction?","Transformer."],
+["12. Faraday","Who is Faraday?","Scientist associated with the law of electromagnetic induction."],
+["12. Faraday","Key formula?","ε = −N dΦ/dt."],
+
+/* TOPIC 13 */
+
+["13. Lenz","State Lenz's law.","Induced current produces an effect that opposes the change in magnetic flux."],
+["13. Lenz","Where is Lenz's law represented?","By the negative sign in Faraday's law."],
+["13. Lenz","If flux increases?","Induced effect opposes the increase."],
+["13. Lenz","If flux decreases?","Induced effect opposes the decrease."],
+["13. Lenz","Why does it oppose?","Consistent with conservation of energy."],
+["13. Lenz","Magnet approaches coil?","Coil's induced field opposes the approach."],
+["13. Lenz","Magnet moves away?","Coil's induced field tends to oppose the decrease in flux."],
+["13. Lenz","What determines current direction?","Lenz's law together with right-hand rule."],
+["13. Lenz","Is Lenz a separate force law?","It is a rule for direction of induced effects."],
+["13. Lenz","Relation to Faraday?","It determines the sign/direction in Faraday's law."],
+["13. Lenz","Can induced current reinforce the change?","No, not in accordance with Lenz's law."],
+["13. Lenz","What happens if magnet stops?","Changing flux stops, so induction ceases in the ideal case."],
+["13. Lenz","What causes induced current?","Changing flux through a closed circuit."],
+["13. Lenz","Unit of current?","Ampere."],
+["13. Lenz","Unit of emf?","Volt."],
+["13. Lenz","Key phrase?","Opposes the change."],
+["13. Lenz","Does Lenz's law conserve energy?","It is consistent with conservation of energy."],
+["13. Lenz","Can direction be found with right-hand rule?","Yes, after determining the required induced field direction."],
+["13. Lenz","Important exam scenario?","Magnet moving toward or away from a coil."],
+["13. Lenz","Main formula connected to it?","ε = −N dΦ/dt."],
+
+/* TOPIC 14 */
+
+["14. Inductance","Define inductance.","Property of a circuit that opposes changes in current."],
+["14. Inductance","Self-induced emf?","ε = −L di/dt."],
+["14. Inductance","SI unit of inductance?","Henry (H)."],
+["14. Inductance","Energy stored?","U = ½LI²."],
+["14. Inductance","What is L?","Inductance."],
+["14. Inductance","What is I?","Current."],
+["14. Inductance","What happens when current changes rapidly?","Induced emf magnitude increases."],
+["14. Inductance","Mutual inductance formula?","ε₂ = −M di₁/dt."],
+["14. Inductance","What is M?","Mutual inductance."],
+["14. Inductance","Unit of M?","Henry."],
+["14. Inductance","Long solenoid inductance?","L = μ₀N²A/l for an ideal air-core solenoid."],
+["14. Inductance","What increases L in a solenoid?","More turns, larger area, or suitable magnetic core; longer length decreases L for the ideal formula."],
+["14. Inductance","Energy if I doubles?","Energy becomes four times as large."],
+["14. Inductance","Energy if L doubles?","Energy doubles."],
+["14. Inductance","Does an inductor oppose current itself?","It opposes changes in current."],
+["14. Inductance","What is self-induction?","Induction caused by changing current in the same circuit."],
+["14. Inductance","What is mutual induction?","Induction between separate coupled circuits."],
+["14. Inductance","Stored energy form?","Magnetic-field energy."],
+["14. Inductance","Key formula?","U = ½LI²."],
+["14. Inductance","Important emf formula?","ε = −L di/dt."],
+
+/* TOPIC 15 */
+
+["15. AC","Define AC.","Current that changes magnitude and direction periodically."],
+["15. AC","Sinusoidal voltage equation?","v = V₀ sin(ωt)."],
+["15. AC","Angular frequency?","ω = 2πf."],
+["15. AC","RMS voltage?","Vᵣₘₛ = V₀/√2 for a sinusoidal waveform."],
+["15. AC","RMS current?","Iᵣₘₛ = I₀/√2."],
+["15. AC","Unit of frequency?","Hertz (Hz)."],
+["15. AC","Unit of angular frequency?","rad/s."],
+["15. AC","Inductive reactance?","Xᴸ = ωL."],
+["15. AC","Capacitive reactance?","Xᶜ = 1/(ωC)."],
+["15. AC","Series RLC impedance?","Z = √[R² + (Xᴸ − Xᶜ)²]."],
+["15. AC","RMS current?","Iᵣₘₛ = Vᵣₘₛ/Z."],
+["15. AC","Pure resistor phase relation?","Voltage and current are in phase."],
+["15. AC","What happens to Xᴸ as frequency increases?","It increases."],
+["15. AC","What happens to Xᶜ as frequency increases?","It decreases."],
+["15. AC","What is peak voltage?","Maximum instantaneous voltage."],
+["15. AC","What is RMS voltage?","Equivalent DC voltage for power delivered to a resistor."],
+["15. AC","If peak voltage is 100 V, RMS?","Approximately 70.7 V."],
+["15. AC","Relation f and T?","f = 1/T."],
+["15. AC","What is impedance?","Total opposition to AC in a circuit, measured in ohms."],
+["15. AC","Unit of impedance?","Ohm (Ω)."]
+
+];
+
+
+let cardsHTML="";
+
+flashcards.forEach(function(card,index){
+
+cardsHTML += `
+<div class="flashcard">
+
+<b>${card[0]}</b>
+
+<p><strong>Q:</strong> ${card[1]}</p>
+
+<button onclick="showAnswer(${index})">
+SHOW ANSWER
+</button>
+
+<div class="answer" id="answer${index}">
+<strong>A:</strong> ${card[2]}
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById("cards").innerHTML=cardsHTML;
+
+
+function showAnswer(index){
+
+let answer=document.getElementById("answer"+index);
+
+if(answer.style.display==="block"){
+answer.style.display="none";
+}else{
+answer.style.display="block";
+}
+
+}
+
+</script>
+
+</body>
+</>
