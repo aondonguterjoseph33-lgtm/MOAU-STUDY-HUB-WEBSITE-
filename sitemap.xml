@@ -1,1 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <url>
+    <loc>YOUR-VERCEL-URL/</loc>
+  </url>
+
+  <url>
+    <loc>YOUR-VERCEL-URL/materials.html</loc>
+  </url>
+
+  <url>
+    <loc>YOUR-VERCEL-URL/flashcards.html</loc>
+  </url>
+
+  <url>
+    <loc>YOUR-VERCEL-URL/quiz-index.html</loc>
+  </url>
+
+</urlset>
