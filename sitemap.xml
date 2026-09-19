@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>YOUR-VERCEL-URL/</loc>
+    <loc>https://YOUR-VERCEL-URL.vercel.app/</loc>
   </url>
 
   <url>
-    <loc>YOUR-VERCEL-URL/materials.html</loc>
+    <loc>https://YOUR-VERCEL-URL.vercel.app/materials.html</loc>
   </url>
 
   <url>
-    <loc>YOUR-VERCEL-URL/flashcards.html</loc>
+    <loc>https://YOUR-VERCEL-URL.vercel.app/flashcards.html</loc>
   </url>
 
   <url>
-    <loc>YOUR-VERCEL-URL/quiz-index.html</loc>
+    <loc>https://YOUR-VERCEL-URL.vercel.app/quiz-index.html</loc>
   </url>
 
 </urlset>
