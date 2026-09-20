@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SHAVIS ARENA QUIZ</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#07111f;color:#eef5ff}
+button{border:0;border-radius:14px;padding:14px 18px;font-weight:700;cursor:pointer}
+.app{max-width:900px;margin:auto;min-height:100vh;padding:18px}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+.brand{font-size:22px;font-weight:900}.tag{font-size:12px;color:#9eb1c9;margin-top:3px}
+.screen{display:none}.screen.active{display:block}
+.card{background:#101e31;border:1px solid #223652;border-radius:20px;padding:20px;margin:14px 0;box-shadow:0 10px 30px #0003}
+.hero{text-align:center;padding:35px 20px}.hero h1{font-size:34px;margin:5px 0 8px}.hero p{color:#a9bad0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
+.course{background:#162942;color:white;border:1px solid #29425f}.course small{display:block;color:#9db0c8;margin-top:5px}
+.primary{background:#4f8cff;color:#fff}.gold{background:#d9a72c;color:#17120a}.dark{background:#20334d;color:#fff}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row button{flex:1}
+.topstats{display:flex;gap:8px;flex-wrap:wrap}.pill{background:#172b45;padding:9px 12px;border-radius:20px;font-size:13px}
+.progress{height:9px;background:#24364d;border-radius:9px;overflow:hidden}.bar{height:100%;background:#4f8cff;width:0}
+.option{width:100%;text-align:left;background:#182b43;color:white;margin:7px 0;border:1px solid #2c4665}
+.option.correct{background:#176b48}.option.wrong{background:#783444}.option:disabled{cursor:default}
+.explain{background:#13263d;padding:14px;border-radius:14px;margin-top:12px;color:#cbd8e8}
+.avatar{width:72px;height:72px;border-radius:50%;background:#4f8cff;display:grid;place-items:center;font-size:28px;font-weight:900;margin:auto}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid #34506e;background:#0b1829;color:white;font-size:16px;margin:8px 0}
+table{width:100%;border-collapse:collapse}td,th{padding:11px;border-bottom:1px solid #243750;text-align:left}
+.muted{color:#9eb1c9}.big{font-size:30px;font-weight:900}.center{text-align:center}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<div><div class="brand">⚡ SHAVIS ARENA QUIZ</div><div class="tag">Learn • Play • Improve</div></div>
+<button class="dark" onclick="show('home')">Home</button>
+</header>
+
+<section id="home" class="screen active">
+<div class="card hero">
+<div class="avatar" id="homeAvatar">S</div>
+<h1>SHAVIS ARENA QUIZ</h1>
+<p>Learn • Play • Improve</p>
+<div class="row">
+<button class="primary" onclick="show('courses')">📚 Practice Quiz</button>
+<button class="gold" onclick="startCompetition()">🏆 SHAVIS ARENA</button>
+</div>
+</div>
+<div class="grid">
+<button class="course" onclick="show('profile')">👤 My Profile<small>XP, level, stats & badges</small></button>
+<button class="course" onclick="show('leaderboard')">🏅 Leaderboard<small>Saved on this device</small></button>
+<button class="course" onclick="show('courses')">🎓 Courses<small>PHY102 • CHM102 • BIO102 • MTH102 • COS102</small></button>
+</div>
+</section>
+
+<section id="courses" class="screen">
+<div class="card"><h2>Choose a Course</h2><p class="muted">Practice uses 10 random questions from the selected course.</p><div class="grid" id="courseGrid"></div></div>
+</section>
+
+<section id="profile" class="screen">
+<div class="card center">
+<div class="avatar" id="profileAvatar">S</div>
+<h2 id="profileName">Student</h2><p class="muted">Student Profile</p>
+<input id="nameInput" placeholder="Enter your student name">
+<button class="primary" onclick="saveName()">Save Profile</button>
+</div>
+<div class="grid">
+<div class="card center"><div class="big" id="xp">0</div><div class="muted">XP</div></div>
+<div class="card center"><div class="big" id="level">1</div><div class="muted">Level</div></div>
+<div class="card center"><div class="big" id="played">0</div><div class="muted">Games</div></div>
+<div class="card center"><div class="big" id="accuracy">0%</div><div class="muted">Accuracy</div></div>
+<div class="card center"><div class="big" id="bestStreak">0</div><div class="muted">Best Streak</div></div>
+<div class="card center"><div class="big" id="answered">0</div><div class="muted">Answered</div></div>
+</div>
+<div class="card"><h3>🏆 Achievements</h3><div id="badges"></div></div>
+</section>
+
+<section id="leaderboard" class="screen">
+<div class="card"><h2>🏅 Leaderboard</h2><p class="muted">Local leaderboard on this device.</p>
+<table><thead><tr><th>#</th><th>Student</th><th>Score</th><th>XP</th></tr></thead><tbody id="leaders"></tbody></table>
+</div>
+</section>
+
+<section id="quiz" class="screen">
+<div class="topstats">
+<span class="pill" id="qCourse">PHY102</span><span class="pill">Q <b id="qNum">1/10</b></span>
+<span class="pill">⏱ <b id="timer">30</b>s</span><span class="pill">⭐ <b id="score">0</b></span><span class="pill">🔥 <b id="streak">0</b></span>
+</div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="card">
+<h2 id="question"></h2><div id="options"></div>
+<div id="explain" class="explain" style="display:none"></div>
+<button id="nextBtn" class="primary" style="display:none;margin-top:12px;width:100%" onclick="nextQuestion()">Next Question →</button>
+</div>
+</section>
+
+<section id="results" class="screen">
+<div class="card center"><h1>🎉 Round Complete!</h1><div class="big" id="finalScore">0</div><p>points</p><p id="finalText"></p>
+<div class="row"><button class="primary" onclick="retry()">🔄 Play Again</button><button class="dark" onclick="show('home')">🏠 Home</button></div></div>
+</section>
+</div>
+
+<script>
+const seed={
+PHY102:[
+["SI unit of force?","Newton","Joule","Watt","Pascal","Newton"],["Unit of electric charge?","Coulomb","Volt","Ohm","Tesla","Coulomb"],["Ohm's law is?","V=IR","P=VI","F=ma","Q=It","V=IR"],["Acceleration due to gravity near Earth is about?","9.8 m/s²","3.0 m/s²","98 m/s²","0.98 m/s²","9.8 m/s²"],["A vector has?","Magnitude and direction","Only magnitude","Only direction","No unit","Magnitude and direction"],["Kinetic energy is?","½mv²","mgh","Fd","Pt","½mv²"],["Potential energy near Earth is?","mgh","½mv²","ma","IR","mgh"],["Power is rate of doing?","Work","Mass","Charge","Momentum","Work"],["Momentum equals?","mv","ma","m/v","mgh","mv"],["Frequency unit?","Hertz","Newton","Tesla","Weber","Hertz"],["Wavelength is commonly measured in?","metres","watts","ohms","coulombs","metres"],["Speed equals?","distance/time","time/distance","mass/time","force/time","distance/time"]],
+CHM102:[
+["Atomic number equals number of?","Protons","Neutrons","Nucleons","Shells","Protons"],["A neutral atom has equal numbers of?","Protons and electrons","Neutrons and electrons","Protons and neutrons","Ions and atoms","Protons and electrons"],["pH below 7 is?","Acidic","Basic","Neutral","Salty","Acidic"],["NaCl is commonly called?","Sodium chloride","Sodium carbonate","Calcium chloride","Potassium chloride","Sodium chloride"],["H2O is?","Water","Hydrogen peroxide","Hydrogen","Oxygen","Water"],["A catalyst generally?","Lowers activation energy","Raises mass","Changes equilibrium constant","Is consumed completely","Lowers activation energy"],["Avogadro constant is about?","6.02×10²³","9.81×10²","3.00×10⁸","1.60×10⁻¹⁹","6.02×10²³"],["Oxidation involves?","Loss of electrons","Gain of electrons","Gain of protons only","Loss of neutrons","Loss of electrons"],["Reduction involves?","Gain of electrons","Loss of electrons","Loss of atoms","Gain of neutrons","Gain of electrons"],["CO2 is?","Carbon dioxide","Carbon monoxide","Calcium oxide","Cobalt oxide","Carbon dioxide"],["A covalent bond involves?","Sharing electrons","Transfer of neutrons","Sharing protons","Loss of nuclei","Sharing electrons"],["The periodic table is arranged mainly by?","Atomic number","Atomic mass only","Density","Melting point","Atomic number"]],
+BIO102:[
+["Basic unit of life?","Cell","Tissue","Organ","Organism","Cell"],["Photosynthesis occurs mainly in?","Chloroplasts","Nuclei","Ribosomes","Mitochondria","Chloroplasts"],["DNA stands for?","Deoxyribonucleic acid","Dinitrogen acid","Deoxyribose nitrogen atom","Double nucleic acid","Deoxyribonucleic acid"],["Powerhouse of the cell?","Mitochondrion","Ribosome","Nucleus","Golgi body","Mitochondrion"],["Plants absorb water mainly through?","Roots","Flowers","Fruits","Leaves","Roots"],["Gas released in photosynthesis?","Oxygen","Nitrogen","Carbon dioxide","Hydrogen","Oxygen"],["Heredity is transmission of traits from?","Parents to offspring","Plants to soil","Cells to rocks","Organs to tissues","Parents to offspring"],["An ecosystem includes?","Biotic and abiotic components","Only animals","Only plants","Only microbes","Biotic and abiotic components"],["Adaptation helps organisms?","Survive and reproduce","Stop metabolism","Avoid all competition","Become nonliving","Survive and reproduce"],["Hibernation is a period of?","Reduced activity/metabolism","Rapid growth","Photosynthesis","Migration only","Reduced activity/metabolism"],["Camouflage helps an organism?","Blend with its environment","Increase body temperature","Produce oxygen","Digest proteins","Blend with its environment"],["Vitamin C deficiency can cause?","Scurvy","Rickets","Night blindness","Goitre","Scurvy"]],
+MTH102:[
+["Derivative of x²?","2x","x","x²","2","2x"],["Integral of x dx?","x²/2+C","x+C","2x+C","x³+C","x²/2+C"],["A function is one-to-one if?","Different inputs give different outputs","All outputs are zero","It has no domain","It is always linear","Different inputs give different outputs"],["Slope of y=3x+2?","3","2","5","1","3"],["√49 equals?","7","-7 only","14","49","7"],["2+3×4 equals?","14","20","24","9","14"],["log10(100) equals?","2","10","100","1","2"],["A matrix with equal rows and columns is?","Square matrix","Row matrix","Column matrix","Zero matrix","Square matrix"],["If f(x)=x+1, f(3)=?","4","3","2","1","4"],["The determinant of [[1,0],[0,1]] is?","1","0","2","-1","1"],["The limit of 1/x as x approaches infinity is?","0","1","infinity","-1","0"],["The equation x²=9 has real solutions?","3 and -3","9 only","3 only","-3 only","3 and -3"]],
+COS102:[
+["CPU stands for?","Central Processing Unit","Computer Power Unit","Central Program Utility","Core Processing User","Central Processing Unit"],["RAM is?","Volatile memory","Permanent storage","A processor","An input device","Volatile memory"],["HTML is used mainly to?","Structure web pages","Compile C programs","Store electricity","Edit photos","Structure web pages"],["CSS mainly controls?","Web page presentation","CPU speed","Hard disk capacity","Internet cables","Web page presentation"],["Binary uses which digits?","0 and 1","1 and 2","0 to 9","A and B","0 and 1"],["An algorithm is?","A step-by-step procedure","A computer brand","A monitor","A virus","A step-by-step procedure"],["URL stands for?","Uniform Resource Locator","Universal RAM Link","User Reference Language","Unified Router Line","Uniform Resource Locator"],["A database is used to?","Organize and store data","Display electricity","Cool a CPU","Print paper only","Organize and store data"],["Which is an operating system?","Linux","HTML","Python","USB","Linux"],["Phishing commonly attempts to?","Steal sensitive information","Increase RAM","Repair screens","Compress files","Steal sensitive information"],["A compiler translates?","Source code into machine/object code","Images into sound","RAM into ROM","Data into electricity","Source code into machine/object code"],["Python is a?","Programming language","Database","Web browser","Hardware device","Programming language"]]
+};
+
+const questionBank={};
+for(const c in seed){questionBank[c]=[];for(let r=0;r<5;r++)seed[c].forEach(q=>questionBank[c].push(q));}
+
+let state=JSON.parse(localStorage.getItem("shavisArenaState")||"null")||{
+name:"Student",xp:0,played:0,answered:0,correct:0,bestStreak:0,leaderboard:[]
+};
+let game={};
+
+function save(){localStorage.setItem("shavisArenaState",JSON.stringify(state));updateProfile();}
+function show(id){
+document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+if(id==="profile")updateProfile();if(id==="leaderboard")updateLeaderboard();
+}
+function shuffle(a){
+a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a;
+}
+function setupCourses(){
+const g=document.getElementById("courseGrid");g.innerHTML="";
+Object.keys(questionBank).forEach(c=>{
+const b=document.createElement("button");b.className="course";
+b.innerHTML="🎓 "+c+"<small>60-question bank</small>";
+b.onclick=()=>startGame(c,"practice",10);g.appendChild(b);
+});
+}
+function startGame(course,mode,count){
+game={course,mode,index:0,questions:shuffle(questionBank[course]).slice(0,count),score:0,streak:0,correct:0,timer:null,time:30};
+show("quiz");renderQuestion();
+}
+function startCompetition(){
+let all=[];
+Object.keys(questionBank).forEach(course=>questionBank[course].forEach(q=>all.push({course,q})));
+game={course:"SHAVIS ARENA",mode:"compete",index:0,questions:shuffle(all).slice(0,50),score:0,streak:0,correct:0,timer:null,time:30};
+show("quiz");renderQuestion();
+}
+function renderQuestion(){
+clearInterval(game.timer);game.time=30;
+const item=game.questions[game.index],q=item.q||item;
+document.getElementById("qCourse").textContent=item.course||game.course;
+document.getElementById("qNum").textContent=(game.index+1)+"/"+game.questions.length;
+document.getElementById("timer").textContent=game.time;
+document.getElementById("score").textContent=game.score;
+document.getElementById("streak").textContent=game.streak;
+document.getElementById("bar").style.width=(game.index/game.questions.length*100)+"%";
+document.getElementById("question").textContent=q[0];
+const opts=document.getElementById("options");opts.innerHTML="";
+q.slice(1,5).forEach((text,i)=>{
+const b=document.createElement("button");b.className="option";
+b.textContent=String.fromCharCode(65+i)+". "+text;
+b.onclick=()=>answer(text,b);opts.appendChild(b);
+});
+document.getElementById("explain").style.display="none";
+document.getElementById("nextBtn").style.display="none";
+game.timer=setInterval(()=>{
+game.time--;document.getElementById("timer").textContent=game.time;
+if(game.time<=0)answer(null,null);
+},1000);
+}
+function answer(chosen,button){
+if(document.querySelector(".option:disabled"))return;
+clearInterval(game.timer);
+const q=game.questions[game.index].q||game.questions[game.index];
+const correct=q[5],ok=chosen===correct;
+document.querySelectorAll(".option").forEach(b=>{
+b.disabled=true;if(b.textContent.slice(3)===correct)b.classList.add("correct");
+});
+if(ok){game.correct++;game.streak++;game.score+=10+2*(game.streak-1);if(button)button.classList.add("correct");}
+else{game.streak=0;if(button)button.classList.add("wrong");}
+state.answered++;if(ok)state.correct++;state.bestStreak=Math.max(state.bestStreak,game.streak);save();
+document.getElementById("score").textContent=game.score;
+document.getElementById("streak").textContent=game.streak;
+const ex=document.getElementById("explain");ex.style.display="block";
+ex.innerHTML=(ok?"✅ Correct! ":"❌ Time's up / incorrect. ")+"<b>Answer: "+correct+"</b><br><span class='muted'>Review this concept before the next question.</span>";
+document.getElementById("nextBtn").style.display="block";
+}
+function nextQuestion(){game.index++;if(game.index>=game.questions.length)finish();else renderQuestion();}
+function finish(){
+clearInterval(game.timer);state.played++;state.xp+=game.score+game.correct*5;
+state.leaderboard.push({name:state.name,score:game.score,xp:state.xp});
+state.leaderboard=state.leaderboard.slice(-30);save();
+document.getElementById("finalScore").textContent=game.score;
+document.getElementById("finalText").textContent=`${state.name}, you got ${game.correct} out of ${game.questions.length} correct. You earned XP and your profile has been updated.`;
+show("results");
+}
+function retry(){game.mode==="compete"?startCompetition():startGame(game.course,"practice",10);}
+function saveName(){
+const n=document.getElementById("nameInput").value.trim();
+if(n){state.name=n;save();alert("Student profile saved!");}
+}
+function updateProfile(){
+const name=state.name||"Student",initial=name.charAt(0).toUpperCase();
+document.getElementById("profileAvatar").textContent=initial;
+document.getElementById("homeAvatar").textContent=initial;
+document.getElementById("profileName").textContent=name;
+document.getElementById("nameInput").value=name;
+document.getElementById("xp").textContent=state.xp;
+document.getElementById("level").textContent=Math.floor(state.xp/500)+1;
+document.getElementById("played").textContent=state.played;
+document.getElementById("answered").textContent=state.answered;
+document.getElementById("accuracy").textContent=(state.answered?Math.round(state.correct/state.answered*100):0)+"%";
+document.getElementById("bestStreak").textContent=state.bestStreak;
+let badges=[];
+if(state.played>=1)badges.push("🎯 First Game");
+if(state.correct>=10)badges.push("📚 10 Correct");
+if(state.bestStreak>=5)badges.push("🔥 5 Streak");
+if(state.xp>=500)badges.push("⭐ 500 XP");
+if(state.played>=10)badges.push("🏆 Arena Regular");
+document.getElementById("badges").innerHTML=badges.length?badges.map(x=>`<span class="pill">${x}</span>`).join(" "):"<span class='muted'>Play quizzes to unlock achievements.</span>";
+}
+function updateLeaderboard(){
+const rows=[...state.leaderboard].sort((a,b)=>b.score-a.score).slice(0,10);
+document.getElementById("leaders").innerHTML=rows.length?rows.map((x,i)=>`<tr><td>${i+1}</td><td>${x.name}</td><td>${x.score}</td><td>${x.xp}</td></tr>`).join(""):"<tr><td colspan='4' class='muted'>No games recorded yet.</td></tr>";
+}
+setupCourses();updateProfile();
+</script>
+</body>
+</html>
