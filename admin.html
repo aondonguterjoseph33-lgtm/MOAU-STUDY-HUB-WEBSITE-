@@ -10,49 +10,47 @@
 
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 body{
-    font-family:Arial, sans-serif;
-    background:#f4f6f8;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
     color:#222;
 }
 
-/* HEADER */
-header{
-    background:#111827;
-    color:white;
-    padding:22px;
-    text-align:center;
-}
-
-header h1{
-    font-size:26px;
-}
-
-header p{
-    margin-top:6px;
-    color:#d1d5db;
-}
-
 /* LOGIN */
-#loginPage{
-    max-width:400px;
-    margin:60px auto;
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-box{
     background:white;
+    width:100%;
+    max-width:400px;
     padding:30px;
     border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.12);
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
 }
 
-#loginPage h2{
+.login-box h1{
     text-align:center;
-    margin-bottom:20px;
+    margin-bottom:5px;
 }
 
-input, textarea, select{
+.login-box p{
+    text-align:center;
+    color:#666;
+}
+
+input,
+textarea,
+select{
     width:100%;
     padding:12px;
     margin:8px 0;
@@ -62,30 +60,59 @@ input, textarea, select{
 }
 
 button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
     border:none;
-    padding:12px 18px;
     border-radius:8px;
-    cursor:pointer;
+    background:#2563eb;
+    color:white;
     font-size:15px;
-    margin:5px;
+    cursor:pointer;
 }
 
-.loginBtn{
-    width:100%;
-    background:#111827;
-    color:white;
+button:hover{
+    background:#1d4ed8;
+}
+
+.error{
+    color:#dc2626;
+    text-align:center;
     margin-top:10px;
 }
 
-#loginMessage{
-    text-align:center;
-    margin-top:12px;
-    color:red;
+.hidden{
+    display:none !important;
 }
 
-/* DASHBOARD */
-#dashboard{
-    display:none;
+
+/* ADMIN */
+
+header{
+    background:#111827;
+    color:white;
+    padding:20px;
+}
+
+.header-content{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+header h1{
+    margin:0;
+    font-size:22px;
+}
+
+.logout{
+    width:auto;
+    background:#dc2626;
+    padding:9px 15px;
+    margin:0;
 }
 
 .container{
@@ -94,116 +121,75 @@ button{
     padding:20px;
 }
 
-/* NAVIGATION */
-.adminNav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:20px;
-}
-
-.adminNav button{
-    background:#1f2937;
-    color:white;
-}
-
-/* CARDS */
-.stats{
+.dashboard{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:15px;
     margin-bottom:25px;
 }
 
-.statCard{
+.stat{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.stat h2{
+    margin:0;
+    font-size:30px;
+    color:#2563eb;
+}
+
+.stat p{
+    margin-bottom:0;
+    color:#666;
+}
+
+.menu{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.menu button{
+    width:auto;
+    margin:0;
+}
+
+.section{
     background:white;
     padding:22px;
     border-radius:12px;
-    box-shadow:0 3px 12px rgba(0,0,0,0.08);
-}
-
-.statCard h3{
-    font-size:16px;
-    color:#555;
-}
-
-.statCard p{
-    font-size:30px;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-/* SECTIONS */
-.adminSection{
-    display:none;
-    background:white;
-    padding:25px;
-    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
     margin-bottom:20px;
-    box-shadow:0 3px 12px rgba(0,0,0,0.08);
 }
 
-.adminSection.active{
-    display:block;
+.section h2{
+    margin-top:0;
 }
 
-.adminSection h2{
-    margin-bottom:15px;
-}
-
-/* BUTTONS */
-.addBtn{
-    background:#16a34a;
-    color:white;
-}
-
-.saveBtn{
-    background:#2563eb;
-    color:white;
-}
-
-.deleteBtn{
-    background:#dc2626;
-    color:white;
-}
-
-.logoutBtn{
-    background:#dc2626;
-    color:white;
-}
-
-/* LIST */
 .item{
     border:1px solid #ddd;
     padding:15px;
     border-radius:8px;
-    margin-top:10px;
+    margin:10px 0;
 }
 
-.item h3{
-    margin-bottom:6px;
+.delete{
+    background:#dc2626;
 }
 
-/* MOBILE */
-@media(max-width:600px){
+.success{
+    color:#16a34a;
+    font-weight:bold;
+}
 
-    header h1{
-        font-size:22px;
-    }
-
-    .container{
-        padding:12px;
-    }
-
-    .adminNav{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-    }
-
-    .adminNav button{
-        width:100%;
-    }
-
+.small{
+    color:#666;
+    font-size:13px;
 }
 
 </style>
@@ -211,319 +197,348 @@ button{
 
 <body>
 
-<header>
 
-    <h1>MOAU STUDY HUB</h1>
+<!-- =====================================================
+     LOGIN PAGE
+===================================================== -->
 
-    <p>ADMIN DASHBOARD</p>
+<div id="loginPage" class="login-page">
 
-</header>
+    <div class="login-box">
 
+        <h1>🔐 Admin Login</h1>
 
-<!-- ================= LOGIN ================= -->
+        <p>MOAU STUDY HUB</p>
 
-<div id="loginPage">
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            autocomplete="username"
+        >
 
-    <h2>🔐 Admin Login</h2>
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password"
+        >
 
-    <input
-        type="text"
-        id="adminUsername"
-        placeholder="Username">
+        <button onclick="login()">
+            Login
+        </button>
 
-    <input
-        type="password"
-        id="adminPassword"
-        placeholder="Password">
+        <div id="loginError" class="error"></div>
 
-    <button
-        class="loginBtn"
-        onclick="login()">
-
-        LOGIN
-
-    </button>
-
-    <p id="loginMessage"></p>
+    </div>
 
 </div>
 
 
-<!-- ================= DASHBOARD ================= -->
+<!-- =====================================================
+     ADMIN DASHBOARD
+===================================================== -->
 
-<div id="dashboard">
+<div id="adminPage" class="hidden">
 
-<div class="container">
+<header>
 
-    <div class="adminNav">
+    <div class="header-content">
 
-        <button onclick="showSection('home')">
-            📊 Dashboard
-        </button>
-
-        <button onclick="showSection('materials')">
-            📚 Materials
-        </button>
-
-        <button onclick="showSection('flashcards')">
-            🧠 Flashcards
-        </button>
-
-        <button onclick="showSection('cbt')">
-            📝 CBT
-        </button>
-
-        <button onclick="showSection('students')">
-            👥 Students
-        </button>
-
-        <button onclick="showSection('settings')">
-            ⚙️ Settings
-        </button>
+        <h1>⚙️ MOAU STUDY HUB ADMIN</h1>
 
         <button
-            class="logoutBtn"
+            class="logout"
             onclick="logout()">
-
-            🚪 Logout
-
+            Logout
         </button>
 
     </div>
 
+</header>
 
-    <!-- ================= DASHBOARD HOME ================= -->
 
-    <section
-        id="home"
-        class="adminSection active">
+<div class="container">
 
-        <h2>📊 Dashboard Overview</h2>
 
-        <div class="stats">
+<!-- DASHBOARD STATISTICS -->
 
-            <div class="statCard">
+<div class="dashboard">
 
-                <h3>Study Materials</h3>
+    <div class="stat">
 
-                <p id="materialCount">0</p>
+        <h2 id="materialCount">0</h2>
 
-            </div>
+        <p>Materials</p>
 
+    </div>
 
-            <div class="statCard">
 
-                <h3>Flashcards</h3>
+    <div class="stat">
 
-                <p id="flashcardCount">300</p>
+        <h2 id="flashcardCount">0</h2>
 
-            </div>
+        <p>Flashcards</p>
 
+    </div>
 
-            <div class="statCard">
 
-                <h3>CBT Questions</h3>
+    <div class="stat">
 
-                <p id="cbtCount">100</p>
+        <h2 id="questionCount">250</h2>
 
-            </div>
+        <p>Quiz Questions</p>
 
+    </div>
 
-            <div class="statCard">
 
-                <h3>Students</h3>
+    <div class="stat">
 
-                <p id="studentCount">0</p>
+        <h2 id="studentCount">0</h2>
 
-            </div>
+        <p>Students</p>
 
-        </div>
+    </div>
 
-        <p>
-            Welcome to the MOAU STUDY HUB administration panel.
-        </p>
+</div>
 
-    </section>
 
+<!-- MENU -->
 
-    <!-- ================= MATERIALS ================= -->
+<div class="menu">
 
-    <section
-        id="materials"
-        class="adminSection">
+    <button onclick="showSection('homeSection')">
+        🏠 Dashboard
+    </button>
 
-        <h2>📚 Manage Study Materials</h2>
+    <button onclick="showSection('materialsSection')">
+        📚 Materials
+    </button>
 
-        <input
-            type="text"
-            id="materialTitle"
-            placeholder="Material title">
+    <button onclick="showSection('flashcardsSection')">
+        🧠 Flashcards
+    </button>
 
-        <input
-            type="text"
-            id="materialCourse"
-            placeholder="Course e.g. PHY102">
+    <button onclick="showSection('quizSection')">
+        📝 Quiz
+    </button>
 
-        <textarea
-            id="materialDescription"
-            placeholder="Material description"></textarea>
+    <button onclick="showSection('studentsSection')">
+        👨‍🎓 Students
+    </button>
 
-        <button
-            class="addBtn"
-            onclick="addMaterial()">
+    <button onclick="showSection('settingsSection')">
+        ⚙️ Settings
+    </button>
 
-            ➕ Add Material
+</div>
 
-        </button>
 
-        <div id="materialsList"></div>
+<!-- =====================================================
+     HOME
+===================================================== -->
 
-    </section>
+<div id="homeSection" class="section">
 
+    <h2>🏠 Dashboard</h2>
 
-    <!-- ================= FLASHCARDS ================= -->
+    <p>
+        Welcome to the MOAU STUDY HUB administration dashboard.
+    </p>
 
-    <section
-        id="flashcards"
-        class="adminSection">
+    <p>
+        From here you can manage study materials,
+        flashcards and quiz content.
+    </p>
 
-        <h2>🧠 Manage Flashcards</h2>
+    <p class="small">
+        Note: This is a browser-based admin system.
+        Data added here is stored locally in this browser.
+    </p>
 
-        <input
-            type="text"
-            id="flashQuestion"
-            placeholder="Flashcard question">
+</div>
 
-        <textarea
-            id="flashAnswer"
-            placeholder="Flashcard answer"></textarea>
 
-        <button
-            class="addBtn"
-            onclick="addFlashcard()">
+<!-- =====================================================
+     MATERIALS
+===================================================== -->
 
-            ➕ Add Flashcard
+<div id="materialsSection" class="section hidden">
 
-        </button>
+    <h2>📚 Manage Materials</h2>
 
-        <div id="flashcardsList"></div>
+    <input
+        type="text"
+        id="materialTitle"
+        placeholder="Material title"
+    >
 
-    </section>
+    <input
+        type="text"
+        id="materialLink"
+        placeholder="Material link or file name"
+    >
 
+    <button onclick="addMaterial()">
+        ➕ Add Material
+    </button>
 
-    <!-- ================= CBT ================= -->
+    <div id="materialsList"></div>
 
-    <section
-        id="cbt"
-        class="adminSection">
+</div>
 
-        <h2>📝 Manage CBT</h2>
 
-        <input
-            type="text"
-            id="cbtQuestion"
-            placeholder="Question">
+<!-- =====================================================
+     FLASHCARDS
+===================================================== -->
 
-        <input
-            type="text"
-            id="optionA"
-            placeholder="Option A">
+<div id="flashcardsSection" class="section hidden">
 
-        <input
-            type="text"
-            id="optionB"
-            placeholder="Option B">
+    <h2>🧠 Manage Flashcards</h2>
 
-        <input
-            type="text"
-            id="optionC"
-            placeholder="Option C">
+    <input
+        type="text"
+        id="flashQuestion"
+        placeholder="Flashcard question"
+    >
 
-        <input
-            type="text"
-            id="optionD"
-            placeholder="Option D">
+    <textarea
+        id="flashAnswer"
+        placeholder="Flashcard answer">
+    </textarea>
 
-        <select id="correctAnswer">
+    <button onclick="addFlashcard()">
+        ➕ Add Flashcard
+    </button>
 
-            <option value="">Select correct answer</option>
+    <div id="flashcardsList"></div>
 
-            <option value="A">A</option>
+</div>
 
-            <option value="B">B</option>
 
-            <option value="C">C</option>
+<!-- =====================================================
+     QUIZ
+===================================================== -->
 
-            <option value="D">D</option>
+<div id="quizSection" class="section hidden">
 
-        </select>
+    <h2>📝 Manage Quiz Questions</h2>
 
-        <button
-            class="addBtn"
-            onclick="addCBTQuestion()">
+    <input
+        type="text"
+        id="quizQuestion"
+        placeholder="Question"
+    >
 
-            ➕ Add Question
+    <input
+        type="text"
+        id="optionA"
+        placeholder="Option A"
+    >
 
-        </button>
+    <input
+        type="text"
+        id="optionB"
+        placeholder="Option B"
+    >
 
-        <div id="cbtList"></div>
+    <input
+        type="text"
+        id="optionC"
+        placeholder="Option C"
+    >
 
-    </section>
+    <input
+        type="text"
+        id="optionD"
+        placeholder="Option D"
+    >
 
+    <select id="correctAnswer">
 
-    <!-- ================= STUDENTS ================= -->
+        <option value="0">
+            Correct answer: A
+        </option>
 
-    <section
-        id="students"
-        class="adminSection">
+        <option value="1">
+            Correct answer: B
+        </option>
 
-        <h2>👥 Students</h2>
+        <option value="2">
+            Correct answer: C
+        </option>
 
-        <p>
-            Student records and CBT results will appear here.
-        </p>
+        <option value="3">
+            Correct answer: D
+        </option>
 
-        <div class="item">
+    </select>
 
-            <h3>Student Management</h3>
+    <button onclick="addQuizQuestion()">
+        ➕ Add Quiz Question
+    </button>
 
-            <p>
-                This section is ready for student accounts,
-                matric numbers and CBT results.
-            </p>
+    <div id="quizList"></div>
 
-        </div>
+</div>
 
-    </section>
 
+<!-- =====================================================
+     STUDENTS
+===================================================== -->
 
-    <!-- ================= SETTINGS ================= -->
+<div id="studentsSection" class="section hidden">
 
-    <section
-        id="settings"
-        class="adminSection">
+    <h2>👨‍🎓 Students</h2>
 
-        <h2>⚙️ Admin Settings</h2>
+    <p>
+        Student management will be connected to a
+        database when the website is upgraded to a
+        full online system.
+    </p>
 
-        <input
-            type="text"
-            placeholder="Website name"
-            value="MOAU STUDY HUB">
+    <p class="small">
+        Current version: static website / browser storage.
+    </p>
 
-        <input
-            type="text"
-            placeholder="Slogan"
-            value="LEARN • GROW • BECOME">
+</div>
 
-        <button
-            class="saveBtn"
-            onclick="saveSettings()">
 
-            💾 Save Settings
+<!-- =====================================================
+     SETTINGS
+===================================================== -->
 
-        </button>
+<div id="settingsSection" class="section hidden">
 
-    </section>
+    <h2>⚙️ Settings</h2>
+
+    <p>
+        <strong>Website:</strong>
+        MOAU STUDY HUB
+    </p>
+
+    <p>
+        <strong>Slogan:</strong>
+        LEARN • GROW • BECOME
+    </p>
+
+    <p>
+        <strong>Admin username:</strong>
+        admin
+    </p>
+
+    <p>
+        <strong>Quiz subjects:</strong>
+        PHY 102, CHM 102, BIO 102, MTH 102, COS 102
+    </p>
+
+    <p>
+        <strong>Questions per subject:</strong>
+        50
+    </p>
+
+</div>
+
 
 </div>
 
@@ -532,37 +547,45 @@ button{
 
 <script>
 
-/* ================= LOGIN ================= */
+/* =====================================================
+   LOGIN
+===================================================== */
 
 function login(){
 
     const username =
-        document.getElementById("adminUsername").value;
+        document.getElementById("username").value.trim();
 
     const password =
-        document.getElementById("adminPassword").value;
+        document.getElementById("password").value;
+
+    const error =
+        document.getElementById("loginError");
 
 
-    /*
-       TEMPORARY ADMIN LOGIN
+    if(
+        username === "admin" &&
+        password === "moau123"
+    ){
 
-       Username: admin
-       Password: moau123
-    */
+        localStorage.setItem(
+            "moauAdminLoggedIn",
+            "true"
+        );
 
-    if(username === "admin" && password === "moau123"){
+        document.getElementById("loginPage")
+            .classList.add("hidden");
 
-        document.getElementById("loginPage").style.display =
-            "none";
+        document.getElementById("adminPage")
+            .classList.remove("hidden");
 
-        document.getElementById("dashboard").style.display =
-            "block";
+        error.innerText = "";
 
-        loadData();
+        updateDashboard();
 
     }else{
 
-        document.getElementById("loginMessage").innerHTML =
+        error.innerText =
             "❌ Incorrect username or password.";
 
     }
@@ -570,110 +593,643 @@ function login(){
 }
 
 
-/* ================= LOGOUT ================= */
+/* =====================================================
+   LOGOUT
+===================================================== */
 
 function logout(){
 
-    document.getElementById("dashboard").style.display =
-        "none";
+    localStorage.removeItem(
+        "moauAdminLoggedIn"
+    );
 
-    document.getElementById("loginPage").style.display =
-        "block";
+    document.getElementById("adminPage")
+        .classList.add("hidden");
 
-}
+    document.getElementById("loginPage")
+        .classList.remove("hidden");
 
+    document.getElementById("username").value = "";
 
-/* ================= NAVIGATION ================= */
-
-function showSection(sectionID){
-
-    const sections =
-        document.querySelectorAll(".adminSection");
-
-    sections.forEach(function(section){
-
-        section.classList.remove("active");
-
-    });
-
-
-    document
-        .getElementById(sectionID)
-        .classList.add("active");
+    document.getElementById("password").value = "";
 
 }
 
 
-/* ================= MATERIALS ================= */
+/* =====================================================
+   AUTO LOGIN
+===================================================== */
 
-let materials =
-    JSON.parse(localStorage.getItem("moauMaterials")) || [];
+window.onload = function(){
 
+    if(
+        localStorage.getItem(
+            "moauAdminLoggedIn"
+        ) === "true"
+    ){
 
-function addMaterial(){
+        document.getElementById("loginPage")
+            .classList.add("hidden");
 
-    const title =
-        document.getElementById("materialTitle").value;
+        document.getElementById("adminPage")
+            .classList.remove("hidden");
 
-    const course =
-        document.getElementById("materialCourse").value;
-
-    const description =
-        document.getElementById("materialDescription").value;
-
-
-    if(title === "" || course === ""){
-
-        alert("Please enter the material title and course.");
-
-        return;
+        updateDashboard();
 
     }
 
+};
 
-    materials.push({
 
-        title:title,
+/* =====================================================
+   SECTION NAVIGATION
+===================================================== */
 
-        course:course,
+function showSection(sectionId){
 
-        description:description
+    const sections = [
+
+        "homeSection",
+        "materialsSection",
+        "flashcardsSection",
+        "quizSection",
+        "studentsSection",
+        "settingsSection"
+
+    ];
+
+
+    sections.forEach(function(id){
+
+        document.getElementById(id)
+            .classList.add("hidden");
 
     });
 
+
+    document.getElementById(sectionId)
+        .classList.remove("hidden");
+
+
+    if(sectionId === "materialsSection"){
+        displayMaterials();
+    }
+
+    if(sectionId === "flashcardsSection"){
+        displayFlashcards();
+    }
+
+    if(sectionId === "quizSection"){
+        displayQuizQuestions();
+    }
+
+}
+
+
+/* =====================================================
+   MATERIALS
+===================================================== */
+
+function getMaterials(){
+
+    return JSON.parse(
+        localStorage.getItem("moauMaterials") ||
+        "[]"
+    );
+
+}
+
+
+function saveMaterials(materials){
 
     localStorage.setItem(
         "moauMaterials",
         JSON.stringify(materials)
     );
 
+}
 
-    document.getElementById("materialTitle").value = "";
 
-    document.getElementById("materialCourse").value = "";
+function addMaterial(){
 
-    document.getElementById("materialDescription").value = "";
+    const title =
+        document.getElementById("materialTitle")
+        .value.trim();
+
+    const link =
+        document.getElementById("materialLink")
+        .value.trim();
+
+
+    if(!title || !link){
+
+        alert("Please enter the material title and link.");
+
+        return;
+
+    }
+
+
+    const materials =
+        getMaterials();
+
+
+    materials.push({
+
+        title:title,
+        link:link
+
+    });
+
+
+    saveMaterials(materials);
+
+
+    document.getElementById("materialTitle")
+        .value = "";
+
+    document.getElementById("materialLink")
+        .value = "";
 
 
     displayMaterials();
+
+    updateDashboard();
 
 }
 
 
 function displayMaterials(){
 
+    const materials =
+        getMaterials();
+
     const list =
         document.getElementById("materialsList");
+
 
     list.innerHTML = "";
 
 
-    materials.forEach(function(item,index){
+    if(materials.length === 0){
 
-        list.innerHTML += `
+        list.innerHTML =
+            "<p class='small'>No additional materials added yet.</p>";
 
-        <div class="item">
+        return;
 
-            <h3>${item.title}</h3>
+    }
 
-            <p
+
+    materials.forEach(function(material,index){
+
+        const item =
+            document.createElement("div");
+
+        item.className = "item";
+
+
+        item.innerHTML =
+
+            "<strong>" +
+            escapeHTML(material.title) +
+            "</strong>" +
+
+            "<br>" +
+
+            "<span class='small'>" +
+            escapeHTML(material.link) +
+            "</span>" +
+
+            "<br>" +
+
+            "<button class='delete' onclick='deleteMaterial(" +
+            index +
+            ")'>Delete</button>";
+
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+function deleteMaterial(index){
+
+    const materials =
+        getMaterials();
+
+    materials.splice(index,1);
+
+    saveMaterials(materials);
+
+    displayMaterials();
+
+    updateDashboard();
+
+}
+
+
+/* =====================================================
+   FLASHCARDS
+===================================================== */
+
+function getFlashcards(){
+
+    return JSON.parse(
+        localStorage.getItem("moauExtraFlashcards") ||
+        "[]"
+    );
+
+}
+
+
+function saveFlashcards(cards){
+
+    localStorage.setItem(
+        "moauExtraFlashcards",
+        JSON.stringify(cards)
+    );
+
+}
+
+
+function addFlashcard(){
+
+    const question =
+        document.getElementById("flashQuestion")
+        .value.trim();
+
+    const answer =
+        document.getElementById("flashAnswer")
+        .value.trim();
+
+
+    if(!question || !answer){
+
+        alert("Please enter both question and answer.");
+
+        return;
+
+    }
+
+
+    const cards =
+        getFlashcards();
+
+
+    cards.push({
+
+        question:question,
+        answer:answer
+
+    });
+
+
+    saveFlashcards(cards);
+
+
+    document.getElementById("flashQuestion")
+        .value = "";
+
+    document.getElementById("flashAnswer")
+        .value = "";
+
+
+    displayFlashcards();
+
+    updateDashboard();
+
+}
+
+
+function displayFlashcards(){
+
+    const cards =
+        getFlashcards();
+
+    const list =
+        document.getElementById("flashcardsList");
+
+
+    list.innerHTML = "";
+
+
+    if(cards.length === 0){
+
+        list.innerHTML =
+            "<p class='small'>No additional flashcards added yet.</p>";
+
+        return;
+
+    }
+
+
+    cards.forEach(function(card,index){
+
+        const item =
+            document.createElement("div");
+
+        item.className = "item";
+
+
+        item.innerHTML =
+
+            "<strong>Q:</strong> " +
+            escapeHTML(card.question) +
+
+            "<br><br>" +
+
+            "<strong>A:</strong> " +
+            escapeHTML(card.answer) +
+
+            "<br>" +
+
+            "<button class='delete' onclick='deleteFlashcard(" +
+            index +
+            ")'>Delete</button>";
+
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+function deleteFlashcard(index){
+
+    const cards =
+        getFlashcards();
+
+    cards.splice(index,1);
+
+    saveFlashcards(cards);
+
+    displayFlashcards();
+
+    updateDashboard();
+
+}
+
+
+/* =====================================================
+   QUIZ QUESTIONS
+===================================================== */
+
+function getQuizQuestions(){
+
+    return JSON.parse(
+        localStorage.getItem("moauExtraQuizQuestions") ||
+        "[]"
+    );
+
+}
+
+
+function saveQuizQuestions(questions){
+
+    localStorage.setItem(
+        "moauExtraQuizQuestions",
+        JSON.stringify(questions)
+    );
+
+}
+
+
+function addQuizQuestion(){
+
+    const question =
+        document.getElementById("quizQuestion")
+        .value.trim();
+
+    const a =
+        document.getElementById("optionA")
+        .value.trim();
+
+    const b =
+        document.getElementById("optionB")
+        .value.trim();
+
+    const c =
+        document.getElementById("optionC")
+        .value.trim();
+
+    const d =
+        document.getElementById("optionD")
+        .value.trim();
+
+    const correct =
+        Number(
+            document.getElementById("correctAnswer")
+            .value
+        );
+
+
+    if(
+        !question ||
+        !a ||
+        !b ||
+        !c ||
+        !d
+    ){
+
+        alert("Please complete all question fields.");
+
+        return;
+
+    }
+
+
+    const questions =
+        getQuizQuestions();
+
+
+    questions.push({
+
+        question:question,
+
+        options:[
+            a,
+            b,
+            c,
+            d
+        ],
+
+        correct:correct
+
+    });
+
+
+    saveQuizQuestions(questions);
+
+
+    document.getElementById("quizQuestion")
+        .value = "";
+
+    document.getElementById("optionA")
+        .value = "";
+
+    document.getElementById("optionB")
+        .value = "";
+
+    document.getElementById("optionC")
+        .value = "";
+
+    document.getElementById("optionD")
+        .value = "";
+
+
+    displayQuizQuestions();
+
+    updateDashboard();
+
+}
+
+
+function displayQuizQuestions(){
+
+    const questions =
+        getQuizQuestions();
+
+    const list =
+        document.getElementById("quizList");
+
+
+    list.innerHTML = "";
+
+
+    if(questions.length === 0){
+
+        list.innerHTML =
+            "<p class='small'>No additional questions added yet.</p>";
+
+        return;
+
+    }
+
+
+    questions.forEach(function(q,index){
+
+        const item =
+            document.createElement("div");
+
+        item.className = "item";
+
+
+        item.innerHTML =
+
+            "<strong>Q" +
+            (index + 1) +
+            ":</strong> " +
+
+            escapeHTML(q.question) +
+
+            "<br><br>" +
+
+            "A. " + escapeHTML(q.options[0]) +
+
+            "<br>" +
+
+            "B. " + escapeHTML(q.options[1]) +
+
+            "<br>" +
+
+            "C. " + escapeHTML(q.options[2]) +
+
+            "<br>" +
+
+            "D. " + escapeHTML(q.options[3]) +
+
+            "<br><br>" +
+
+            "<strong>Correct: " +
+            String.fromCharCode(65 + q.correct) +
+            "</strong>" +
+
+            "<button class='delete' onclick='deleteQuizQuestion(" +
+            index +
+            ")'>Delete</button>";
+
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+function deleteQuizQuestion(index){
+
+    const questions =
+        getQuizQuestions();
+
+    questions.splice(index,1);
+
+    saveQuizQuestions(questions);
+
+    displayQuizQuestions();
+
+    updateDashboard();
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function updateDashboard(){
+
+    const materials =
+        getMaterials();
+
+    const flashcards =
+        getFlashcards();
+
+    const extraQuestions =
+        getQuizQuestions();
+
+
+    document.getElementById("materialCount")
+        .innerText =
+        materials.length;
+
+
+    document.getElementById("flashcardCount")
+        .innerText =
+        flashcards.length;
+
+
+    document.getElementById("questionCount")
+        .innerText =
+        250 + extraQuestions.length;
+
+}
+
+
+/* =====================================================
+   SECURITY HELPER
+===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
